@@ -1,17 +1,32 @@
 var cancelUploading = false;
 
-var addDataToBase = function (Path, Name, id) {
+var addDataToBase = function (Path, Name, Id) {
+
+    console.log(Path, Name, Id);
+
     var ref = db.collection('uploads').doc('uploads');
 
-    var passData = {
+
+    var passData = {};
+    var theId = String(Id);
+    passData[theId] = {
         name: Name,
         path: Path,
-
+        id: Id
     };
+
+
+
+    ref.update({
+        ids: firebase.firestore.FieldValue.arrayUnion(Id)
+    });
 
     var setWithMerge = ref.set(passData, {
         merge: true
     });
+
+
+
 
 };
 
@@ -63,16 +78,31 @@ var upload = function (e) {
             //create info
             var Path = "";
             var Name = file.name;
+            var Id = "";
 
             task.snapshot.ref.getDownloadURL().then(function (downloadURL) {
                 Path = downloadURL;
-                addDataToBase(Path, Name);
+
+                var docuuRef = db.collection("uploads").doc("uploads");
+
+                docuuRef.get().then(function (doc) {
+                    if (doc.exists) {
+                        Id = idGen(doc.data().ids);
+
+                        addDataToBase(Path, Name, Id);
+                    } else {
+                        // doc.data() will be undefined in this case
+                        console.log("No such document!");
+                    }
+                }).catch(function (error) {
+                    console.log("Error getting document:", error);
+                });
+
+
             });
         }
-
     );
 };
-
 
 var initilizeUploader = function () {
     var uploader = $("#uploader")[0];
@@ -82,18 +112,13 @@ var initilizeUploader = function () {
     var amountTotal = $("#amountTotal")[0];
     var amountComplete = $("#amountComplete")[0];
 
-
     fileButton.addEventListener("change", function (e) {
         upload(e);
     });
 
-
     cancelUpload.addEventListener("click", function () {
         cancelUploading = true;
     });
-
-
-
 };
 
 var showUploadState = function () {
@@ -112,6 +137,5 @@ var resetUploadState = function () {
     amountComplete.innerHTML = "0.00MB";
 
 };
-
 
 $(document).ready(initilizeUploader);
