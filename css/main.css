@@ -8,8 +8,9 @@ body {
     background-color: #cdcdcd;
     width: 100%;
     height: 40px;
-    position: absolute;
+    position: fixed;
     top: 0;
+    z-index: 1;
 }
 
 #header > i {
@@ -18,6 +19,11 @@ body {
     padding: 3px;
     position: absolute;
     transition: .2s;
+}
+
+#main {
+    padding: 20px;
+    position: absolute;
 }
 
 #uploadButton {
@@ -35,6 +41,8 @@ body {
     height: 100%;
     width: 100%;
     text-align: center;
+    position: absolute;
+    background: white;
 
 }
 

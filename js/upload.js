@@ -25,15 +25,27 @@ var addDataToBase = function (Path, Name, Id) {
         merge: true
     });
 
+    updateVideos();
 
 
+};
+
+var resetUploader = function () {
+    hideUploadState();
+    resetUploadState();
+
+    $("#uploadButton")[0].classList.remove("blueGrad");
+
+    fileButton.parentElement.classList.remove("flipOutY");
+    cancelUpload.classList.add("flipOutY");
+    cancelUpload.classList.remove("flipInY");
 
 };
 
 var upload = function (e) {
 
     var file = e.target.files[0];
-    var folder = "myfolder/";
+    var folder = "uploads/";
 
     var storageRef = firebase.storage().ref(folder + file.name);
 
@@ -57,14 +69,7 @@ var upload = function (e) {
 
             if (cancelUploading) {
                 task.cancel();
-                hideUploadState();
-                resetUploadState();
-
-                $("#uploadButton")[0].classList.remove("blueGrad");
-
-                fileButton.parentElement.classList.remove("flipOutY");
-                cancelUpload.classList.add("flipOutY");
-                cancelUpload.classList.remove("flipInY");
+                resetUploader();
             }
 
         },
@@ -100,6 +105,7 @@ var upload = function (e) {
 
 
             });
+            resetUploader();
         }
     );
 };
