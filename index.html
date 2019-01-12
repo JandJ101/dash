@@ -1,0 +1,76 @@
+<!DOCTYPE>
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="js/secret.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: apiKey,
+            authDomain: authDomain,
+            databaseURL: databaseURL,
+            projectId: projectId,
+            storageBucket: storageBucket,
+            messagingSenderId: messagingSenderId
+        };
+        firebase.initializeApp(config);
+        
+        // Initialize Cloud Firestore through Firebase
+        var db = firebase.firestore();
+
+        // Disable deprecated features
+        db.settings({
+          timestampsInSnapshots: true
+        });
+
+    </script>
+
+    <!--my js-->
+    <script src="js/menu.js"></script>
+    <script src="js/upload.js"></script>
+    <script src="js/generateId.js"></script>
+
+    <!--styles -->
+    <link rel="stylesheet" href="css/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/util.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+
+
+</head>
+
+<body>
+    <div id="header">
+        <i class="material-icons" id="uploadButton">cloud_upload</i>
+        <i class="material-icons noOpacity" id="uploadBackButton">arrow_back</i>
+    </div>
+    <div id="main"></div>
+
+
+    <div id="uploadWindow" class="animated  hide">
+        <div id="uploadState" class="noOpacity">
+            <div class="progress" style="height: 10px;">
+                <div class="determinate" style="width: 0%" id="uploader"></div>
+            </div>
+            <br>
+            <span id="amountComplete">0.00MB</span><span id="amountTotal">∞MB</span>
+        </div>
+        <br>
+
+
+        <a class="animated waves-effect waves-light btn" style="position: absolute;">
+            <input type="file" value="" id="fileButton" /><i class="material-icons left">file_upload</i>Upload</a>
+        <a class="animated flipOutY waves-effect waves-light btn" id="cancelUpload"><i class="material-icons left">cancel</i>Cancel</a>
+    </div>
+
+</body>
+
+</html>

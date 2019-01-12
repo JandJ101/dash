@@ -1,0 +1,7 @@
+.hide {
+    visibility: collapse
+}
+
+.noOpacity {
+    opacity: 0;
+}

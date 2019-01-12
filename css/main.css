@@ -1,0 +1,65 @@
+body {
+    margin: 0px;
+    margin-top: 40px;
+    overflow-x: hidden;
+}
+
+#header {
+    background-color: #cdcdcd;
+    width: 100%;
+    height: 40px;
+    position: absolute;
+    top: 0;
+}
+
+#header > i {
+    font-size: 34px;
+    color: white;
+    padding: 3px;
+    position: absolute;
+    transition: .2s;
+}
+
+#uploadButton {
+    right: 10px
+}
+
+.blueGrad {
+    background: -webkit-linear-gradient(#ffffff, #a8f3ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#uploadWindow {
+    padding: 20px;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+
+}
+
+#uploadWindow input[type='file'] {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    right: 0;
+    opacity: 0;
+
+}
+
+#uploadState {
+    transition: .4s;
+
+}
+
+#amountComplete {
+    position: absolute;
+    left: 20;
+    top: 40;
+}
+
+#amountTotal {
+    position: absolute;
+    top: 40px;
+    right: 20px;
+}
