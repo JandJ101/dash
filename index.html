@@ -28,6 +28,8 @@
         });
 
     </script>
+    <link href="https://vjs.zencdn.net/7.4.1/video-js.css" rel="stylesheet">
+
 
     <!--my js-->
     <script src="js/menu.js"></script>
@@ -62,6 +64,26 @@
         </ul>
 
     </div>
+    <div id="viewer">
+        <div class="videoContainer">
+            <video id="my-video" class="video-js videoInner" controls preload="auto" width="1920px" height="1080px" poster="MY_VIDEO_POSTER.jpg" data-setup="{}">
+                <source src="https://firebasestorage.googleapis.com/v0/b/back-9d523.appspot.com/o/uploads%2FNerf%20Reward%20(clip).mp4?alt=media&token=cfa624b1-b226-4d4a-9a4d-97afd983696e" type='video/mp4'>
+                <p class="vjs-no-js">
+                    To view this video please enable JavaScript, and consider upgrading to a web browser that
+                    <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                </p>
+            </video>
+        </div>
+
+        <div id="commentBox">
+        </div>
+
+        <div id="comments">
+        </div>
+
+    </div>
+
+    <script src="https://vjs.zencdn.net/7.4.1/video.js"></script>
 
 
     <div id="uploadWindow" class="animated  hide">

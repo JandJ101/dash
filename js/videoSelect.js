@@ -7,7 +7,7 @@ var updateVideos = function () {
         if (doc.exists) {
             videoData = doc.data();
             delete videoData.ids;
-            $(document).ready(update);
+            $(document).ready(updateUlMain);
 
         } else {
             // doc.data() will be undefined in this case
@@ -24,7 +24,7 @@ var appendIt = function (x) {
     document.getElementById("historyList").lastChild.innerHTML = x
 };
 
-updateVideos();
+//updateVideos();
 
 var objectToArray = function (object, pos) {
     return (object[Object.keys(object)[pos]]);
@@ -60,7 +60,7 @@ var editList = function (x) {
 
 
 
-var update = function () {
+var updateUlMain = function () {
 
     document.getElementById("videoList").innerHTML = "";
 

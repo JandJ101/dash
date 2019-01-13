@@ -5,3 +5,7 @@
 .noOpacity {
     opacity: 0;
 }
+
+.noOverflow {
+    overflow: hidden
+}

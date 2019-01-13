@@ -1,9 +1,6 @@
 var cancelUploading = false;
 
 var addDataToBase = function (Path, Name, Id) {
-
-    console.log(Path, Name, Id);
-
     var ref = db.collection('uploads').doc('uploads');
 
 

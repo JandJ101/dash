@@ -43,6 +43,7 @@ body {
     text-align: center;
     position: absolute;
     background: white;
+    z-index: 2;
 
 }
 
@@ -70,4 +71,38 @@ body {
     position: absolute;
     top: 40px;
     right: 20px;
+}
+
+#viewer {
+    background: #fff;
+    z-index: 2;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.videoContainer {
+    position: relative;
+    padding-bottom: calc(56.25%);
+    /* 16:9 */
+
+    padding-top: 0px;
+    height: 0;
+}
+
+.videoInner {
+    position: absolute;
+    top: 15;
+    left: 0;
+    width: 65%;
+    height: 65%;
+    max-height: window
+}
+
+#comments {
+    position: absolute;
+    right: 0px;
+    height: 100%;
+    width: 35%;
+    background: beige;
 }
