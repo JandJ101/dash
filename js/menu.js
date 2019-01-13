@@ -14,6 +14,17 @@ var hideUploadWindow = function () {
 
 };
 
+var showViewer = function () {
+    viewer.classList.remove("fadeOutDown");
+    viewer.classList.remove("hide");
+    viewer.classList.add("fadeInUp");
+};
+
+var hideViewer = function () {
+    viewer.classList.remove("fadeInUp");
+    viewer.classList.add("fadeOutDown");
+};
+
 
 var initializeMenus = function () {
     //upload triggers
