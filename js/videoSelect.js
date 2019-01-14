@@ -6,6 +6,7 @@ var updateVideos = function () {
     docRef.get().then(function (doc) {
         if (doc.exists) {
             videoData = doc.data();
+            var theVideoIdeas = videoData.ids;
             delete videoData.ids;
             $(document).ready(updateUlMain);
 
@@ -24,7 +25,7 @@ var appendIt = function (x) {
     document.getElementById("historyList").lastChild.innerHTML = x
 };
 
-//updateVideos();
+updateVideos();
 
 var objectToArray = function (object, pos) {
     return (object[Object.keys(object)[pos]]);
@@ -71,13 +72,13 @@ var updateUlMain = function () {
 
         var h1 = "<h1 class='theH1'>" + currentObj.name + "</h1>";
 
-        var p = "<p class='theP'>" + currentObj.path + "</p>";
+        var p = "<p class='theP'>" + "</p>";
 
-        var deleteButton = "<i onclick='deleteList(this);' class='material-icons'>delete</i>";
+        //var deleteButton = "<i onclick='deleteList(this);' class='material-icons'>delete</i>";
 
-        var editButton = "<i onclick='editList(this);' class='material-icons'>edit</i>"
+        //var editButton = "<i onclick='editList(this);' class='material-icons'>edit</i>"
 
-        var goods = "<div onclick='enterVerse(this);' class='spanText'>" + h1 + p + "</div>" + deleteButton + editButton;
+        var goods = "<div onclick=\"enterVideo('" + currentObj.id + "');\" class = 'spanText' > " + h1 + " < /div>";
 
         var appendIt = function (x) {
             var node = document.createElement("LI");
@@ -89,20 +90,5 @@ var updateUlMain = function () {
         appendIt(goods);
 
     }
-
-};
-
-
-
-var enterVerse = function (x) {
-    var theId = x.parentElement.id;
-
-    var theP = $("#" + theId + " .theP")[0].innerHTML;
-    var theH1 = $("#" + theId + " .theH1")[0].innerHTML;
-
-    document.getElementById("addRef").value = theH1;
-    document.getElementById("addVerse").value = theP;
-
-    changeVerse();
 
 };

@@ -26,6 +26,21 @@ var updateTimeInBox = function () {
 
 };
 
+var openVideo = function (Path, Name, id, thumb) {
+    mainVideoRef.src(Path);
+    videoName.innerHTML = Name;
+
+    showViewer();
+};
+
+
+var enterVideo = function (x) {
+    var i = videoData[x];
+    openVideo(i.path, i.name);
+
+};
+
+
 var playerInit = function () {
     mainVideoRef = videojs("mainVideo");
     $(".vjs-remaining-time")[0].style = "visibility: collapse; width: 0px; padding: 0px;"
