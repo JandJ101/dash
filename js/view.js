@@ -35,7 +35,14 @@ var openVideo = function (Path, Name, id, thumb) {
 
 
 var enterVideo = function (x) {
+
     var i = videoData[x];
+    if (i.name.split(".") == "jpg") {
+        var type = "img";
+    }
+
+
+
     openVideo(i.path, i.name);
 
 };

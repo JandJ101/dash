@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <title>Dash</title>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="js/secret.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-app.js"></script>
@@ -26,6 +27,8 @@
         db.settings({
           timestampsInSnapshots: true
         });
+        
+        const auth = firebase.auth();
 
     </script>
     <link href="https://vjs.zencdn.net/7.4.1/video-js.css" rel="stylesheet">
@@ -34,6 +37,7 @@
 
 
     <!--my js-->
+    <script src="js/user.js"></script>
     <script src="js/menu.js"></script>
     <script src="js/upload.js"></script>
     <script src="js/generateId.js"></script>
@@ -44,10 +48,11 @@
     <link rel="stylesheet" href="css/animate.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="css/auth.css" />
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/util.css" />
     <link rel="stylesheet" href="css/videoSelect.css" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 
 
 
@@ -55,6 +60,27 @@
 </head>
 
 <body>
+    <div id="authContainer">
+        <div>
+            <div id="authBox" class="card grey lighten-4">
+
+                <div>
+                    <div class="input-field">
+                        <label for="inptEmail">Email</label>
+                        <input id="inptEmail" type="email" class="validate">
+
+                    </div>
+                    <div class="input-field blue-text">
+                        <label for="inptPassword">Password</label>
+                        <input id="inptPassword" type="email" class="">
+
+                    </div>
+                    <a id="btnLogin" style="width: 100%;" class="waves-effect waves-light btn blue">loggin</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div id="header">
         <i class="material-icons" id="uploadButton">cloud_upload</i>
         <i class="material-icons noOpacity" id="uploadBackButton">arrow_back</i>
@@ -62,12 +88,12 @@
     </div>
 
     <div id="main" class="scrollbar scroller">
-        <ul id="videoList">
+        <div id="videoList">
 
-        </ul>
+        </div>
 
     </div>
-    <div id="viewer" class="animated fadeOutDown hide">
+    <div id="viewer" class="animated hide">
         <div id="outerVideoWrapper">
             <div class="videoContainer">
                 <video id="mainVideo" class="video-js videoInner" controls preload="auto" width="1920px" height="1080px" poster="" data-setup="{}">
@@ -79,7 +105,7 @@
                 </video>
             </div>
         </div>
-        <div id="commentBox">
+        <div id="commentBox" class="grey lighten-4">
             <div style="height: 0px; width: 100%; margin: 0px;" class="input-field col s6">
                 <input placeholder="Leave your comment here..." value="" id="" type="text" class="">
             </div>

@@ -1,40 +1,8 @@
-#videoList h1 {
-    font-size: 30px;
-    margin: 0px;
-    text-decoration: underline;
-}
+#videoList {}
 
-#videoList p {
-    font-size: 20px;
-    margin: 0px;
-    padding-top: 18px;
-    margin-bottom: 10px;
-
-}
-
-#videoList i {
+#videoList > div {
     cursor: pointer;
-
-}
-
-#videoList li {
-    box-shadow: 0px 0px 8px #888888;
-    border-radius: 4px;
-    padding: 15px;
-    margin: 30px;
-    transition-duration: .2s;
-
-}
-
-#videoList li:hover {
-    box-shadow: 0px 3px 15px #888888;
-    transition-duration: .5s;
-
-}
-
-#videoList .spanText {
-    cursor: pointer;
-
+    padding: 10px
 }
 
 .scrollbar {

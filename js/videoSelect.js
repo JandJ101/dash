@@ -70,7 +70,7 @@ var updateUlMain = function () {
     for (i = 0; i < Object.keys(videoData).length; i++) {
         var currentObj = objectToArray(videoData, i);
 
-        var h1 = "<h1 class='theH1'>" + currentObj.name + "</h1>";
+        var h1 = "<span class='card-title'>" + currentObj.name + "</span>";
 
         var p = "<p class='theP'>" + "</p>";
 
@@ -78,16 +78,20 @@ var updateUlMain = function () {
 
         //var editButton = "<i onclick='editList(this);' class='material-icons'>edit</i>"
 
-        var goods = "<div onclick=\"enterVideo('" + currentObj.id + "');\" class = 'spanText' > " + h1 + " < /div>";
+        var goods = h1;
 
-        var appendIt = function (x) {
-            var node = document.createElement("LI");
+        var appendIt = function (x, y) {
+            var node = document.createElement("div");
             node.id = i + key;
+            node.classList.add("card");
+            node.addEventListener("click", function () {
+                enterVideo(y);
+            })
             document.getElementById("videoList").appendChild(node);
             document.getElementById("videoList").lastChild.innerHTML = x
         };
 
-        appendIt(goods);
+        appendIt(goods, currentObj.id);
 
     }
 
