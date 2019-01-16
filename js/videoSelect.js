@@ -1,6 +1,6 @@
 var videoData;
 
-var updateVideos = function () {
+var updateVideos = function (z) {
     var docRef = db.collection("uploads").doc("uploads");
 
     docRef.get().then(function (doc) {
@@ -9,6 +9,9 @@ var updateVideos = function () {
             var theVideoIdeas = videoData.ids;
             delete videoData.ids;
             $(document).ready(updateUlMain);
+            if (z) {
+                app.classList.remove("noOpacity");
+            }
 
         } else {
             // doc.data() will be undefined in this case
@@ -25,7 +28,7 @@ var appendIt = function (x) {
     document.getElementById("historyList").lastChild.innerHTML = x
 };
 
-updateVideos();
+//updateVideos();
 
 var objectToArray = function (object, pos) {
     return (object[Object.keys(object)[pos]]);

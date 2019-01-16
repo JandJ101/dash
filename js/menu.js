@@ -1,3 +1,18 @@
+var showAuth = function () {
+    app.classList.add("noOpacity");
+    authContainer.classList.remove("bounceOutUp");
+    authContainer.classList.remove("hide");
+    authContainer.classList.add("fadeInDown");
+
+};
+
+var hideAuth = function () {
+    authContainer.classList.remove("fadeInDown");
+    authContainer.classList.add("bounceOutUp");
+
+
+};
+
 var showUploadWindow = function () {
     $("#uploadWindow")[0].classList.remove("hide");
     $("#uploadWindow")[0].classList.remove("slideOutRight");

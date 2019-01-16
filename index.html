@@ -60,7 +60,7 @@
 </head>
 
 <body>
-    <div id="authContainer">
+    <div id="authContainer" class="animated hide">
         <div>
             <div id="authBox" class="card grey lighten-4">
 
@@ -72,7 +72,7 @@
                     </div>
                     <div class="input-field blue-text">
                         <label for="inptPassword">Password</label>
-                        <input id="inptPassword" type="email" class="">
+                        <input id="inptPassword" type="password" class="">
 
                     </div>
                     <a id="btnLogin" style="width: 100%;" class="waves-effect waves-light btn blue">loggin</a>
@@ -80,65 +80,66 @@
             </div>
         </div>
     </div>
-
-    <div id="header">
-        <i class="material-icons" id="uploadButton">cloud_upload</i>
-        <i class="material-icons noOpacity" id="uploadBackButton">arrow_back</i>
-        <h2 id="videoName" class="noOpacity">Name</h2>
-    </div>
-
-    <div id="main" class="scrollbar scroller">
-        <div id="videoList">
-
+    <span id="app" class="noOpacity">
+        <div id="header">
+            <i class="material-icons" id="uploadButton">cloud_upload</i>
+            <i class="material-icons noOpacity" id="uploadBackButton">arrow_back</i>
+            <h2 id="videoName" class="noOpacity">Name</h2>
         </div>
 
-    </div>
-    <div id="viewer" class="animated hide">
-        <div id="outerVideoWrapper">
-            <div class="videoContainer">
-                <video id="mainVideo" class="video-js videoInner" controls preload="auto" width="1920px" height="1080px" poster="" data-setup="{}">
-                    <source src="https://firebasestorage.googleapis.com/v0/b/back-9d523.appspot.com/o/uploads%2FNerf%20Reward%20(clip).mp4?alt=media&token=cfa624b1-b226-4d4a-9a4d-97afd983696e" type=''>
-                    <p class="vjs-no-js">
-                        To view this video please enable JavaScript, and consider upgrading to a web browser that
-                        <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-                    </p>
-                </video>
+        <div id="main" class="scrollbar scroller">
+            <div id="videoList">
+
             </div>
+
         </div>
-        <div id="commentBox" class="grey lighten-4">
-            <div style="height: 0px; width: 100%; margin: 0px;" class="input-field col s6">
-                <input placeholder="Leave your comment here..." value="" id="" type="text" class="">
+        <div id="viewer" class="animated hide">
+            <div id="outerVideoWrapper">
+                <div class="videoContainer">
+                    <video id="mainVideo" class="video-js videoInner" controls preload="auto" width="1920px" height="1080px" poster="" data-setup="{}">
+                        <source src="https://firebasestorage.googleapis.com/v0/b/back-9d523.appspot.com/o/uploads%2FNerf%20Reward%20(clip).mp4?alt=media&token=cfa624b1-b226-4d4a-9a4d-97afd983696e" type=''>
+                        <p class="vjs-no-js">
+                            To view this video please enable JavaScript, and consider upgrading to a web browser that
+                            <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                        </p>
+                    </video>
+                </div>
             </div>
-            <label class="waves-effect waves-light" id="checkTime">
-                <input type="checkbox" class="filled-in" checked="checked" />
-                <span style="padding: 0; padding-left: 25px; line-height: 20px;">00:00</span>
-            </label>
-            <a id="sendComment" class="waves-effect waves-light btn"><i class="material-icons right">send</i>send</a>
+            <div id="commentBox" class="grey lighten-4">
+                <div style="height: 0px; width: 100%; margin: 0px;" class="input-field col s6">
+                    <input placeholder="Leave your comment here..." value="" id="" type="text" class="">
+                </div>
+                <label class="waves-effect waves-light" id="checkTime">
+                    <input type="checkbox" class="filled-in" checked="checked" />
+                    <span style="padding: 0; padding-left: 25px; line-height: 20px;">00:00</span>
+                </label>
+                <a id="sendComment" class="waves-effect waves-light btn"><i class="material-icons right">send</i>send</a>
+
+            </div>
+
+            <div id="comments">
+            </div>
 
         </div>
 
-        <div id="comments">
-        </div>
-
-    </div>
 
 
-
-    <div id="uploadWindow" class="animated  hide">
-        <div id="uploadState" class="noOpacity">
-            <div class="progress" style="height: 10px;">
-                <div class="determinate" style="width: 0%" id="uploader"></div>
+        <div id="uploadWindow" class="animated  hide">
+            <div id="uploadState" class="noOpacity">
+                <div class="progress" style="height: 10px;">
+                    <div class="determinate" style="width: 0%" id="uploader"></div>
+                </div>
+                <br>
+                <span id="amountComplete">0.00MB</span><span id="amountTotal">∞MB</span>
             </div>
             <br>
-            <span id="amountComplete">0.00MB</span><span id="amountTotal">∞MB</span>
+
+
+            <a class="animated waves-effect waves-light btn" style="position: absolute;">
+                <input type="file" value="" id="fileButton" /><i class="material-icons left">file_upload</i>Upload</a>
+            <a class="animated flipOutY waves-effect waves-light btn" id="cancelUpload"><i class="material-icons left">cancel</i>Cancel</a>
         </div>
-        <br>
-
-
-        <a class="animated waves-effect waves-light btn" style="position: absolute;">
-            <input type="file" value="" id="fileButton" /><i class="material-icons left">file_upload</i>Upload</a>
-        <a class="animated flipOutY waves-effect waves-light btn" id="cancelUpload"><i class="material-icons left">cancel</i>Cancel</a>
-    </div>
+    </span>
 
 </body>
 

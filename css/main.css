@@ -10,6 +10,12 @@ body {
     width: 100%;
 }
 
+#app {
+    transition: .6s;
+}
+
+#authContainer {}
+
 i {
     cursor: pointer;
 }
@@ -19,6 +25,10 @@ input[type=text]:not(.browser-default):focus:not([readonly]) {
     -webkit-box-shadow: 0 1px 0 0 #000;
     -moz-box-shadow: 0 1px 0 0 #000;
     box-shadow: 0 1px 0 0 #000;
+}
+
+input {
+    @extend .blue accent-1;
 }
 
 #header {
@@ -44,6 +54,7 @@ input[type=text]:not(.browser-default):focus:not([readonly]) {
     position: absolute;
     height: 100%;
     width: 100%;
+    margin: 0px;
 }
 
 #uploadButton {
