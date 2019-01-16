@@ -20,11 +20,15 @@ i {
     cursor: pointer;
 }
 
-input[type=text]:not(.browser-default):focus:not([readonly]) {
-    border-bottom: 1px solid #000;
-    -webkit-box-shadow: 0 1px 0 0 #000;
-    -moz-box-shadow: 0 1px 0 0 #000;
-    box-shadow: 0 1px 0 0 #000;
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=email]:focus {
+    border-bottom: 1px solid #448aff !important;
+}
+
+[type="checkbox"].filled-in:checked + span:not(.lever):after {
+    border: 2px solid #448aff;
+    background-color: #448aff;
 }
 
 input {
@@ -75,7 +79,9 @@ input {
     position: absolute;
     background: white;
     z-index: 2;
-
+    display: flex;
+    align-items: center;
+    justify-content: center
 }
 
 #uploadWindow input[type='file'] {
@@ -93,15 +99,13 @@ input {
 }
 
 #amountComplete {
-    position: absolute;
-    left: 20;
-    top: 40;
+    width: auto;
+    float: left;
 }
 
 #amountTotal {
-    position: absolute;
-    top: 40px;
-    right: 20px;
+    float: right;
+    width: auto;
 }
 
 
@@ -160,9 +164,7 @@ input {
     height: 90px;
     width: 61%;
     margin: 2%;
-    border-radius: 10px;
     padding: 15px;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.07), 0 3px 1px -2px rgba(0, 0, 0, 0.02), 0 1px 5px 0 rgba(0, 0, 0, 0.11);
     transition: .4s;
 }
 

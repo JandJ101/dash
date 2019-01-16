@@ -43,6 +43,7 @@
     <script src="js/generateId.js"></script>
     <script src="js/videoSelect.js"></script>
     <script src="js/view.js"></script>
+    <script src="js/comment.js"></script>
 
     <!--styles -->
     <link rel="stylesheet" href="css/animate.min.css" />
@@ -75,7 +76,7 @@
                         <input id="inptPassword" type="password" class="">
 
                     </div>
-                    <a id="btnLogin" style="width: 100%;" class="waves-effect waves-light btn blue">loggin</a>
+                    <a id="btnLogin" style="width: 100%;" class="waves-effect waves-light btn blue accent-2">loggin</a>
                 </div>
             </div>
         </div>
@@ -105,7 +106,7 @@
                     </video>
                 </div>
             </div>
-            <div id="commentBox" class="grey lighten-4">
+            <div id="commentBox" class="grey lighten-4 card-panel">
                 <div style="height: 0px; width: 100%; margin: 0px;" class="input-field col s6">
                     <input placeholder="Leave your comment here..." value="" id="" type="text" class="">
                 </div>
@@ -113,7 +114,7 @@
                     <input type="checkbox" class="filled-in" checked="checked" />
                     <span style="padding: 0; padding-left: 25px; line-height: 20px;">00:00</span>
                 </label>
-                <a id="sendComment" class="waves-effect waves-light btn"><i class="material-icons right">send</i>send</a>
+                <a id="sendComment" class="waves-effect waves-light btn blue accent-2"><i class="material-icons right">send</i>send</a>
 
             </div>
 
@@ -125,19 +126,22 @@
 
 
         <div id="uploadWindow" class="animated  hide">
-            <div id="uploadState" class="noOpacity">
-                <div class="progress" style="height: 10px;">
-                    <div class="determinate" style="width: 0%" id="uploader"></div>
+            <div style="width: 100%;">
+                <div id="uploadState" class="noOpacity">
+                    <div class="progress blue lighten-4" style="height: 10px;">
+                        <div class="determinate blue" style="width: 0%" id="uploader"></div>
+                    </div>
+                    <br>
+                    <div id="amountComplete">0.00MB</div>
+                    <div id="amountTotal">∞MB</div>
                 </div>
                 <br>
-                <span id="amountComplete">0.00MB</span><span id="amountTotal">∞MB</span>
+
+
+                <a class="blue accent-2 animated waves-effect waves-light btn" style="position: absolute;">
+                    <input type="file" value="" id="fileButton" /><i class="material-icons left">file_upload</i>Upload</a>
+                <a class="blue accent-2 animated flipOutY waves-effect waves-light btn" id="cancelUpload"><i class="material-icons left">cancel</i>Cancel</a>
             </div>
-            <br>
-
-
-            <a class="animated waves-effect waves-light btn" style="position: absolute;">
-                <input type="file" value="" id="fileButton" /><i class="material-icons left">file_upload</i>Upload</a>
-            <a class="animated flipOutY waves-effect waves-light btn" id="cancelUpload"><i class="material-icons left">cancel</i>Cancel</a>
         </div>
     </span>
 
