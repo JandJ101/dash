@@ -6,7 +6,7 @@ var updateVideos = function (z) {
     docRef.get().then(function (doc) {
         if (doc.exists) {
             videoData = doc.data();
-            var theVideoIdeas = videoData.ids;
+            var theVideoIds = videoData.ids;
             delete videoData.ids;
             $(document).ready(updateUlMain);
             if (z) {
@@ -30,10 +30,9 @@ var appendIt = function (x) {
 
 //updateVideos();
 
-var objectToArray = function (object, pos) {
-    return (object[Object.keys(object)[pos]]);
+var objectToArray = function (object) {
+    return (Object.values(object));
 };
-
 
 
 //edits stored verses
@@ -62,18 +61,16 @@ var editList = function (x) {
 
 };
 
-
-
 var updateUlMain = function () {
 
     document.getElementById("videoList").innerHTML = "";
 
     var key = "noDuplicates";
 
-    for (i = 0; i < Object.keys(videoData).length; i++) {
-        var currentObj = objectToArray(videoData, i);
+    var currentObj = sortArray(objectToArray(videoData));
 
-        var h1 = "<span class='card-title'>" + currentObj.name + "</span>";
+    for (i = 0; i < Object.keys(videoData).length; i++) {
+        var h1 = "<span class='card-title'>" + currentObj[i].name + "</span>";
 
         var p = "<p class='theP'>" + "</p>";
 
@@ -94,7 +91,7 @@ var updateUlMain = function () {
             document.getElementById("videoList").lastChild.innerHTML = x
         };
 
-        appendIt(goods, currentObj.id);
+        appendIt(goods, currentObj[0].id);
 
     }
 
