@@ -1,6 +1,6 @@
 var cancelUploading = false;
 
-var addDataToBase = function (Path, Name, Id) {
+var addDataToBase = function (Path, Name, Id, User) {
     var ref = db.collection('uploads').doc('uploads');
 
 
@@ -9,7 +9,8 @@ var addDataToBase = function (Path, Name, Id) {
     passData[theId] = {
         name: Name,
         path: Path,
-        id: Id
+        id: Id,
+        user: User
     };
 
 
@@ -24,6 +25,7 @@ var addDataToBase = function (Path, Name, Id) {
 
     updateVideos();
 
+    hideUploadWindow();
 
 };
 
@@ -81,6 +83,7 @@ var upload = function (e) {
             var Path = "";
             var Name = file.name;
             var Id = "";
+            var User = auth.currentUser.uid;
 
             task.snapshot.ref.getDownloadURL().then(function (downloadURL) {
                 Path = downloadURL;
@@ -91,7 +94,7 @@ var upload = function (e) {
                     if (doc.exists) {
                         Id = idGen(doc.data().ids);
 
-                        addDataToBase(Path, Name, Id);
+                        addDataToBase(Path, Name, Id, User);
                     } else {
                         // doc.data() will be undefined in this case
                         console.log("No such document!");

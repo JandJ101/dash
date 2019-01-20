@@ -17,33 +17,16 @@ var signInButton = function () {
 
 };
 
-var currentUserName = function () {
-    var uuid = auth.currentUser.uid
-
-    var docRef = db.collection("users").doc(uuid);
-
-    docRef.get().then(function (doc) {
-        if (doc.exists) {
-            console.log(doc.data());
-        } else {
-            // doc.data() will be undefined in this case
-            console.log("No such document!");
-        }
-    }).catch(function (error) {
-        console.log("Error getting document:", error);
-    });
-}
-
 var initializeAuthentication = function () {
     auth.onAuthStateChanged(firebaseUser => {
 
         if (firebaseUser) {
             //logged in
-            console.log(firebaseUser);
+            //console.log(firebaseUser);
             hideAuth();
             updateVideos(true);
         } else {
-            console.log("notLoged in.");
+            //console.log("notLoged in.");
             showAuth();
 
         }

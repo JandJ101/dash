@@ -1,4 +1,4 @@
-var mainVideoRef;
+var mainVideoRef, currentVideoId;
 
 var secondsToHM = function (duration) {
     duration *= 1000;
@@ -41,6 +41,7 @@ var enterVideo = function (x) {
         var type = "img";
     }
 
+    currentVideoId = i.id;
 
 
     openVideo(i.path, i.name);
