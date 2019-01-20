@@ -42,8 +42,7 @@ var enterVideo = function (x) {
     }
 
     currentVideoId = i.id;
-
-
+    updateComments(currentVideoId);
     openVideo(i.path, i.name);
 
 };
@@ -53,6 +52,11 @@ var playerInit = function () {
     mainVideoRef = videojs("mainVideo");
     $(".vjs-remaining-time")[0].style = "visibility: collapse; width: 0px; padding: 0px;"
     $(".vjs-remaining-time-display").on("DOMSubtreeModified", updateTimeInBox);
+
+};
+
+var goToTime = function (x) {
+    mainVideoRef.currentTime(x);
 
 };
 

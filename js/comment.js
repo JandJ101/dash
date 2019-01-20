@@ -43,7 +43,6 @@ var writeCommentToBase = function (x) {
                         [newCommId]: x
                     })
                     .then(function () {
-                        console.log("Document successfully written!");
                     })
                     .catch(function (error) {
                         console.error("Error writing document: ", error);
@@ -54,15 +53,12 @@ var writeCommentToBase = function (x) {
 
                 var newCommId = idGenComm(currentIds);
                 currentIds.push(newCommId);
-                console.log(currentIds);
-
                 var commentRef = db.collection("comments").doc(theCurrentVideoId);
                 return commentRef.update({
                         ids: currentIds,
                         [newCommId]: x
                     })
                     .then(function () {
-                        console.log("Document successfully updated!");
                     })
                     .catch(function (error) {
                         // The document probably doesn't exist.
@@ -72,7 +68,6 @@ var writeCommentToBase = function (x) {
                     [newCommId]: true
                             })
                             .then(function () {
-                                console.log("Document successfully written!");
                             })
                             .catch(function (error) {
                                 console.error("Error writing document: ", error);
