@@ -10,6 +10,10 @@ body {
     width: 100%;
 }
 
+.animated {
+    animation-duration: .4s;
+}
+
 #app {
     transition: .6s;
 }

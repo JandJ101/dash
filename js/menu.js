@@ -1,14 +1,14 @@
 var showAuth = function () {
     app.classList.add("noOpacity");
-    authContainer.classList.remove("bounceOutUp");
-    authContainer.classList.remove("hide");
-    authContainer.classList.add("fadeInDown");
+    $("#authContainer")[0].classList.remove("bounceOutUp");
+    $("#authContainer")[0].classList.remove("hide");
+    $("#authContainer")[0].classList.add("fadeInDown");
 
 };
 
 var hideAuth = function () {
-    authContainer.classList.remove("fadeInDown");
-    authContainer.classList.add("bounceOutUp");
+    $("#authContainer")[0].classList.remove("fadeInDown");
+    $("#authContainer")[0].classList.add("bounceOutUp");
 
 
 };
@@ -40,8 +40,8 @@ var showViewer = function () {
 };
 
 var hideViewer = function () {
-    viewer.classList.remove("fadeInUp");
-    viewer.classList.add("fadeOutDown");
+    $("#viewer")[0].classList.remove("fadeInUp");
+    $("#viewer")[0].classList.add("fadeOutDown");
     $("#videoName")[0].classList.add("noOpacity");
     $("#uploadBackButton")[0].classList.add("noOpacity");
     $("#uploadButton")[0].classList.remove("noOpacity");

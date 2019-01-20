@@ -11,8 +11,8 @@ var signIn = function (x, y) {
 };
 
 var signInButton = function () {
-    signInValEmail = inptEmail.value;
-    signInValPass = inptPassword.value;
+    signInValEmail = $("#inptEmail")[0].value;
+    signInValPass = $("#inptPassword")[0].value;
     signIn(signInValEmail, signInValPass);
 
 };
