@@ -14,6 +14,8 @@ var updateComments = function (x, z) {
 
         } else {
             // doc.data() will be undefined in this case
+            commentData = "";
+            $(document).ready(listComments);
             console.log("No such document!");
         }
     }).catch(function (error) {

@@ -91,7 +91,7 @@ var updateUlMain = function () {
             document.getElementById("videoList").lastChild.innerHTML = x
         };
 
-        appendIt(goods, currentObj[0].id);
+        appendIt(goods, currentObj[i].id);
 
     }
 

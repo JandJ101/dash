@@ -42,7 +42,8 @@ var enterVideo = function (x) {
     }
 
     currentVideoId = i.id;
-    updateComments(currentVideoId);
+    console.log(currentVideoId);
+    updateComments(String(currentVideoId));
     openVideo(i.path, i.name);
 
 };
