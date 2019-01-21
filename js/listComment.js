@@ -1,26 +1,51 @@
 var commentData;
 
+var realtimeComment;
+
 var updateComments = function (x, z) {
     var docRef = db.collection("comments").doc(x);
+    /*
+        docRef.get().then(function (doc) {
+            if (doc.exists) {
+                commentData = doc.data();
+                delete commentData.ids;
+                $(document).ready(listComments);
+                if (z) {
+                    app.classList.remove("noOpacity");
+                }
 
-    docRef.get().then(function (doc) {
-        if (doc.exists) {
-            commentData = doc.data();
-            delete commentData.ids;
-            $(document).ready(listComments);
-            if (z) {
-                app.classList.remove("noOpacity");
+            } else {
+                // doc.data() will be undefined in this case
+                commentData = "";
+                $(document).ready(listComments);
+                console.log("No such document!");
             }
+        }).catch(function (error) {
+            console.log("Error getting document:", error);
+        });*/
 
-        } else {
-            // doc.data() will be undefined in this case
-            commentData = "";
-            $(document).ready(listComments);
-            console.log("No such document!");
-        }
-    }).catch(function (error) {
-        console.log("Error getting document:", error);
-    });
+    realtimeComment = db.collection("comments").doc(x)
+        .onSnapshot(function (doc) {
+
+
+            if (doc.exists) {
+                commentData = doc.data();
+                delete commentData.ids;
+                $(document).ready(listComments);
+                if (z) {
+                    app.classList.remove("noOpacity");
+                }
+
+            } else {
+                // doc.data() will be undefined in this case
+                commentData = "";
+                $(document).ready(listComments);
+                console.log("No such document!");
+            }
+        });
+
+
+
 };
 
 var listComments = function () {
@@ -32,7 +57,7 @@ var listComments = function () {
     var currentObj = sortArray(objectToArray(commentData));
     console.log(currentObj);
 
-    for (i = 0; i < Object.keys(videoData).length; i++) {
+    for (i = 0; i < currentObj.length; i++) {
         var h1 = "<span class='card-title'>" + currentObj[i].text + "</span>";
 
         var p = "<p class='theP'>" + "</p>";

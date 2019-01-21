@@ -18,6 +18,8 @@ var submitComment = function () {
         info.time = 0;
     }
 
+    info.checked = false;
+    info.date = dateString();
     info.text = commText;
     info.user = auth.currentUser.uid;
     clearCommentBox();
@@ -42,8 +44,7 @@ var writeCommentToBase = function (x) {
                         ids: newCommId,
                         [newCommId]: x
                     })
-                    .then(function () {
-                    })
+                    .then(function () {})
                     .catch(function (error) {
                         console.error("Error writing document: ", error);
                     });
@@ -58,8 +59,7 @@ var writeCommentToBase = function (x) {
                         ids: currentIds,
                         [newCommId]: x
                     })
-                    .then(function () {
-                    })
+                    .then(function () {})
                     .catch(function (error) {
                         // The document probably doesn't exist.
                         console.error("Error updating document: ", error);
@@ -67,8 +67,7 @@ var writeCommentToBase = function (x) {
                         db.collection("comments").doc(theCurrentVideoId).set({
                     [newCommId]: true
                             })
-                            .then(function () {
-                            })
+                            .then(function () {})
                             .catch(function (error) {
                                 console.error("Error writing document: ", error);
                             });
