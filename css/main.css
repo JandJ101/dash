@@ -124,7 +124,7 @@ input {
     height: 100%;
 }
 
-.videoContainer {
+#videoContainer {
     width: 100%;
     position: relative;
     padding-bottom: calc(56.25%);
@@ -159,6 +159,17 @@ input {
     display: flex;
     align-items: center;
     padding-top: 0px;
+
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+#outerVideoWrapper > img {
+    max-height: 100%;
+    max-width: 100%;
 }
 
 #commentBox {

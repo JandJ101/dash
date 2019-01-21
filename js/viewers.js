@@ -1,1 +1,16 @@
-var videoViewer = "        <div id=\"outerVideoWrapper\">\r\n            <div class=\"videoContainer\">\r\n                <video id=\"mainVideo\" class=\"video-js videoInner\" controls preload=\"auto\" width=\"1920px\" height=\"1080px\" poster=\"\" data-setup=\"{}\">\r\n                    <source src=\"https:\/\/firebasestorage.googleapis.com\/v0\/b\/back-9d523.appspot.com\/o\/uploads%2FNerf%20Reward%20(clip).mp4?alt=media&token=cfa624b1-b226-4d4a-9a4d-97afd983696e\" type=\'\'>\r\n                    <p class=\"vjs-no-js\">\r\n                        To view this video please enable JavaScript, and consider upgrading to a web browser that\r\n                        <a href=\"https:\/\/videojs.com\/html5-video-support\/\" target=\"_blank\">supports HTML5 video<\/a>\r\n                    <\/p>\r\n                <\/video>\r\n            <\/div>\r\n        <\/div>";
+/*var createVidViewer = function () {
+    var doc = $("#playerRef")[0];
+    doc = doc.childNodes[1];
+    doc.id = "player";
+    return (doc);
+
+};*/
+
+var createImgViewer = function (path) {
+    var imageViewer = document.createElement("img");
+    imageViewer.src = path;
+    imageViewer.id = "imgViewer";
+    imageViewer.classList.add("hide");
+    return (imageViewer);
+
+};

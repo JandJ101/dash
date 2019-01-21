@@ -8,6 +8,7 @@ var addDataToBase = function (Path, Name, Id, User, Date) {
     var theId = String(Id);
     passData[theId] = {
         name: Name,
+        title: Name.split(".")[0],
         path: Path,
         id: Id,
         user: User,

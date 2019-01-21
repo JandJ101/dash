@@ -55,7 +55,6 @@ var listComments = function () {
     var key = "noDuplicateComments";
 
     var currentObj = sortArray(objectToArray(commentData));
-    console.log(currentObj);
 
     for (i = 0; i < currentObj.length; i++) {
         var h1 = "<span class='card-title'>" + currentObj[i].text + "</span>";

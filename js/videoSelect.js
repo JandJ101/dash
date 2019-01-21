@@ -70,7 +70,7 @@ var updateUlMain = function () {
     var currentObj = sortArray(objectToArray(videoData));
 
     for (i = 0; i < Object.keys(videoData).length; i++) {
-        var h1 = "<span class='card-title'>" + currentObj[i].name + "</span>";
+        var h1 = "<span class='card-title'>" + currentObj[i].title + "</span>";
 
         var p = "<p class='theP'>" + "</p>";
 

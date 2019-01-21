@@ -24,9 +24,8 @@ var showUploadWindow = function () {
 var hideUploadWindow = function () {
     $("#uploadWindow")[0].classList.remove("slideInRight");
     $("#uploadWindow")[0].classList.add("slideOutRight");
-
     $("#uploadBackButton")[0].classList.add("noOpacity");
-
+    mainVideoRef.pause();
 };
 
 var showViewer = function () {
@@ -47,7 +46,6 @@ var hideViewer = function () {
     $("#uploadButton")[0].classList.remove("noOpacity");
 
 };
-
 
 var initializeMenus = function () {
     //upload triggers
