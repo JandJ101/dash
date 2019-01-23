@@ -246,3 +246,10 @@ input {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
+#audioContainer {
+    width: 100%;
+    position: relative;
+    padding-top: 0px;
+    height: 0;
+}

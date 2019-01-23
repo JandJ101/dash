@@ -1,6 +1,8 @@
 var mainVideoRef, currentVideoId;
 var currentType = "";
 var imgTypes = ["jpg", "jpeg", "png", "gif", "svg", "bmp", "ico"];
+var videoTypes = ["mp4", "webm", "ogg"];
+var audioTypes = ["mp3", "aiff", "wav", ""]
 
 var secondsToHM = function (duration) {
     duration *= 1000;
@@ -29,6 +31,15 @@ var updateTimeInBox = function () {
 };
 
 //reset counter and uncheck it
+var resetViewer = function () {
+    mainVideoRef.pause();
+    mainVideoRef.src("");
+    $("#checkTime span")[0].innerHTML = "00:00";
+
+    $("#timeCheck")[0].checked = true;
+    $("#timeCheck")[0].disabled = "";
+
+};
 
 
 var openVideo = function (Path, Name, id, thumb) {
@@ -41,11 +52,24 @@ var openVideo = function (Path, Name, id, thumb) {
 
 var enterVideo = function (x) {
     var i = videoData[x];
-    var extension = i.name.split(".")[1];
+    var extension = i.name.split(".")[i.name.split(".").length - 1];
     var type = "video";
+
     for (a = 0; a < imgTypes.length; a++) {
-        if (imgTypes[a] == extension) {
+        if (imgTypes[a] == extension.toLocaleLowerCase()) {
             type = "image";
+        }
+
+    }
+    for (a = 0; a < audioTypes.length; a++) {
+        if (audioTypes[a] == extension.toLocaleLowerCase()) {
+            type = "audio";
+        }
+
+    }
+    for (a = 0; a < videoTypes.length; a++) {
+        if (videoTypes[a] == extension.toLocaleLowerCase()) {
+            type = "video";
         }
 
     }
@@ -53,17 +77,32 @@ var enterVideo = function (x) {
     //hide all players
     $("#imgViewer")[0].classList.add("hide");
     $("#videoContainer")[0].classList.add("hide");
+    $("#audioContainer")[0].classList.add("hide");
 
     if (type == "image") {
         $("#imgViewer")[0].src = i.path;
         openVideo(null, i.title);
         $("#imgViewer")[0].classList.remove("hide");
+        $("#timeCheck")[0].checked = false;
+        $("#timeCheck")[0].disabled = "disabled";
 
     }
 
     if (type == "video") {
+        mainVideoRef = videojs("mainVideo");
         openVideo(i.path, i.title);
         $("#videoContainer")[0].classList.remove("hide");
+
+
+    }
+
+    if (type == "audio") {
+        mainVideoRef = videojs("mainAudio");
+        openVideo(i.path, i.title);
+        $("#audioContainer")[0].classList.remove("hide");
+
+        console.log(i.path);
+
 
     }
 
@@ -73,23 +112,28 @@ var enterVideo = function (x) {
 
     currentVideoId = i.id;
     updateComments(String(currentVideoId));
+    console.log(type);
 
 
 };
 
 var playerInit = function () {
     mainVideoRef = videojs("mainVideo");
+    //mainAudioRef = videojs("audioContainer");
     $(".vjs-remaining-time")[0].style = "visibility: collapse; width: 0px; padding: 0px;"
     $(".vjs-remaining-time-display").on("DOMSubtreeModified", updateTimeInBox);
+    $(".vjs-remaining-time")[1].style = "visibility: collapse; width: 0px; padding: 0px;"
+    $(".vjs-remaining-time-display")[1].addEventListener("DOMSubtreeModified", updateTimeInBox);
 
 
 };
 
 var goToTime = function (x) {
-    mainVideoRef.play();
-    mainVideoRef.pause();
-    mainVideoRef.currentTime(x);
-
+    if (x != null) {
+        mainVideoRef.play();
+        mainVideoRef.pause();
+        mainVideoRef.currentTime(x);
+    }
 };
 
 

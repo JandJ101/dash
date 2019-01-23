@@ -44,6 +44,7 @@ var hideViewer = function () {
     $("#videoName")[0].classList.add("noOpacity");
     $("#uploadBackButton")[0].classList.add("noOpacity");
     $("#uploadButton")[0].classList.remove("noOpacity");
+    resetViewer();
 
 };
 

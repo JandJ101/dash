@@ -15,7 +15,7 @@ var submitComment = function () {
     if ($("#timeCheck")[0].checked) {
         info.time = currTime;
     } else {
-        info.time = 0;
+        info.time = null;
     }
 
     info.checked = false;
