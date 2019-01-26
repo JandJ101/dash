@@ -53,39 +53,15 @@ var objectToArray = function (object) {
     return (Object.values(object));
 };
 
-
-//edits stored verses
-var editList = function (x) {
-
-
-    var theId = x.parentElement.id;
-
-    h1Text = $("#" + theId + " .theH1")[0].innerHTML;
-
-    pText = $("#" + theId + " .theP")[0].innerHTML;
-
-    //disbles enter verse
-    $("#" + theId + " .spanText")[0].onclick = null;
-
-    x.innerHTML = "check";
-
-    x.onclick = function () {
-        applyEdits(this);
-    };
-
-    $("#" + theId + " .theH1").replaceWith("<input type='text' class='newH1Text' value='" + h1Text + "'>");
-
-    $("#" + theId + " .theP").replaceWith("<textarea class='newPText materialize-textarea'>" + pText + "</textarea>");
-
-
-};
-
 var updateUlMain = function () {
 
-    document.getElementById("videoList").innerHTML = "";
+    document.getElementById("videoList").remove();
 
     var currentObj = sortArray(objectToArray(videoData));
 
+    var fullDom = document.createElement("div");
+    fullDom.classList.add("noOpacity");
+    fullDom.id = "videoList";
     for (i = 0; i < Object.keys(videoData).length; i++) {
         var infos = currentObj[i];
 
@@ -101,22 +77,22 @@ var updateUlMain = function () {
         console.log(infos.id);
         if (infos.type == "video") {
             thumbnailSide.innerHTML = "movie"
-
         }
 
         if (infos.type == "image") {
             thumbnailSide = document.createElement("img");
             thumbnailSide.src = infos.path;
+            thumbnailSide.classList.add("noOpacity");
+            thumbnailSide.addEventListener("load", function () {
+                this.classList.remove("noOpacity");
 
-
+            });
         }
 
         if (infos.type == "audio") {
             thumbnailSide.innerHTML = "audiotrack"
 
         }
-
-
 
 
         var image = document.createElement("div");
@@ -137,8 +113,13 @@ var updateUlMain = function () {
 
         addListener(String(infos.id));
 
-        document.getElementById("videoList").appendChild(node);
+        fullDom.appendChild(node);
     };
+
+
+    document.getElementById("main").appendChild(fullDom);
+
+    document.getElementById("videoList").classList.remove("noOpacity");
 
 
 
