@@ -1,8 +1,30 @@
 #videoList {}
 
+#videoList .card-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#videoList .card-image img {
+    object-fit: cover;
+    width: 64px;
+    height: 64px;
+}
+
+#videoList .card-image i {
+    background: #f7f7f7;
+    padding: 20px;
+    color: ##868686;
+}
+
+#videoList .card-title {
+    padding: 5px;
+}
+
 #videoList > div {
     cursor: pointer;
-    padding: 10px
+    overflow: hidden;
 }
 
 #videoList > div:hover {

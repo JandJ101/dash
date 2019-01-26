@@ -1,9 +1,30 @@
 var videoData;
 
-var updateVideos = function (z) {
-    var docRef = db.collection("uploads").doc("uploads");
+var realtimeVideos;
 
-    docRef.get().then(function (doc) {
+var updateVideos = function (z) {
+    //        var docRef = db.collection("uploads").doc("uploads");
+
+    //    docRef.get().then(function (doc) {
+    //        if (doc.exists) {
+    //            videoData = doc.data();
+    //            var theVideoIds = videoData.ids;
+    //            delete videoData.ids;
+    //            $(document).ready(updateUlMain);
+    //            if (z) {
+    //                app.classList.remove("noOpacity");
+    //            }
+    //
+    //        } else {
+    //            // doc.data() will be undefined in this case
+    //            console.log("No such document!");
+    //        }
+    //    }).catch(function (error) {
+    //        console.log("Error getting document:", error);
+    //    });
+
+
+    realtimeVideos = db.collection("uploads").doc("uploads").onSnapshot(function (doc) {
         if (doc.exists) {
             videoData = doc.data();
             var theVideoIds = videoData.ids;
@@ -17,10 +38,9 @@ var updateVideos = function (z) {
             // doc.data() will be undefined in this case
             console.log("No such document!");
         }
-    }).catch(function (error) {
-        console.log("Error getting document:", error);
     });
 };
+
 
 var appendIt = function (x) {
     var node = document.createElement("LI");
@@ -28,7 +48,6 @@ var appendIt = function (x) {
     document.getElementById("historyList").lastChild.innerHTML = x
 };
 
-//updateVideos();
 
 var objectToArray = function (object) {
     return (Object.values(object));
@@ -65,34 +84,62 @@ var updateUlMain = function () {
 
     document.getElementById("videoList").innerHTML = "";
 
-    var key = "noDuplicates";
-
     var currentObj = sortArray(objectToArray(videoData));
 
     for (i = 0; i < Object.keys(videoData).length; i++) {
-        var h1 = "<span class='card-title'>" + currentObj[i].title + "</span>";
+        var infos = currentObj[i];
 
-        var p = "<p class='theP'>" + "</p>";
+        var node = document.createElement("div");
+        node.id = infos.id;
+        node.classList.add("card");
+        node.classList.add("horizontal");
 
-        //var deleteButton = "<i onclick='deleteList(this);' class='material-icons'>delete</i>";
+        var thumbnailSide = document.createElement("i")
+        thumbnailSide.classList.add("material-icons");
+        thumbnailSide.innerHTML = "priority_high";
 
-        //var editButton = "<i onclick='editList(this);' class='material-icons'>edit</i>"
+        console.log(infos.id);
+        if (infos.type == "video") {
+            thumbnailSide.innerHTML = "movie"
 
-        var goods = h1;
+        }
 
-        var appendIt = function (x, y) {
-            var node = document.createElement("div");
-            node.id = i + key;
-            node.classList.add("card");
+        if (infos.type == "image") {
+            thumbnailSide = document.createElement("img");
+            thumbnailSide.src = infos.path;
+
+
+        }
+
+        if (infos.type == "audio") {
+            thumbnailSide.innerHTML = "audiotrack"
+
+        }
+
+
+
+
+        var image = document.createElement("div");
+        image.classList.add("card-image");
+        image.appendChild(thumbnailSide);
+        node.appendChild(image);
+
+        var cardTitle = document.createElement("span");
+        cardTitle.classList.add("card-title");
+        cardTitle.innerHTML = infos.title;
+        node.appendChild(cardTitle);
+
+        var addListener = function (x) {
             node.addEventListener("click", function () {
-                enterVideo(y);
-            })
-            document.getElementById("videoList").appendChild(node);
-            document.getElementById("videoList").lastChild.innerHTML = x
+                enterVideo(x);
+            });
         };
 
-        appendIt(goods, currentObj[i].id);
+        addListener(String(infos.id));
 
-    }
+        document.getElementById("videoList").appendChild(node);
+    };
+
+
 
 };

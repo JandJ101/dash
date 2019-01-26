@@ -1,8 +1,6 @@
 var mainVideoRef, currentVideoId;
 var currentType = "";
-var imgTypes = ["jpg", "jpeg", "png", "gif", "svg", "bmp", "ico"];
-var videoTypes = ["mp4", "webm", "ogg"];
-var audioTypes = ["mp3", "aiff", "wav", ""]
+
 
 var secondsToHM = function (duration) {
     duration *= 1000;
@@ -53,26 +51,9 @@ var openVideo = function (Path, Name, id, thumb) {
 var enterVideo = function (x) {
     var i = videoData[x];
     var extension = i.name.split(".")[i.name.split(".").length - 1];
-    var type = "video";
+    var type = i.type;
 
-    for (a = 0; a < imgTypes.length; a++) {
-        if (imgTypes[a] == extension.toLocaleLowerCase()) {
-            type = "image";
-        }
-
-    }
-    for (a = 0; a < audioTypes.length; a++) {
-        if (audioTypes[a] == extension.toLocaleLowerCase()) {
-            type = "audio";
-        }
-
-    }
-    for (a = 0; a < videoTypes.length; a++) {
-        if (videoTypes[a] == extension.toLocaleLowerCase()) {
-            type = "video";
-        }
-
-    }
+    console.log(i);
 
     //hide all players
     $("#imgViewer")[0].classList.add("hide");

@@ -1,6 +1,37 @@
 var cancelUploading = false;
 
-var addDataToBase = function (Path, Name, Id, User, Date) {
+var thangyy;
+
+var findType = function (x) {
+    var imgTypes = ["jpg", "jpeg", "png", "gif", "svg", "bmp", "ico"];
+    var videoTypes = ["mp4", "webm", "ogg"];
+    var audioTypes = ["mp3", "aiff", "wav"];
+
+    var type = "unknown";
+
+    for (a = 0; a < imgTypes.length; a++) {
+        if (imgTypes[a] == x.toLocaleLowerCase()) {
+            type = "image";
+        }
+
+    }
+    for (a = 0; a < audioTypes.length; a++) {
+        if (audioTypes[a] == x.toLocaleLowerCase()) {
+            type = "audio";
+        }
+
+    }
+    for (a = 0; a < videoTypes.length; a++) {
+        if (videoTypes[a] == x.toLocaleLowerCase()) {
+            type = "video";
+        }
+
+        return (type);
+
+    }
+};
+
+var addDataToBase = function (Path, Name, Id, User, Date, Type) {
     var ref = db.collection('uploads').doc('uploads');
 
 
@@ -12,7 +43,8 @@ var addDataToBase = function (Path, Name, Id, User, Date) {
         path: Path,
         id: Id,
         user: User,
-        date: Date
+        date: Date,
+        type: Type
     };
 
 
@@ -25,7 +57,7 @@ var addDataToBase = function (Path, Name, Id, User, Date) {
         merge: true
     });
 
-    updateVideos();
+    //updateVideos();
 
     hideUploadWindow();
 
@@ -43,6 +75,8 @@ var resetUploader = function () {
 
 };
 
+
+
 var upload = function (e) {
 
     var file = e.target.files[0];
@@ -58,6 +92,9 @@ var upload = function (e) {
     fileButton.parentElement.classList.add("flipOutY");
     cancelUpload.classList.remove("flipOutY");
     cancelUpload.classList.add("flipInY");
+
+
+
 
     cancelUploading = false;
     task.on("state_changed",
@@ -87,6 +124,7 @@ var upload = function (e) {
             var Id = "";
             var User = auth.currentUser.uid;
             var Date = dateString();
+            var Type = findType(file.name.split(".")[file.name.split(".").length - 1])
 
             task.snapshot.ref.getDownloadURL().then(function (downloadURL) {
                 Path = downloadURL;
@@ -97,7 +135,7 @@ var upload = function (e) {
                     if (doc.exists) {
                         Id = idGen(doc.data().ids);
 
-                        addDataToBase(Path, Name, Id, User, Date);
+                        addDataToBase(Path, Name, Id, User, Date, Type);
                     } else {
                         // doc.data() will be undefined in this case
                         console.log("No such document!");
@@ -112,6 +150,7 @@ var upload = function (e) {
         }
     );
 };
+
 
 var initilizeUploader = function () {
     var uploader = $("#uploader")[0];
