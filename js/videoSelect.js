@@ -72,6 +72,7 @@ var updateUlMain = function () {
     docRef.get().then(function (doc) {
         if (doc.exists) {
             currentUserInfo = doc.data();
+            console.log(doc.data());
             setUserMenu();
             continuing();
         } else {

@@ -1,0 +1,19 @@
+#comments {
+    position: absolute;
+    right: 0px;
+    height: 100%;
+    width: 35%;
+    top: 0px;
+    padding: 15px;
+}
+
+#comments img {
+    height: 27;
+    width: 27;
+    padding: 1px
+}
+
+#comments .card-title {
+    display: flex;
+    align-items: center;
+}

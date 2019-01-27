@@ -153,14 +153,6 @@ input {
     max-height: window
 }
 
-#comments {
-    position: absolute;
-    right: 0px;
-    height: 100%;
-    width: 35%;
-    background: beige;
-    top: 0px;
-}
 
 #outerVideoWrapper {
     width: 65%;
