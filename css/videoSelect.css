@@ -1,16 +1,38 @@
 #videoList {}
 
+#videoList .card-stack {
+    width: 100%;
+
+}
+
+#videoList .card-action {
+    padding: 0px;
+    padding-right: 10px;
+    display: flex;
+    align-content: center;
+    flex-flow: row-reverse;
+    color: #989898;
+
+}
+
+#videoList .card-action span {
+    display: flex;
+    align-items: center;
+}
+
+
 #videoList .card-image {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: .6s;
 }
 
 #videoList .card-image img {
     object-fit: cover;
     width: 64px;
     height: 64px;
-    transition: .6s;
+
 }
 
 #videoList .card-image i {
@@ -20,12 +42,14 @@
 }
 
 #videoList .card-title {
-    padding: 5px;
+    padding-top: 5px;
+    padding-left: 10px;
 }
 
 #videoList > div {
     cursor: pointer;
     overflow: hidden;
+    height: 64px;
 }
 
 #videoList > div:hover {

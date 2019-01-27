@@ -1,5 +1,7 @@
 var signInValEmail, signInValPass;
 
+var currentUserInfo = {};
+
 var signIn = function (x, y) {
     firebase.auth().signInWithEmailAndPassword(x, y).catch(function (error) {
         // Handle Errors here.
@@ -40,6 +42,10 @@ var initializeAuthentication = function () {
 
 
     btnLogin.addEventListener("click", signInButton);
+
+
+
+
 };
 
 $(document).ready(initializeAuthentication);
