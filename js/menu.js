@@ -13,6 +13,15 @@ var hideAuth = function () {
 
 };
 
+var shakeAuth = function () {
+    $("#authBox")[0].classList.remove("shake");
+    setTimeout(function () {
+        $("#authBox")[0].classList.add("shake");
+    }, 50);
+
+
+}
+
 var showUploadWindow = function () {
     $("#uploadWindow")[0].classList.remove("hide");
     $("#uploadWindow")[0].classList.remove("slideOutRight");

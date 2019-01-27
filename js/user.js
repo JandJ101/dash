@@ -5,6 +5,7 @@ var currentUserInfo = {};
 var signIn = function (x, y) {
     firebase.auth().signInWithEmailAndPassword(x, y).catch(function (error) {
         // Handle Errors here.
+        shakeAuth();
         var errorCode = error.code;
         var errorMessage = error.message;
         console.log(errorCode, errorMessage);
