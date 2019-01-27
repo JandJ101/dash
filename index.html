@@ -87,11 +87,17 @@
     </div>
     <span id="app" class="noOpacity">
         <div id="header">
-            <a class="dropdown-trigger" data-target='dropdown1' href="#">
-                <img id="smallLogo" src="img/small_logo.png">
+
+
+
+            <a style="float: left;" id="smallLogo" href="#" data-target='dropdown1' class="dropdown-trigger">
+
+                <img src="img/small_logo.png" style="float: left;">
+                <h6 style="float: left;" id="menuUser"></h6>
+                <h6 style="float: left; margin-top: 9px;">
+                    <i class="material-icons">arrow_drop_down</i>
+                </h6>
             </a>
-
-
 
             <ul id='dropdown1' class='dropdown-content'>
                 <li><a href="#!" onclick="auth.signOut();" class="waves-effect waves-light blue-text">Sign Out<i class="blue-text material-icons">exit_to_app</i></a></li>
@@ -102,8 +108,8 @@
             </script>
 
             <i class="material-icons" id="uploadButton">cloud_upload</i>
-            <i class="material-icons noOpacity" id="uploadBackButton">arrow_back</i>
-            <h2 id="videoName" class="noOpacity">Name</h2>
+            <i class="material-icons noOpacity hide" id="uploadBackButton">arrow_back</i>
+            <h2 id="videoName" class="hide noOpacity">Name</h2>
         </div>
 
         <div id="main" class="noOpacity scrollbar scroller">

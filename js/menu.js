@@ -44,6 +44,7 @@ var showViewer = function () {
     viewer.classList.remove("hide");
     viewer.classList.add("fadeInUp");
 
+    $("#videoName")[0].classList.remove("hide");
     $("#uploadBackButton")[0].classList.remove("hide");
     $("#uploadBackButton")[0].classList.remove("noOpacity");
     $("#uploadButton")[0].classList.add("noOpacity");
@@ -62,6 +63,7 @@ var hideViewer = function () {
     resetViewer();
     setTimeout(function () {
         $("#uploadBackButton")[0].classList.add("hide");
+        $("#videoName")[0].classList.add("hide");
     }, 300);
 
 };

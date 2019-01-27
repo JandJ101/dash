@@ -20,6 +20,11 @@ var signInButton = function () {
 
 };
 
+var setUserMenu = function(){
+    $("#menuUser")[0].innerHTML = currentUserInfo[auth.currentUser.uid].name;
+    
+}
+
 var initializeAuthentication = function () {
     auth.onAuthStateChanged(firebaseUser => {
 
