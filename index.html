@@ -87,6 +87,20 @@
     </div>
     <span id="app" class="noOpacity">
         <div id="header">
+            <a class="dropdown-trigger" data-target='dropdown1' href="#">
+                <img src="img/small_logo.png">
+            </a>
+
+
+
+            <ul id='dropdown1' class='dropdown-content'>
+                <li><a href="#!" onclick="auth.signOut();" class="waves-effect waves-light blue-text">Sign Out<i class="blue-text material-icons">exit_to_app</i></a></li>
+            </ul>
+
+            <script>
+                $('.dropdown-trigger').dropdown();
+            </script>
+
             <i class="material-icons" id="uploadButton">cloud_upload</i>
             <i class="material-icons noOpacity" id="uploadBackButton">arrow_back</i>
             <h2 id="videoName" class="noOpacity">Name</h2>

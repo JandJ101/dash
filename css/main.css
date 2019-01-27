@@ -55,6 +55,11 @@ input {
     transition: .2s;
 }
 
+#header img {
+    height: 100%;
+    padding: 7px;
+}
+
 #main {
     padding: 20px;
     padding-bottom: 20px;
@@ -252,4 +257,10 @@ input {
     position: relative;
     padding-top: 0px;
     height: 0;
+}
+
+#dropdown1 {
+    top: 40px !important;
+    height: 50px !important;
+    width: 200px !important;
 }

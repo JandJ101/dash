@@ -31,6 +31,7 @@ var initializeAuthentication = function () {
         } else {
             //console.log("notLoged in.");
             showAuth();
+            $("#main")[0].classList.add("noOpacity");
 
         }
     })
