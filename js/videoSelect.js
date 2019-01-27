@@ -3,27 +3,6 @@ var videoData;
 var realtimeVideos;
 
 var updateVideos = function (z) {
-    //        var docRef = db.collection("uploads").doc("uploads");
-
-    //    docRef.get().then(function (doc) {
-    //        if (doc.exists) {
-    //            videoData = doc.data();
-    //            var theVideoIds = videoData.ids;
-    //            delete videoData.ids;
-    //            $(document).ready(updateUlMain);
-    //            if (z) {
-    //                app.classList.remove("noOpacity");
-    //            }
-    //
-    //        } else {
-    //            // doc.data() will be undefined in this case
-    //            console.log("No such document!");
-    //        }
-    //    }).catch(function (error) {
-    //        console.log("Error getting document:", error);
-    //    });
-
-
     realtimeVideos = db.collection("uploads").doc("uploads").onSnapshot(function (doc) {
         if (doc.exists) {
             videoData = doc.data();
@@ -41,6 +20,36 @@ var updateVideos = function (z) {
     });
 };
 
+
+var timeSince = function (date) {
+
+    var set = new Date(date)
+
+    var seconds = Math.floor((new Date() - set) / 1000);
+
+    var interval = Math.floor(seconds / 31536000);
+
+    if (interval > 1) {
+        return interval + " years";
+    }
+    interval = Math.floor(seconds / 2592000);
+    if (interval > 1) {
+        return interval + " months";
+    }
+    interval = Math.floor(seconds / 86400);
+    if (interval > 1) {
+        return interval + " days";
+    }
+    interval = Math.floor(seconds / 3600);
+    if (interval > 1) {
+        return interval + " hours";
+    }
+    interval = Math.floor(seconds / 60);
+    if (interval > 1) {
+        return interval + " minutes";
+    }
+    return ("Just now");
+}
 
 var appendIt = function (x) {
     var node = document.createElement("LI");
@@ -119,8 +128,20 @@ var updateUlMain = function () {
             userInfo.appendChild(userSymbol);
             userInfo.appendChild(userTextContainer);
 
+            //time
+            var timeInfo = document.createElement("span");
+            var timeText = timeSince(infos.date);
+            var timeTextContainer = document.createElement("div");
+            timeTextContainer.innerHTML = timeText;
+            var timeSymbol = document.createElement("i");
+            timeSymbol.classList.add("material-icons");
+            timeSymbol.innerHTML = "access_time";
+            timeInfo.appendChild(timeSymbol);
+            timeInfo.appendChild(timeTextContainer);
+
             //put in info container
             cardInfo.appendChild(userInfo);
+            cardInfo.appendChild(timeInfo);
 
 
             if (infos.type == "video") {

@@ -7,17 +7,18 @@
 
 #videoList .card-action {
     padding: 0px;
-    padding-right: 10px;
     display: flex;
     align-content: center;
     flex-flow: row-reverse;
     color: #b9b9b9;
+    white-space: nowrap;
 
 }
 
 #videoList .card-action span {
     display: flex;
     align-items: center;
+    padding-right: 10px;
 }
 
 
@@ -30,8 +31,8 @@
 
 #videoList .card-image img {
     object-fit: cover;
-    width: 64px;
-    height: 64px;
+    width: 66px;
+    height: 66px;
 
 }
 
@@ -42,6 +43,7 @@
 }
 
 #videoList .card-title {
+    white-space: nowrap;
     padding-top: 5px;
     padding-left: 10px;
 }

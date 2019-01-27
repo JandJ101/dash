@@ -74,6 +74,11 @@ input {
     right: 10px
 }
 
+#uploadBackButton {
+    position: absolute;
+    left: 10px;
+}
+
 .blueGrad {
     background: -webkit-linear-gradient(#ffffff, #a8f3ff);
     -webkit-background-clip: text;
@@ -244,6 +249,7 @@ input {
     color: white;
     padding: 5px;
     left: 45;
+    top: 0;
     white-space: nowrap;
     overflow: hidden;
     width: 70%;

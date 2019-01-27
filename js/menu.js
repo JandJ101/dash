@@ -28,12 +28,14 @@ var showUploadWindow = function () {
     $("#uploadWindow")[0].classList.add("slideInRight");
     $("#uploadBackButton")[0].classList.remove("noOpacity");
 
+
 };
 
 var hideUploadWindow = function () {
     $("#uploadWindow")[0].classList.remove("slideInRight");
     $("#uploadWindow")[0].classList.add("slideOutRight");
     $("#uploadBackButton")[0].classList.add("noOpacity");
+
     mainVideoRef.pause();
 };
 
@@ -42,9 +44,12 @@ var showViewer = function () {
     viewer.classList.remove("hide");
     viewer.classList.add("fadeInUp");
 
+    $("#uploadBackButton")[0].classList.remove("hide");
     $("#uploadBackButton")[0].classList.remove("noOpacity");
     $("#uploadButton")[0].classList.add("noOpacity");
     $("#videoName")[0].classList.remove("noOpacity");
+    $("#smallLogo")[0].classList.add("noOpacity");
+
 };
 
 var hideViewer = function () {
@@ -53,7 +58,11 @@ var hideViewer = function () {
     $("#videoName")[0].classList.add("noOpacity");
     $("#uploadBackButton")[0].classList.add("noOpacity");
     $("#uploadButton")[0].classList.remove("noOpacity");
+    $("#smallLogo")[0].classList.remove("noOpacity");
     resetViewer();
+    setTimeout(function () {
+        $("#uploadBackButton")[0].classList.add("hide");
+    }, 300);
 
 };
 

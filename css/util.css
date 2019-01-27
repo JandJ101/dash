@@ -5,6 +5,7 @@
 
 .noOpacity {
     opacity: 0;
+    transition: .2s;
 }
 
 .noOverflow {

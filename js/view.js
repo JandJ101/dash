@@ -80,6 +80,11 @@ var enterVideo = function (x) {
     if (type == "audio") {
         mainVideoRef = videojs("mainAudio");
         openVideo(i.path, i.title);
+        mainVideoRef.play();
+        setTimeout(function () {
+            mainVideoRef.pause()
+        }, 40);
+        mainVideoRef.currentTime(0);
         $("#audioContainer")[0].classList.remove("hide");
 
         console.log(i.path);
