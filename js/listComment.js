@@ -87,14 +87,19 @@ var listComments = function () {
         user.appendChild(userName);
         content.appendChild(user);
 
-        //text
+
+
+        //text        
+        var time = document.createElement("span");
+        time.innerHTML = secondsToHM(infos.time);
+        time.classList.add("commentTime");
         var text = document.createElement("p");
         text.innerHTML = infos.text;
+        if (infos.time != null || infos.time != undefined) {
+            content.appendChild(time);
+        }
+
         content.appendChild(text);
-
-
-
-
 
         node.appendChild(content);
 
