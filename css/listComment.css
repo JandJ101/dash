@@ -10,7 +10,8 @@
 #comments img {
     height: 27;
     width: 27;
-    padding: 1px
+    padding: 1px;
+    border-radius: 50%;
 }
 
 #comments .card-title {

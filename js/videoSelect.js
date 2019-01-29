@@ -51,6 +51,17 @@ var timeSince = function (date) {
     return ("Just now");
 }
 
+
+function formatBytes(a, b) {
+    if (0 == a) return "0 Bytes";
+    var c = 1024,
+        d = b || 2,
+        e = ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"],
+        f = Math.floor(Math.log(a) / Math.log(c));
+    return parseFloat((a / Math.pow(c, f)).toFixed(d)) + " " + e[f]
+}
+
+
 var appendIt = function (x) {
     var node = document.createElement("LI");
     document.getElementById("historyList").appendChild(node);
@@ -72,12 +83,11 @@ var updateUlMain = function () {
     docRef.get().then(function (doc) {
         if (doc.exists) {
             currentUserInfo = doc.data();
-            console.log(doc.data());
             setUserMenu();
             continuing();
         } else {
             // doc.data() will be undefined in this case
-            console.log("No such document!");
+            //console.log("No such document!");
             continuing();
         }
     }).catch(function (error) {
@@ -106,7 +116,7 @@ var updateUlMain = function () {
 
             var thumbnailSide = document.createElement("i")
             thumbnailSide.classList.add("material-icons");
-            thumbnailSide.innerHTML = "priority_high";
+            thumbnailSide.innerHTML = "insert_drive_file";
 
             var image = document.createElement("div");
             image.classList.add("card-image");
@@ -141,7 +151,27 @@ var updateUlMain = function () {
             timeInfo.appendChild(timeSymbol);
             timeInfo.appendChild(timeTextContainer);
 
+            //size
+            var size = document.createElement("span");
+            var sizeText = formatBytes(infos.size);
+            var sizeTextContainer = document.createElement("div");
+            sizeTextContainer.innerHTML = sizeText;
+            size.appendChild(sizeTextContainer);
+
+            //size
+            var lengthInfo = document.createElement("span");
+            var lengthText = secondsToHM(infos.length);
+            var lengthTextContainer = document.createElement("div");
+            lengthTextContainer.innerHTML = lengthText;
+            lengthInfo.appendChild(lengthTextContainer);
+
             //put in info container
+            if (infos.size != undefined) {
+                cardInfo.appendChild(size);
+            }
+            if (infos.length != null || infos.length != undefined) {
+                cardInfo.appendChild(lengthInfo);
+            }
             cardInfo.appendChild(userInfo);
             cardInfo.appendChild(timeInfo);
 

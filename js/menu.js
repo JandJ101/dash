@@ -23,15 +23,25 @@ var shakeAuth = function () {
 }
 
 var showUploadWindow = function () {
+    $("#uploadBackButton")[0].classList.remove("hide");
     $("#uploadWindow")[0].classList.remove("hide");
     $("#uploadWindow")[0].classList.remove("slideOutRight");
     $("#uploadWindow")[0].classList.add("slideInRight");
+    $("#uploadBackButton")[0].classList.remove("hide");
     $("#uploadBackButton")[0].classList.remove("noOpacity");
+    $("#smallLogo")[0].classList.add("noOpacity");
+    setTimeout(function () {
+        $("#smallLogo")[0].classList.add("hide");
+    }, 300);
+
 
 
 };
 
 var hideUploadWindow = function () {
+    $("#smallLogo")[0].classList.remove("hide");
+    $("#smallLogo")[0].classList.remove("noOpacity");
+    $("#uploadBackButton")[0].classList.add("hide");
     $("#uploadWindow")[0].classList.remove("slideInRight");
     $("#uploadWindow")[0].classList.add("slideOutRight");
     $("#uploadBackButton")[0].classList.add("noOpacity");
@@ -50,6 +60,7 @@ var showViewer = function () {
     $("#uploadButton")[0].classList.add("noOpacity");
     $("#videoName")[0].classList.remove("noOpacity");
     $("#smallLogo")[0].classList.add("noOpacity");
+
 
 };
 

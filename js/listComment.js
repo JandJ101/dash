@@ -4,25 +4,6 @@ var realtimeComment;
 
 var updateComments = function (x, z) {
     var docRef = db.collection("comments").doc(x);
-    /*
-        docRef.get().then(function (doc) {
-            if (doc.exists) {
-                commentData = doc.data();
-                delete commentData.ids;
-                $(document).ready(listComments);
-                if (z) {
-                    app.classList.remove("noOpacity");
-                }
-
-            } else {
-                // doc.data() will be undefined in this case
-                commentData = "";
-                $(document).ready(listComments);
-                console.log("No such document!");
-            }
-        }).catch(function (error) {
-            console.log("Error getting document:", error);
-        });*/
 
     realtimeComment = db.collection("comments").doc(x)
         .onSnapshot(function (doc) {
@@ -40,7 +21,7 @@ var updateComments = function (x, z) {
                 // doc.data() will be undefined in this case
                 commentData = "";
                 $(document).ready(listComments);
-                console.log("No such document!");
+                //console.log("No such document!");
             }
         });
 

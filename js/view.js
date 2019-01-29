@@ -53,8 +53,6 @@ var enterVideo = function (x) {
     var extension = i.name.split(".")[i.name.split(".").length - 1];
     var type = i.type;
 
-    console.log(i);
-
     //hide all players
     $("#imgViewer")[0].classList.add("hide");
     $("#videoContainer")[0].classList.add("hide");
@@ -72,6 +70,12 @@ var enterVideo = function (x) {
     if (type == "video") {
         mainVideoRef = videojs("mainVideo");
         openVideo(i.path, i.title);
+        mainVideoRef.play();
+        setTimeout(function () {
+            mainVideoRef.pause();
+            mainVideoRef.currentTime(0);
+        }, 40);
+
         $("#videoContainer")[0].classList.remove("hide");
 
 
@@ -83,11 +87,12 @@ var enterVideo = function (x) {
         mainVideoRef.play();
         setTimeout(function () {
             mainVideoRef.pause()
+            mainVideoRef.currentTime(0);
         }, 40);
-        mainVideoRef.currentTime(0);
+
         $("#audioContainer")[0].classList.remove("hide");
 
-        console.log(i.path);
+
 
 
     }
@@ -98,7 +103,6 @@ var enterVideo = function (x) {
 
     currentVideoId = i.id;
     updateComments(String(currentVideoId));
-    console.log(type);
 
 
 };

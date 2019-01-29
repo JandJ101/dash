@@ -31,7 +31,7 @@ var findType = function (x) {
     }
 };
 
-var addDataToBase = function (Path, Name, Id, User, Date, Type) {
+var addDataToBase = function (Path, Name, Id, User, Date, Type, Size, Length) {
     var ref = db.collection('uploads').doc('uploads');
 
 
@@ -44,7 +44,9 @@ var addDataToBase = function (Path, Name, Id, User, Date, Type) {
         id: Id,
         user: User,
         date: Date,
-        type: Type
+        type: Type,
+        size: Size,
+        length: Length
     };
 
 
@@ -75,12 +77,13 @@ var resetUploader = function () {
 
 };
 
-
+var thangy;
 
 var upload = function (e) {
 
     var file = e.target.files[0];
     var folder = "uploads/";
+
 
     var storageRef = firebase.storage().ref(folder + file.name);
 
@@ -118,35 +121,72 @@ var upload = function (e) {
         },
 
         function complete() {
-            //create info
-            var Path = "";
-            var Name = file.name;
-            var Id = "";
-            var User = auth.currentUser.uid;
-            var Date = dateString();
-            var Type = findType(file.name.split(".")[file.name.split(".").length - 1])
 
-            task.snapshot.ref.getDownloadURL().then(function (downloadURL) {
-                Path = downloadURL;
+            var Type = findType(file.name.split(".")[file.name.split(".").length - 1]);
+            var Length = null;
 
-                var docuuRef = db.collection("uploads").doc("uploads");
 
-                docuuRef.get().then(function (doc) {
-                    if (doc.exists) {
-                        Id = idGen(doc.data().ids);
 
-                        addDataToBase(Path, Name, Id, User, Date, Type);
-                    } else {
-                        // doc.data() will be undefined in this case
-                        console.log("No such document!");
-                    }
-                }).catch(function (error) {
-                    console.log("Error getting document:", error);
+
+            var continueInfo = function () {
+
+                //create info
+                var Path = "";
+                var Name = file.name;
+                var Id = "";
+                var User = auth.currentUser.uid;
+                var Date = dateString();
+                Type;
+                var Size = file.size;
+
+                task.snapshot.ref.getDownloadURL().then(function (downloadURL) {
+                    Path = downloadURL;
+
+                    var docuuRef = db.collection("uploads").doc("uploads");
+
+                    docuuRef.get().then(function (doc) {
+                        if (doc.exists) {
+                            Id = idGen(doc.data().ids);
+
+                            addDataToBase(Path, Name, Id, User, Date, Type, Size, Length);
+                        } else {
+                            // doc.data() will be undefined in this case
+                            console.log("No such document!");
+                        }
+                    }).catch(function (error) {
+                        console.log("Error getting document:", error);
+                    });
+
+
+                });
+                resetUploader();
+            };
+
+            // get length of video
+
+            if (Type == "video" || Type == "audio") {
+                var videoTest = document.createElement("video");
+                var videoTestSrc = document.createElement("source");
+                videoTest.appendChild(videoTestSrc);
+
+                thangy = videoTest;
+                console.log(videoTest);
+
+                obUrl = URL.createObjectURL(file);
+                videoTest.src = obUrl;
+                videoTest.addEventListener('canplaythrough', function (e) {
+                    //add duration in the input field #f_du
+                    var f_duration = e.currentTarget.duration;
+                    console.log(f_duration);
+                    Length = f_duration;
+                    URL.revokeObjectURL(obUrl);
+                    continueInfo();
                 });
 
+            } else {
+                continueInfo();
+            }
 
-            });
-            resetUploader();
         }
     );
 };
