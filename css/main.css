@@ -2,7 +2,6 @@ body {
     margin: 0px;
     overflow-x: hidden;
     overflow: hidden;
-    min-height: 400px;
     height: calc(100% - 40px);
     position: absolute;
     bottom: 0px;
@@ -137,11 +136,17 @@ input {
 #videoContainer {
     width: 100%;
     position: relative;
+    /*
     padding-bottom: calc(56.25%);
-    /* 16:9 */
-
     padding-top: 0px;
-    height: 0;
+*/
+    height: 80%;
+}
+
+#mainVideo {
+    background: #fff;
+    background: #ffffff00;
+
 }
 
 .videoInner {
@@ -220,6 +225,7 @@ input {
     box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
 
 }
+
 
 #sendComment {
     position: absolute;
