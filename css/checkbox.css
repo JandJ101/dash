@@ -42,14 +42,10 @@
 }
 
 .round input[type="checkbox"]:checked + label {
-    background-color: blue;
-    border-color: royalblue;
+    background-color: #448aff;
+    border-color: #e3f2fd;
 }
 
 .round input[type="checkbox"]:checked + label:after {
     opacity: 1;
-}
-
-body {
-    background-color: #f1f2f3;
 }

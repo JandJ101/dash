@@ -37,14 +37,10 @@ var listComments = function () {
 
     var currentObj = sortArray(objectToArray(commentData));
 
+    console.log(currentObj);
+
     for (i = 0; i < currentObj.length; i++) {
         var infos = currentObj[i];
-
-
-
-        var h1 = "<span class='card-title'>" + currentObj[i].text + "</span>";
-
-
 
         var node = document.createElement("div");
         node.classList.add("card");
@@ -65,6 +61,7 @@ var listComments = function () {
         //picture
         var userPicture = document.createElement("img");
         userPicture.src = currentUserInfo[infos.user].pic;
+        console.log(currentUserInfo[infos.user].pic);
         headerOuter.appendChild(userPicture);
         userName.innerHTML = currentUserInfo[infos.user].name;
         headerOuter.appendChild(userName);
@@ -76,6 +73,18 @@ var listComments = function () {
         var check = document.createElement("input");
         check.id = infos.date.replace(/\s/g, '');
         check.type = "checkbox";
+        var commId = infos.id;
+        var setCheckListen = function (x) {
+            checkbox.addEventListener("click", function () {
+                var state = this.querySelector("input").checked;
+                console.log(state);
+                checkComment(currentVideoId, x, state);
+
+            });
+
+        };
+
+        setCheckListen(commId);
         if (infos.checked) {
             check.checked = true;
         } else {

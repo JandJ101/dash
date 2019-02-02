@@ -88,7 +88,9 @@ var checkComment = function (vidId, comId, val) {
     var comref = db.collection("comments").doc(vidId);
 
     var setWithMerge = comref.set({
-    [comId]: val
+        [comId]: {
+            checked: val
+        }
     }, {
         merge: true
     });
