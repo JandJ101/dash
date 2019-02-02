@@ -55,20 +55,37 @@ var listComments = function () {
         content.classList.add("card-content");
 
 
+        var headerOuter = document.createElement("div");
         //card user
         var user = document.createElement("span");
         var userName = document.createElement("span");
-        user.classList.add("card-title");
+        headerOuter.classList.add("card-title");
+        headerOuter.appendChild(user);
 
         //picture
         var userPicture = document.createElement("img");
         userPicture.src = currentUserInfo[infos.user].pic;
-        user.appendChild(userPicture);
+        headerOuter.appendChild(userPicture);
         userName.innerHTML = currentUserInfo[infos.user].name;
-        user.appendChild(userName);
-        content.appendChild(user);
+        headerOuter.appendChild(userName);
+        content.appendChild(headerOuter);
 
-
+        //checkbox
+        var checkbox = document.createElement("div");
+        checkbox.classList.add("round");
+        var check = document.createElement("input");
+        check.id = infos.date.replace(/\s/g, '');
+        check.type = "checkbox";
+        if (infos.checked) {
+            check.checked = true;
+        } else {
+            check.checked = false;
+        }
+        var checkLabel = document.createElement("label");
+        checkLabel.setAttribute("for", infos.date.replace(/\s/g, ''));
+        checkbox.appendChild(check);
+        checkbox.appendChild(checkLabel);
+        headerOuter.appendChild(checkbox);
 
         //text        
         var time = document.createElement("span");

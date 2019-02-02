@@ -268,3 +268,19 @@ input {
     height: 50px !important;
     width: 200px !important;
 }
+
+#notSupported {
+    text-align: center;
+
+}
+
+#videoActions {
+    position: absolute;
+    right: 0px;
+    height: 40px;
+    width: 35%;
+    top: 0px;
+    padding: 15px;
+    z-index: 2;
+    padding: 10px;
+}

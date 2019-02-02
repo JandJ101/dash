@@ -39,6 +39,7 @@ var writeCommentToBase = function (x) {
                 //doc doesnt exits so generate id right data
                 var newCommId = [];
                 newCommId[0] = idGenComm([]);
+                x.id = newCommId[0];
 
                 db.collection("comments").doc(currentVideoId).set({
                         ids: newCommId,
@@ -53,6 +54,7 @@ var writeCommentToBase = function (x) {
                 currentIds = doc.data().ids;
 
                 var newCommId = idGenComm(currentIds);
+                x.id = newCommId;
                 currentIds.push(newCommId);
                 var commentRef = db.collection("comments").doc(theCurrentVideoId);
                 return commentRef.update({
@@ -80,6 +82,20 @@ var writeCommentToBase = function (x) {
             console.log('Error getting document', err);
         });
 };
+
+var checkComment = function (vidId, comId, val) {
+
+    var comref = db.collection("comments").doc(vidId);
+
+    var setWithMerge = comref.set({
+    [comId]: val
+    }, {
+        merge: true
+    });
+
+
+};
+
 
 var initComments = function () {
     $("#sendComment")[0].addEventListener("click", submitComment);

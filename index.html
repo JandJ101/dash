@@ -58,6 +58,7 @@
     <link rel="stylesheet" href="css/videoSelect.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="css/listComment.css" />
+    <link rel="stylesheet" href="css/checkbox.css" />
 
 
 
@@ -121,11 +122,17 @@
         </div>
         <div id="viewer" class="animated hide">
             <div id="outerVideoWrapper">
+
+                <div id="notSupported" class="grey-text text-lighten-1 hide">
+                    <i class="material-icons">remove_red_eye</i><br>
+                    <span>Preview not supported</span>
+                </div>
+
                 <img src="undefined" id="imgViewer" class="hide">
 
                 <div id="videoContainer" class="hide">
                     <video id="mainVideo" class="video-js videoInner" controls preload="auto" width="1920px" height="1080px" poster="" data-setup="{}">
-                        <source src="https://firebasestorage.googleapis.com/v0/b/back-9d523.appspot.com/o/uploads%2FNerf%20Reward%20(clip).mp4?alt=media&token=c5bdf378-bbc7-4370-8591-e00f1396b63a" type=''>
+                        <source src="https://firebasestorage.googleapis.com/v0/b/back-9d523.appspot.com/o/uploads%2FJandJ%20-%20Dawn.mp3?alt=media&token=1a222ee4-2588-4114-9d69-75c818a0292e" type=''>
                         <p class="vjs-no-js">
                             To view this video please enable JavaScript, and consider upgrading to a web browser that
                             <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
@@ -137,7 +144,7 @@
                 </div>
                 <div id="audioContainer" class="hide">
                     <video id="mainAudio" class="video-js videoInner" controls preload="auto" width="1920px" height="1080px" poster="" data-setup='{ "inactivityTimeout": 0 }'>
-                        <source src="https://firebasestorage.googleapis.com/v0/b/back-9d523.appspot.com/o/uploads%2FNerf%20Reward%20(clip).mp4?alt=media&token=c5bdf378-bbc7-4370-8591-e00f1396b63a" type=''>
+                        <source src="https://firebasestorage.googleapis.com/v0/b/back-9d523.appspot.com/o/uploads%2FJandJ%20-%20Dawn.mp3?alt=media&token=1a222ee4-2588-4114-9d69-75c818a0292e" type=''>
                         <p class="vjs-no-js">
                             To view this video please enable JavaScript, and consider upgrading to a web browser that
                             <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
@@ -158,8 +165,12 @@
                 <a id="sendComment" class="waves-effect waves-light btn blue accent-2"><i class="material-icons right">send</i>send</a>
 
             </div>
-
+            <div class="grey lighten-3 grey-text" id="videoActions">
+                <a href="#" class="grey-text" id="fileDownload" target="_blank" download><i class="material-icons">file_download</i></a>
+            </div>
             <div id="comments" class="scroller scrollbar grey lighten-4">
+
+
             </div>
 
         </div>

@@ -33,6 +33,8 @@ var resetViewer = function () {
     mainVideoRef.pause();
     mainVideoRef.src("");
     $("#checkTime span")[0].innerHTML = "00:00";
+    $("#notSupported")[0].classList.remove("hide");
+
 
     $("#timeCheck")[0].checked = true;
     $("#timeCheck")[0].disabled = "";
@@ -40,9 +42,16 @@ var resetViewer = function () {
 };
 
 
-var openVideo = function (Path, Name, id, thumb) {
-    mainVideoRef.src(Path);
-    videoName.innerHTML = Name;
+var openVideo = function (x, vOrA) {
+    $("#fileDownload")[0].href = x.path;
+    $("#fileDownload")[0].download = x.name;
+
+    if (vOrA) {
+        mainVideoRef.src(x.path);
+
+    }
+
+    videoName.innerHTML = x.name;
 
     showViewer();
 };
@@ -54,13 +63,14 @@ var enterVideo = function (x) {
     var type = i.type;
 
     //hide all players
+    $("#notSupported")[0].classList.add("hide");
     $("#imgViewer")[0].classList.add("hide");
     $("#videoContainer")[0].classList.add("hide");
     $("#audioContainer")[0].classList.add("hide");
 
     if (type == "image") {
         $("#imgViewer")[0].src = i.path;
-        openVideo(null, i.title);
+        openVideo(i);
         $("#imgViewer")[0].classList.remove("hide");
         $("#timeCheck")[0].checked = false;
         $("#timeCheck")[0].disabled = "disabled";
@@ -69,7 +79,7 @@ var enterVideo = function (x) {
 
     if (type == "video") {
         mainVideoRef = videojs("mainVideo");
-        openVideo(i.path, i.title);
+        openVideo(i, true);
         mainVideoRef.play();
         setTimeout(function () {
             mainVideoRef.pause();
@@ -83,7 +93,7 @@ var enterVideo = function (x) {
 
     if (type == "audio") {
         mainVideoRef = videojs("mainAudio");
-        openVideo(i.path, i.title);
+        openVideo(i, true);
         mainVideoRef.play();
         setTimeout(function () {
             mainVideoRef.pause()
@@ -97,8 +107,11 @@ var enterVideo = function (x) {
 
     }
 
-    if (i.name.split(".") == "jpg") {
-        var type = "img";
+    if (type == "unknown") {
+        mainVideoRef = null;
+        $("#notSupported")[0].classList.add("hide");
+        openVideo(i);
+        $("#notSupported")[0].classList.remove("hide");
     }
 
     currentVideoId = i.id;

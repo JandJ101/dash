@@ -1,9 +1,10 @@
 #comments {
     position: absolute;
     right: 0px;
-    height: 100%;
+    height: calc(100% - 40px);
     width: 35%;
-    top: 0px;
+    bottom: 0px;
+    margin-bottom: 0px;
     padding: 15px;
 }
 
