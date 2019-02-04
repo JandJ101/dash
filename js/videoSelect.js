@@ -127,14 +127,25 @@ var updateUlMain = function () {
 
             var cardInfo = document.createElement("div");
             cardInfo.classList.add("card-action");
+            //sets visibility of info base on mouse input
             cardInfo.classList.add("noOpacity");
             node.onmouseover = function () {
                 this.getElementsByClassName("card-action")[0].classList.remove("noOpacity");
+                this.getElementsByClassName("menuDrop")[0].classList.remove("noOpacity");
             };
 
             node.onmouseout = function () {
                 this.getElementsByClassName("card-action")[0].classList.add("noOpacity");
+                this.getElementsByClassName("menuDrop")[0].classList.add("noOpacity");
             };
+
+            //menu button
+            var menuButton = document.createElement("i");
+            menuButton.classList.add("material-icons");
+            menuButton.classList.add("menuDrop");
+            menuButton.innerHTML = "more_vert";
+            menuButton.classList.add("noOpacity");
+            cardStack.appendChild(menuButton);
 
 
             //place all the info
