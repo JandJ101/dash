@@ -12,6 +12,7 @@
     flex-flow: row-reverse;
     color: #b9b9b9;
     white-space: nowrap;
+    transition: .2s;
 
 }
 

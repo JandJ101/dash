@@ -124,8 +124,17 @@ var updateUlMain = function () {
 
             var cardStack = document.createElement("div");
             cardStack.classList.add("card-stack");
+
             var cardInfo = document.createElement("div");
             cardInfo.classList.add("card-action");
+            cardInfo.classList.add("noOpacity");
+            node.onmouseover = function () {
+                this.getElementsByClassName("card-action")[0].classList.remove("noOpacity");
+            };
+
+            node.onmouseout = function () {
+                this.getElementsByClassName("card-action")[0].classList.add("noOpacity");
+            };
 
 
             //place all the info
