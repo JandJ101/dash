@@ -13,6 +13,10 @@
     color: #b9b9b9;
     white-space: nowrap;
     transition: .2s;
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+
 
 }
 
