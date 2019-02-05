@@ -160,6 +160,8 @@ var updateUlMain = function () {
 
             var deleteListen = function (x) {
                 dropDeleteButton.onclick = function () {
+                    $("#deleteTitle")[0].innerHTML = "Are you sure that you would like to delete <b>" + videoData[x].title + "</b>?"
+
                     $("#deleteButton")[0].onclick = function () {
                         deleteVideo(x);
                     }
