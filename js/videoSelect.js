@@ -160,10 +160,14 @@ var updateUlMain = function () {
 
             var deleteListen = function (x) {
                 dropDeleteButton.onclick = function () {
-                    deleteVideo(x);
+                    $("#deleteButton")[0].onclick = function () {
+                        deleteVideo(x);
+                    }
                 };
             };
             deleteListen(infos.id);
+            dropDeleteButton.href = "#deleteModal";
+            dropDeleteButton.classList.add("modal-trigger");
 
             dropDeleteButton.classList.add("blue-text");
             dropDeleteButton.classList.add("waves-effect");
@@ -276,6 +280,10 @@ var updateUlMain = function () {
         document.getElementById("main").appendChild(fullDom);
 
         $('.dropdown-trigger').dropdown();
+        $(document).ready(function () {
+            $('.modal').modal();
+        });
+
 
         document.getElementById("videoList").classList.remove("hide");
         document.getElementById("main").classList.remove("hide")
