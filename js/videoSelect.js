@@ -75,7 +75,7 @@ var objectToArray = function (object) {
 
 var updateUlMain = function () {
 
-
+    document.getElementById("main").classList.add("hide");
 
 
     var docRef = db.collection("users").doc("users");
@@ -105,7 +105,7 @@ var updateUlMain = function () {
         var currentObj = sortArray(objectToArray(videoData));
 
         var fullDom = document.createElement("div");
-        fullDom.classList.add("noOpacity");
+        fullDom.classList.add("hide");
         fullDom.id = "videoList";
         for (i = 0; i < Object.keys(videoData).length; i++) {
             var infos = currentObj[i];
@@ -143,11 +143,34 @@ var updateUlMain = function () {
             //menu button
             var menuButton = document.createElement("i");
             menuButton.classList.add("material-icons");
+            menuButton.classList.add("dropdown-trigger");
+            menuButton.setAttribute("data-target", infos.id + "drop");
             menuButton.classList.add("menuDrop");
             menuButton.innerHTML = "more_vert";
             menuButton.classList.add("waves-effect");
             menuButton.classList.add("noOpacity");
             cardStack.appendChild(menuButton);
+
+            //drop down
+            var dropList = document.createElement("ul");
+            dropList.classList.add("dropdown-content");
+            dropList.id = infos.id + "drop";
+            var dropDelete = document.createElement("li");
+            var dropDeleteButton = document.createElement("a");
+
+            var deleteListen = function (x) {
+                dropDeleteButton.onclick = function () {
+                    deleteVideo(x);
+                };
+            };
+            deleteListen(infos.id);
+
+            dropDeleteButton.classList.add("blue-text");
+            dropDelete.href = "#";
+            dropDeleteButton.innerHTML = "Delete";
+            dropDelete.appendChild(dropDeleteButton);
+            dropList.appendChild(dropDelete);
+            node.appendChild(dropList);
 
 
             //place all the info
@@ -234,7 +257,7 @@ var updateUlMain = function () {
 
             var addListener = function (x) {
                 node.addEventListener("click", event => {
-                    if (event.path[0].classList.contains("menuDrop") == false) {
+                    if (event.path[0].classList.contains("menuDrop") == false && event.path[0].nodeName != "A") {
                         enterVideo(x);
                     }
                 });
@@ -250,12 +273,15 @@ var updateUlMain = function () {
 
         document.getElementById("main").appendChild(fullDom);
 
+        $('.dropdown-trigger').dropdown();
+
+        document.getElementById("videoList").classList.remove("hide");
+        document.getElementById("main").classList.remove("hide")
         setTimeout(function () {
             document.getElementById("main").classList.remove("noOpacity");
 
-        }, 500)
+        }, 400)
 
-        document.getElementById("videoList").classList.remove("noOpacity");
     };
 
 

@@ -78,6 +78,17 @@ var hideViewer = function () {
 
 };
 
+var deleteVideo = function (vidId) {
+
+    var vidref = db.collection("uploads").doc("uploads");
+
+    var setWithMerge = vidref.update({
+        [vidId]: firebase.firestore.FieldValue.delete()
+    });
+
+
+};
+
 var initializeMenus = function () {
     //upload triggers
     $("#uploadButton")[0].addEventListener("click", showUploadWindow);
