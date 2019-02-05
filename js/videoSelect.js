@@ -166,6 +166,8 @@ var updateUlMain = function () {
             deleteListen(infos.id);
 
             dropDeleteButton.classList.add("blue-text");
+            dropDeleteButton.classList.add("waves-effect");
+            dropDeleteButton.classList.add("waves-light");
             dropDelete.href = "#";
             dropDeleteButton.innerHTML = "Delete";
             dropDelete.appendChild(dropDeleteButton);
@@ -257,7 +259,7 @@ var updateUlMain = function () {
 
             var addListener = function (x) {
                 node.addEventListener("click", event => {
-                    if (event.path[0].classList.contains("menuDrop") == false && event.path[0].nodeName != "A") {
+                    if (event.target.classList.contains("menuDrop") == false && event.target.nodeName != "A") {
                         enterVideo(x);
                     }
                 });
