@@ -46,7 +46,6 @@ var hideUploadWindow = function () {
     $("#uploadWindow")[0].classList.add("slideOutRight");
     $("#uploadBackButton")[0].classList.add("noOpacity");
 
-    mainVideoRef.pause();
 };
 
 var showViewer = function () {

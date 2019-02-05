@@ -97,8 +97,9 @@ var updateUlMain = function () {
 
     var continuing = function () {
 
-
-        document.getElementById("videoList").remove();
+        if ($("#videoList")[0]) {
+            document.getElementById("videoList").remove();
+        }
         document.getElementById("main").classList.add("noOpacity");
 
         var currentObj = sortArray(objectToArray(videoData));
@@ -144,6 +145,7 @@ var updateUlMain = function () {
             menuButton.classList.add("material-icons");
             menuButton.classList.add("menuDrop");
             menuButton.innerHTML = "more_vert";
+            menuButton.classList.add("waves-effect");
             menuButton.classList.add("noOpacity");
             cardStack.appendChild(menuButton);
 
@@ -231,10 +233,14 @@ var updateUlMain = function () {
             node.appendChild(cardStack);
 
             var addListener = function (x) {
-                node.addEventListener("click", function () {
-                    enterVideo(x);
+                node.addEventListener("click", event => {
+                    if (event.path[0].classList.contains("menuDrop") == false) {
+                        enterVideo(x);
+                    }
                 });
             };
+
+
 
             addListener(String(infos.id));
 

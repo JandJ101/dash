@@ -16,6 +16,7 @@
     position: absolute;
     top: 0;
     width: 21px;
+    transition: .3s;
 }
 
 .round label:after {

@@ -30,12 +30,11 @@ var updateTimeInBox = function () {
 
 //reset counter and uncheck it
 var resetViewer = function () {
-    mainVideoRef.pause();
-    mainVideoRef.src("");
+    if (mainVideoRef) {
+        mainVideoRef.pause();
+        mainVideoRef.src("");
+    }
     $("#checkTime span")[0].innerHTML = "00:00";
-    $("#notSupported")[0].classList.remove("hide");
-
-
     $("#timeCheck")[0].checked = true;
     $("#timeCheck")[0].disabled = "";
 
