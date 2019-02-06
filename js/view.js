@@ -61,6 +61,8 @@ var enterVideo = function (x) {
     var extension = i.name.split(".")[i.name.split(".").length - 1];
     var type = i.type;
 
+    currentType = "";
+
     //hide all players
     $("#notSupported")[0].classList.add("hide");
     $("#imgViewer")[0].classList.add("hide");
@@ -79,6 +81,7 @@ var enterVideo = function (x) {
     if (type == "video") {
         mainVideoRef = videojs("mainVideo");
         openVideo(i, true);
+
         mainVideoRef.play();
         setTimeout(function () {
             mainVideoRef.pause();
@@ -86,7 +89,8 @@ var enterVideo = function (x) {
         }, 40);
 
         $("#videoContainer")[0].classList.remove("hide");
-
+        currentType = "video";
+        resizeView();
 
     }
 
