@@ -98,6 +98,16 @@ var checkComment = function (vidId, comId, val) {
 
 };
 
+var deleteComment = function (comId, id) {
+
+    var comref = db.collection("comments").doc(id);
+
+    var setWithMerge = comref.update({
+        [comId]: firebase.firestore.FieldValue.delete()
+    });
+
+
+};
 
 var initComments = function () {
     $("#sendComment")[0].addEventListener("click", submitComment);

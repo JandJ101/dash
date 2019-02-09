@@ -99,13 +99,34 @@ var listComments = function () {
         //sets visibility of info base on mouse input
         node.onmouseover = function () {
             this.getElementsByClassName("round")[0].classList.remove("noOpacity");
+            this.getElementsByClassName("card-action")[0].classList.remove("noOpacity");
         };
 
         node.onmouseout = function () {
             if (this.getElementsByClassName("round")[0].getElementsByTagName("input")[0].checked == false) {
                 this.getElementsByClassName("round")[0].classList.add("noOpacity");
             }
+            this.getElementsByClassName("card-action")[0].classList.add("noOpacity");
+
         };
+
+        //actions
+        var commentAction = document.createElement("div");
+        commentAction.classList.add("card-action");
+        commentAction.classList.add("noOpacity");
+
+        var deleteCom = document.createElement("i");
+        deleteCom.innerHTML = "delete";
+        deleteCom.classList.add("material-icons");
+        commentAction.appendChild(deleteCom);
+        var deleteComListen = function (x) {
+            deleteCom.onmouseup = function () {
+                deleteComment(x.id, currentVideoId);
+
+            };
+        };
+        deleteComListen(infos);
+
 
         setCheckListen(commId);
         if (infos.checked) {
@@ -132,7 +153,7 @@ var listComments = function () {
         content.appendChild(text);
 
         node.appendChild(content);
-
+        node.appendChild(commentAction);
 
         var setListen = function (y) {
             node.addEventListener("click", function () {

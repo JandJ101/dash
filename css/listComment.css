@@ -5,7 +5,7 @@
     width: 35%;
     bottom: 0px;
     margin-bottom: 0px;
-    padding: 15px;
+    padding: 0;
 }
 
 #comments img {
@@ -13,6 +13,28 @@
     width: 27;
     padding: 1px;
     border-radius: 50%;
+}
+
+#comments .card {
+    margin: 0;
+    box-shadow: none;
+    border-bottom: 1px solid #bebebe;
+    border-radius: 0;
+}
+
+#comments .card:first-child {
+    border-top: none;
+
+}
+
+#comments .card:last-child {
+    border-bottom: none;
+
+}
+
+#comments .card-content {
+    padding: 15px;
+    padding-bottom: 3px;
 }
 
 #comments .card-title {
@@ -25,6 +47,16 @@
     padding-right: 8px;
     font-weight: bold;
 
+}
+
+#comments .card-action {
+    padding: 2px;
+    color: #b9b9b9;
+    text-align: right;
+}
+
+#comments .card-action i {
+    font-size: 20px;
 }
 
 #noComments {
