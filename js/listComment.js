@@ -37,6 +37,18 @@ var listComments = function () {
 
     var currentObj = sortArray(objectToArray(commentData));
 
+    //no comments
+    if (currentObj.length == 0) {
+        var noCom = document.createElement("div");
+        noCom.id = "noComments";
+        var noComText = document.createElement("h6");
+        noComText.classList.add("grey-text");
+        noComText.innerHTML = "No comments yet";
+        noCom.appendChild(noComText);
+        document.getElementById(element).appendChild(noCom);
+
+        return;
+    }
     for (i = 0; i < currentObj.length; i++) {
         var infos = currentObj[i];
 
@@ -78,6 +90,21 @@ var listComments = function () {
 
             });
 
+        };
+        if (infos.checked == false) {
+            checkbox.classList.add("noOpacity");
+
+        }
+
+        //sets visibility of info base on mouse input
+        node.onmouseover = function () {
+            this.getElementsByClassName("round")[0].classList.remove("noOpacity");
+        };
+
+        node.onmouseout = function () {
+            if (this.getElementsByClassName("round")[0].getElementsByTagName("input")[0].checked == false) {
+                this.getElementsByClassName("round")[0].classList.add("noOpacity");
+            }
         };
 
         setCheckListen(commId);

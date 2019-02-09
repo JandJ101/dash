@@ -34,6 +34,7 @@ var resetViewer = function () {
         mainVideoRef.pause();
         mainVideoRef.src("");
     }
+    document.getElementById("comments").innerHTML = "";
     $("#checkTime span")[0].innerHTML = "00:00";
     $("#timeCheck")[0].checked = true;
     $("#timeCheck")[0].disabled = "";
