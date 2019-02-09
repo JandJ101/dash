@@ -135,9 +135,13 @@ var commentCounter = function (x, inc) {
                 newVal = inc
             }
 
+            if (newVal < 0) {
+                newVal = 0;
+
+            }
+
             var upRef = db.collection("uploads").doc("uploads");
 
-            // Set the "capital" field of the city 'DC'
             return upRef.set({
                     [x]: {
                         comments: newVal
