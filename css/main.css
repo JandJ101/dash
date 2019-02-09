@@ -7,7 +7,6 @@ body {
     bottom: 0px;
     top: 40px;
     width: 100%;
-    background: #F5F5F5;
 }
 
 .animated {
@@ -68,6 +67,7 @@ input {
     width: 100%;
     margin: 0px;
     transition: .4s;
+    background: #F5F5F5;
 }
 
 #uploadButton {
