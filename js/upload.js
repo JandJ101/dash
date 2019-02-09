@@ -70,6 +70,7 @@ var resetUploader = function () {
     resetUploadState();
 
     $("#uploadButton")[0].classList.remove("blueGrad");
+    uploadName.innerHTML = "";
 
     fileButton.parentElement.classList.remove("flipOutY");
     cancelUpload.classList.add("flipOutY");
@@ -89,7 +90,9 @@ var upload = function (e) {
 
     var task = storageRef.put(file);
 
-    uploadState.classList.remove("noOpacity");
+    uploadName.innerHTML = file.name;
+
+    showUploadState();
     $("#uploadButton")[0].classList.add("blueGrad");
 
     fileButton.parentElement.classList.add("flipOutY");
@@ -99,13 +102,17 @@ var upload = function (e) {
 
 
 
+
     cancelUploading = false;
     task.on("state_changed",
 
         function progress(snapshot) {
-            amountTotal.innerHTML = String(Math.round(snapshot.totalBytes / 10000) / 100) + "MB";
-            amountComplete.innerHTML = String(Math.round(snapshot.bytesTransferred / 10000) / 100) + "MB";
-            var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+
+            var percentage = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+
+            amountTotal.innerHTML = String(percentage) + "%";
+            amountComplete.innerHTML = formatBytes(snapshot.bytesTransferred) + "/" + formatBytes(snapshot.totalBytes);
+
             uploader.style.width = String(percentage) + "%";
 
             if (cancelUploading) {
@@ -199,6 +206,7 @@ var initilizeUploader = function () {
     var uploadState = $("#uploadState")[0];
     var amountTotal = $("#amountTotal")[0];
     var amountComplete = $("#amountComplete")[0];
+    var uploadName = $("#uploadName")[0];
 
     fileButton.addEventListener("change", function (e) {
         upload(e);
@@ -210,13 +218,14 @@ var initilizeUploader = function () {
 };
 
 var showUploadState = function () {
-    uploadState.classList.remove("noOpacity");
+    uploadState.classList.remove("hide");
+
 
 
 };
 
 var hideUploadState = function () {
-    uploadState.classList.add("noOpacity");
+    uploadState.classList.add("hide");
 
 }
 
