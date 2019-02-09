@@ -8,7 +8,9 @@ var submitComment = function () {
 
     var commText = $("#inptComment")[0].value;
 
-    currTime = mainVideoRef.currentTime();
+    if (mainVideoRef) {
+        currTime = mainVideoRef.currentTime();
+    }
 
     var uuid = auth.currentUser.uid;
 
@@ -45,7 +47,10 @@ var writeCommentToBase = function (x) {
                         ids: newCommId,
                         [newCommId]: x
                     })
-                    .then(function () {})
+                    .then(function () {
+                        commentCounter(currentVideoId, 1);
+
+                    })
                     .catch(function (error) {
                         console.error("Error writing document: ", error);
                     });
@@ -61,7 +66,9 @@ var writeCommentToBase = function (x) {
                         ids: currentIds,
                         [newCommId]: x
                     })
-                    .then(function () {})
+                    .then(function () {
+                        commentCounter(currentVideoId, 1);
+                    })
                     .catch(function (error) {
                         // The document probably doesn't exist.
                         console.error("Error updating document: ", error);
@@ -104,8 +111,57 @@ var deleteComment = function (comId, id) {
 
     var setWithMerge = comref.update({
         [comId]: firebase.firestore.FieldValue.delete()
+    }).then(function () {
+        commentCounter(currentVideoId, -1);
     });
 
+
+};
+
+var data;
+
+var commentCounter = function (x, inc) {
+    var docRef = db.collection("uploads").doc("uploads");
+
+    docRef.get().then(function (doc) {
+        if (doc.exists) {
+            data = doc.data();
+            vid = data[x];
+
+            var newVal;
+            if (vid.comments) {
+                newVal = vid.comments + inc;
+            } else {
+                newVal = inc
+            }
+
+            var upRef = db.collection("uploads").doc("uploads");
+
+            // Set the "capital" field of the city 'DC'
+            return upRef.set({
+                    [x]: {
+                        comments: newVal
+                    }
+                }, {
+                    merge: true
+                })
+                .then(function () {
+                    //console.log("Document successfully updated!");
+                })
+                .catch(function (error) {
+                    // The document probably doesn't exist.
+                    console.error("Error updating document: ", error);
+                });
+
+            console.log(data[x]);
+        } else {
+            // doc.data() will be undefined in this case
+
+            console.log("No such document!");
+        }
+    }).catch(function (error) {
+        console.log("Error getting document:", error);
+    });
 
 };
 

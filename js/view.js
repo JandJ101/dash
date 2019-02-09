@@ -73,6 +73,7 @@ var enterVideo = function (x) {
     if (type == "image") {
         $("#imgViewer")[0].src = i.path;
         openVideo(i);
+        $("#commentBox")[0].onclick = null;
         $("#imgViewer")[0].classList.remove("hide");
         $("#timeCheck")[0].checked = false;
         $("#timeCheck")[0].disabled = "disabled";
@@ -82,6 +83,11 @@ var enterVideo = function (x) {
     if (type == "video") {
         mainVideoRef = videojs("mainVideo");
         openVideo(i, true);
+        $("#commentBox")[0].onclick = function () {
+            if (mainVideoRef) {
+                mainVideoRef.pause();
+            }
+        };
 
         mainVideoRef.play();
         setTimeout(function () {
@@ -98,6 +104,11 @@ var enterVideo = function (x) {
     if (type == "audio") {
         mainVideoRef = videojs("mainAudio");
         openVideo(i, true);
+        $("#commentBox")[0].onclick = function () {
+            if (mainVideoRef) {
+                mainVideoRef.pause();
+            }
+        };
         mainVideoRef.play();
         setTimeout(function () {
             mainVideoRef.pause()
@@ -113,9 +124,13 @@ var enterVideo = function (x) {
 
     if (type == "unknown") {
         mainVideoRef = null;
+        $("#commentBox")[0].onclick = null;
         $("#notSupported")[0].classList.add("hide");
         openVideo(i);
         $("#notSupported")[0].classList.remove("hide");
+        $("#timeCheck")[0].checked = false;
+        $("#timeCheck")[0].disabled = "disabled";
+
     }
 
     currentVideoId = i.id;

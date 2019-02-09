@@ -46,7 +46,8 @@ var addDataToBase = function (Path, Name, Id, User, Date, Type, Size, Length) {
         date: Date,
         type: Type,
         size: Size,
-        length: Length
+        length: Length,
+        comments: 0
     };
 
 

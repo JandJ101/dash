@@ -12,6 +12,7 @@
     height: 27;
     width: 27;
     padding: 1px;
+    margin-right: 5px;
     border-radius: 50%;
 }
 
@@ -20,6 +21,12 @@
     box-shadow: none;
     border-bottom: 1px solid #bebebe;
     border-radius: 0;
+    transition: .4s;
+}
+
+#comments .card:hover {
+    background: #fafafa;
+
 }
 
 #comments .card:first-child {

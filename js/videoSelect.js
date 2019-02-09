@@ -193,6 +193,17 @@ var updateUlMain = function () {
             userInfo.appendChild(userSymbol);
             userInfo.appendChild(userTextContainer);
 
+            //comments
+            var comInfo = document.createElement("span");
+            var comText = infos.comments;
+            var comTextContainer = document.createElement("div");
+            comTextContainer.innerHTML = comText;
+            var comSymbol = document.createElement("i");
+            comSymbol.classList.add("material-icons");
+            comSymbol.innerHTML = "comment";
+            comInfo.appendChild(comSymbol);
+            comInfo.appendChild(comTextContainer);
+
             //time
             var timeInfo = document.createElement("span");
             var timeText = timeSince(infos.date);
@@ -227,6 +238,7 @@ var updateUlMain = function () {
             }
             cardInfo.appendChild(userInfo);
             cardInfo.appendChild(timeInfo);
+            cardInfo.appendChild(comInfo);
 
 
             if (infos.type == "video") {
