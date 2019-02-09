@@ -287,6 +287,8 @@ var updateUlMain = function () {
         });
 
 
+        $("#waitLoader")[0].classList.add("hide");
+
         document.getElementById("videoList").classList.remove("hide");
         document.getElementById("main").classList.remove("hide")
         setTimeout(function () {

@@ -20,9 +20,9 @@ var signInButton = function () {
 
 };
 
-var setUserMenu = function(){
+var setUserMenu = function () {
     $("#menuUser")[0].innerHTML = currentUserInfo[auth.currentUser.uid].name;
-    
+
 }
 
 var initializeAuthentication = function () {
@@ -32,6 +32,7 @@ var initializeAuthentication = function () {
             //logged in
             //console.log(firebaseUser);
             hideAuth();
+            $("#waitLoader")[0].classList.remove("hide")
             updateVideos(true);
         } else {
             //console.log("notLoged in.");
