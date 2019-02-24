@@ -96,7 +96,7 @@ var initializeMenus = function () {
     $("#uploadBackButton")[0].addEventListener("click", hideViewer);
 
     $("#toggleCheck")[0].addEventListener("click", function () {
-        toggleCheck(this);
+        listComments();
     });
 
 };

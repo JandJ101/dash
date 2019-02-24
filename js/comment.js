@@ -101,8 +101,7 @@ var checkComment = function (vidId, comId, val) {
     }, {
         merge: true
     });
-
-
+    
 };
 
 var deleteComment = function (comId, id) {

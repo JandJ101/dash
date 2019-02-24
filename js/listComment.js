@@ -29,20 +29,7 @@ var updateComments = function (x, z) {
 
 };
 
-var toggleCheck = function (x) {
-    if (x.checked) {
-        listComments({
-            check: true
-        });
 
-    } else {
-        listComments({
-            check: false
-        });
-    }
-
-
-};
 
 var listComments = function (pref) {
     var element = "comments";
@@ -183,8 +170,7 @@ var listComments = function (pref) {
 
         };
 
-        if (pref.check && infos.checked) {
-
+        if ($("#toggleCheck")[0].checked && infos.checked) {
 
         } else {
             continuing();
