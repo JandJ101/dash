@@ -45,7 +45,6 @@ var toggleCheck = function (x) {
 };
 
 var listComments = function (pref) {
-    console.log(pref);
     var element = "comments";
     document.getElementById(element).innerHTML = "";
 
