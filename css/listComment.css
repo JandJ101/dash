@@ -19,7 +19,6 @@
 #comments .card {
     margin: 0;
     box-shadow: none;
-    border-bottom: 1px solid #bebebe;
     border-radius: 0;
     transition: .4s;
 }
@@ -31,11 +30,6 @@
 
 #comments .card:first-child {
     border-top: none;
-
-}
-
-#comments .card:last-child {
-    border-bottom: none;
 
 }
 

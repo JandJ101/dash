@@ -10,7 +10,7 @@
     display: flex;
     align-content: center;
     flex-flow: row-reverse;
-    color: #b9b9b9;
+
     white-space: nowrap;
     transition: .2s;
     -moz-user-select: -moz-none;
@@ -41,9 +41,9 @@
 }
 
 #videoList .card-image i {
-    background: #f7f7f7;
+
     padding: 20px;
-    color: #868686;
+
 }
 
 #videoList .card-title {
@@ -64,7 +64,6 @@
 
 #videoList .menuDrop {
     float: right;
-    color: #b9b9b9;
     border-radius: 50%;
     margin-top: 12px;
     margin-right: 5px;

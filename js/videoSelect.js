@@ -107,7 +107,15 @@ var updateUlMain = function () {
         var fullDom = document.createElement("div");
         fullDom.classList.add("hide");
         fullDom.id = "videoList";
+
+
         for (i = 0; i < Object.keys(videoData).length; i++) {
+//            if (infos == undefined) {
+//                var noUploadText = document.createElement("h4");
+//                noUploadText.style.textAlign = "center";
+//                noUploadText.innerHTML = "No uploads yet";
+//                fullDom.appendChild(noUploadText);
+//            }
             var infos = currentObj[i];
 
             var node = document.createElement("div");
@@ -158,6 +166,9 @@ var updateUlMain = function () {
             var dropDelete = document.createElement("li");
             var dropDeleteButton = document.createElement("a");
 
+            var dropRename = document.createElement("li");
+            var dropRenameButton = document.createElement("a");
+
             var deleteListen = function (x) {
                 dropDeleteButton.onclick = function () {
                     $("#deleteTitle")[0].innerHTML = "Are you sure that you would like to delete <b>" + videoData[x].title + "</b>?"
@@ -170,14 +181,40 @@ var updateUlMain = function () {
             deleteListen(infos.id);
             dropDeleteButton.href = "#deleteModal";
             dropDeleteButton.classList.add("modal-trigger");
-
-            dropDeleteButton.classList.add("blue-text");
+            dropDeleteButton.classList.add("grey-text");
+            dropDeleteButton.classList.add("text-darken-2");
             dropDeleteButton.classList.add("waves-effect");
             dropDeleteButton.classList.add("waves-light");
             dropDelete.href = "#";
             dropDeleteButton.innerHTML = "Delete";
             dropDelete.appendChild(dropDeleteButton);
             dropList.appendChild(dropDelete);
+
+
+            var renameListen = function (x) {
+                dropRenameButton.onclick = function () {
+                    $("#renameTitle")[0].innerHTML = "Rename " + "<b>" + videoData[x].title + "</b>";
+                    $("#renameBox")[0].value = videoData[x].title;
+
+                    $("#renameButton")[0].onclick = function () {
+                        renameVideo(x);
+                    }
+                };
+            };
+
+            renameListen(infos.id);
+            dropRenameButton.href = "#renameModal";
+            dropRenameButton.classList.add("modal-trigger");
+            dropRenameButton.classList.add("grey-text");
+            dropRenameButton.classList.add("text-darken-2");
+            dropRenameButton.classList.add("waves-effect");
+            dropRenameButton.classList.add("waves-light");
+            dropRename.href = "#";
+            dropRenameButton.innerHTML = "Rename";
+            dropRename.appendChild(dropRenameButton);
+            dropList.appendChild(dropRename);
+
+
             node.appendChild(dropList);
 
 

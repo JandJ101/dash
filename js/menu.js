@@ -79,13 +79,32 @@ var hideViewer = function () {
 };
 
 var deleteVideo = function (vidId) {
+    var storageRef = firebase.storage().ref();
+    var delRef = storageRef.child('uploads/' + videoData[vidId].name);
+
+    delRef.delete().then(function () {
+
+        var vidref = db.collection("uploads").doc("uploads");
+
+        var setWithMerge = vidref.update({
+        [vidId]: firebase.firestore.FieldValue.delete()
+        });
+    }).catch(function (error) {
+        // Uh-oh, an error occurred!
+    });
+};
+
+var renameVideo = function (vidId) {
+    var newName = $("#renameBox")[0].value;
 
     var vidref = db.collection("uploads").doc("uploads");
 
-    var setWithMerge = vidref.update({
-        [vidId]: firebase.firestore.FieldValue.delete()
-    });
+    var newData = videoData[vidId];
+    newData.title = newName;
 
+    var setWithMerge = vidref.update({
+        [vidId]: newData
+    });
 
 };
 

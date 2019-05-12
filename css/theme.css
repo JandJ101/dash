@@ -1,0 +1,174 @@
+/*Dark*/
+.dark {
+    background: #15151c;
+
+}
+
+.dark #main {
+    background: #15151c;
+}
+
+.dark #videoList {
+    color: white;
+}
+
+.dark .card {
+    background: #303246;
+    color: white;
+}
+
+.dark #videoList .card-image i {
+    color: #7d829c;
+    background: #282a3c;
+}
+
+.dark #header {
+    background: #15141c;
+    border-bottom-color: 1px black;
+}
+
+.dark #videoList .card-action {
+    color: #7d829c;
+}
+
+.dark #videoList .menuDrop {
+    color: #7d829c;
+}
+
+.dark #uploadWindow {
+    background: #0f0f14;
+}
+
+.dark #header > i {
+    color: #fafafa;
+}
+
+.dark #header #smallLogo {
+    color: #fafafa;
+}
+
+.dark #uploadState {
+    color: #fafafa;
+}
+
+.dark #waitLoader {
+    background: #15151c;
+
+}
+
+.dark #authContainer {
+    background: #15151c;
+}
+
+.dark #viewer {
+    background: #0f1013;
+
+}
+
+.dark #commentBox {
+    background: #2b2f3b;
+    color: white;
+}
+
+.dark #commentBox #inptComment {
+    color: white;
+}
+
+.dark #commentBox #checkTime {
+    background: #20222b;
+    color: #9e9e9e;
+
+}
+
+.dark #comments {
+    background: #2b2f3b;
+
+}
+
+.dark #comments > .card {
+    background: #2b2f3b;
+    border-bottom: 1px solid #0f1014;
+
+}
+
+.dark #comments > .card:hover {
+    background: #353944;
+
+}
+
+.dark #videoActions {
+    border-bottom: 1px solid #0f1014;
+    background: #2b2f3b;
+}
+
+/*lighten*/
+
+.lighten #videoList .card-action {
+    color: #b9b9b9;
+
+}
+
+.lighten #videoList .menuDrop {
+    color: #b9b9b9;
+
+}
+
+.lighten #videoList .card-image i {
+    background: #f7f7f7;
+    color: #868686;
+}
+
+.lighten #header > i {
+    color: #212121;
+
+}
+
+.lighten #waitLoader {
+    background: #eee;
+
+}
+
+.lighten #authContainer {
+    background: #fff;
+
+}
+
+.lighten #authBox {
+    background-color: #f5f5f5;
+
+}
+
+.lighten #viewer {
+    background: #fff;
+}
+
+.lighten #commentBox {
+    background: #f5f5f5;
+}
+
+.lighten #commentBox #checkTime {
+    background: #d8d8d8;
+    color: #9e9e9e;
+
+}
+
+.lighten #comments {
+    background: #f5f5f5;
+
+}
+
+.lighten #videoActions {
+    border-bottom: 1px solid #d6d6d6;
+    background: #f5f5f5;
+}
+
+.lighten #comments > .card {
+    background: #f5f5f5;
+    border-bottom: 1px solid #bebebe;
+
+}
+
+.lighten #comments > .card:hover {
+    background: #fbfbfb;
+
+}

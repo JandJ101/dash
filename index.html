@@ -59,6 +59,7 @@
     <link rel="stylesheet" href="css/videoSelect.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="css/listComment.css" />
+    <link rel="stylesheet" href="css/theme.css" />
     <link rel="stylesheet" href="css/checkbox.css" />
 
 
@@ -66,7 +67,7 @@
 
 </head>
 
-<body>
+<body class="dark">
     <div id="waitLoader" class="hide">
 
         <div>
@@ -93,7 +94,7 @@
 
     <div id="authContainer" class="animated hide">
         <div>
-            <div id="authBox" class="animated card grey lighten-4">
+            <div id="authBox" class="animated card">
 
                 <div>
                     <img src="img/large_logo.png" alt="Dash" />
@@ -126,8 +127,10 @@
                 </h6>
             </a>
 
-            <ul id='dropdown1' class='dropdown-content'>
-                <li><a href="#!" onclick="auth.signOut();" class="waves-effect waves-light blue-text">Sign Out<i class="blue-text material-icons">exit_to_app</i></a></li>
+            <ul id='dropdown1' class='dropdown-content text-darken-2 grey-text'>
+                <li><a href="#settingsModal" onclick="" class="modal-trigger waves-effect waves-light text-darken-2 grey-text">User Settings<i class="material-icons text-darken-2 grey-text">settings</i></a></li>
+                <li><a href="#!" onclick="auth.signOut();" class="waves-effect waves-light text-darken-2 grey-text">Sign Out<i class="material-icons text-darken-2 grey-text">exit_to_app</i></a></li>
+
             </ul>
 
             <script>
@@ -140,6 +143,21 @@
         </div>
 
         <div id="main" class="noOpacity scrollbar scroller">
+            <div id="settingsModal" class="modal">
+                <div class="modal-content">
+                    <h4>User Settings</h4>
+                    <p>WIP</p>
+                    <div class="input-field col s12">
+                        <input id="username" type="text" class="">
+                        <label for="username">Name</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">OK</a>
+                </div>
+            </div>
+
+
             <div id="deleteModal" class="modal">
                 <div class="modal-content">
                     <!--         <h4>Are you sure that you would like to delete this video?</h4>-->
@@ -151,8 +169,19 @@
                 </div>
             </div>
 
-            <div id="videoList">
+            <div id="renameModal" class="modal">
+                <div class="modal-content">
+                    <h4 id="renameTitle"></h4>
+                    <input id="renameBox" placeholder="Rename" id="first_name" type="text" class="">
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-light btn-flat">Cancel</a>
+                    <a href="#!" class="modal-close waves-effect waves-light btn-flat" id="renameButton">Rename</a>
+                </div>
+            </div>
 
+            <div id="videoList">
+                No Uploads Yet.
             </div>
 
         </div>
@@ -168,7 +197,7 @@
 
                 <div id="videoContainer" class="hide">
                     <video id="mainVideo" class="video-js videoInner" controls preload="auto" width="1920px" height="1080px" poster="" data-setup="{}">
-                        <source src="https://firebasestorage.googleapis.com/v0/b/back-9d523.appspot.com/o/uploads%2FJandJ%20-%20Dawn.mp3?alt=media&token=1a222ee4-2588-4114-9d69-75c818a0292e" type=''>
+                        <source src="https://firebasestorage.googleapis.com/v0/b/back-9d523.appspot.com/o/uploads%2Fecape%20trash.mp4?alt=media&token=7c5c63e9-c3f1-4ee7-8aac-33cc84fd353d" type=''>
                         <p class="vjs-no-js">
                             To view this video please enable JavaScript, and consider upgrading to a web browser that
                             <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
@@ -180,7 +209,7 @@
                 </div>
                 <div id="audioContainer" class="hide">
                     <video id="mainAudio" class="video-js videoInner" controls preload="auto" width="1920px" height="1080px" poster="" data-setup='{ "inactivityTimeout": 0 }'>
-                        <source src="https://firebasestorage.googleapis.com/v0/b/back-9d523.appspot.com/o/uploads%2FJandJ%20-%20Dawn.mp3?alt=media&token=1a222ee4-2588-4114-9d69-75c818a0292e" type=''>
+                        <source src="https://firebasestorage.googleapis.com/v0/b/back-9d523.appspot.com/o/uploads%2F15%20Sphere.mp3?alt=media&token=3f5aeb48-8117-4cee-8bf3-bafb274cb9e4" type=''>
                         <p class="vjs-no-js">
                             To view this video please enable JavaScript, and consider upgrading to a web browser that
                             <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
@@ -190,7 +219,7 @@
 
 
             </div>
-            <div id="commentBox" class="grey lighten-4 card-panel" onclick="">
+            <div id="commentBox" class="card-panel" onclick="">
                 <div style="height: 0px; width: 100%; margin: 0px;" class="input-field col s6">
                     <input placeholder="Leave your comment here..." value="" id="inptComment" type="text" class="">
                 </div>
@@ -201,11 +230,11 @@
                 <a id="sendComment" class="waves-effect waves-light btn blue accent-2"><i class="material-icons right">send</i>send</a>
 
             </div>
-            <div class="grey lighten-3 grey-text" id="videoActions">
+            <div class="grey-text" id="videoActions">
                 <a href="#" class="grey-text" id="fileDownload" target="_blank" download><i class="material-icons">file_download</i></a>
                 <div style="float: right;" class="round"><input id="toggleCheck" type="checkbox"><label for="toggleCheck"></label></div>
             </div>
-            <div id="comments" class="scroller scrollbar grey lighten-4">
+            <div id="comments" class="scroller scrollbar">
 
 
             </div>
