@@ -58,6 +58,11 @@
 
 .dark #authContainer {
     background: #15151c;
+
+}
+
+.dark #authContainer input {
+    color: white;
 }
 
 .dark #viewer {
