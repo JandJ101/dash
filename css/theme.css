@@ -9,12 +9,12 @@
 }
 
 .dark #videoList {
-    color: white;
+    color: #fafafa;
 }
 
 .dark .card {
     background: #303246;
-    color: white;
+    color: #fafafa;
 }
 
 .dark #videoList .card-image i {
@@ -62,7 +62,7 @@
 }
 
 .dark #authContainer input {
-    color: white;
+    color: #fafafa;
 }
 
 .dark #viewer {
@@ -72,11 +72,11 @@
 
 .dark #commentBox {
     background: #2b2f3b;
-    color: white;
+    color: #fafafa;
 }
 
 .dark #commentBox #inptComment {
-    color: white;
+    color: #fafafa;
 }
 
 .dark #commentBox #checkTime {
@@ -106,6 +106,12 @@
     background: #2b2f3b;
 }
 
+.dark #videoName {
+    background: -webkit-linear-gradient(left, #fafafa, #fafafa, #fafafa, #fafafa, #fafafa, rgba(205, 205, 205, 0));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 /*lighten*/
 
 .lighten #videoList .card-action {
@@ -121,6 +127,17 @@
 .lighten #videoList .card-image i {
     background: #f7f7f7;
     color: #868686;
+}
+
+.lighten #header {
+    border-bottom: 1px solid #808080;
+    color: #212121;
+
+}
+
+.lighten #header #smallLogo {
+    color: #212121;
+
 }
 
 .lighten #header > i {
@@ -168,7 +185,7 @@
 }
 
 .lighten #comments > .card {
-    background: #f5f5f5;
+    1121155 background: #f5f5f5;
     border-bottom: 1px solid #bebebe;
 
 }
@@ -176,4 +193,10 @@
 .lighten #comments > .card:hover {
     background: #fbfbfb;
 
+}
+
+.lighten #videoName {
+    background: -webkit-linear-gradient(left, #212121, #212121, #212121, #212121, #212121, rgba(205, 205, 205, 0));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }

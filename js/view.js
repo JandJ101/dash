@@ -51,7 +51,7 @@ var openVideo = function (x, vOrA) {
 
     }
 
-    videoName.innerHTML = x.name;
+    videoName.innerHTML = x.title;
 
     showViewer();
 };
