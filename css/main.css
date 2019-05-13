@@ -25,12 +25,13 @@ i {
 input[type=text]:focus,
 input[type=password]:focus,
 input[type=email]:focus {
-    border-bottom: 1px solid #448aff !important;
+    border-bottom: 1px solid #2196f3 !important;
+    box-shadow: 0 1px 0 0 #2196f3 !important;
 }
 
 [type="checkbox"].filled-in:checked + span:not(.lever):after {
-    border: 2px solid #448aff;
-    background-color: #448aff;
+    border: 2px solid #2196f3;
+    background-color: #2196f3;
 }
 
 input {
@@ -304,3 +305,40 @@ input {
 }
 
 #settingsModal {}
+
+.tabs {
+    background: none;
+    border-radius: 3px;
+}
+
+.tabs .tab a {
+    color: #000;
+}
+
+/*Black color to the text*/
+
+.tabs .tab a:hover {
+    background-color: #eeeeee45;
+    color: #000;
+}
+
+/*Text color on hover*/
+
+.tabs .tab a.active {
+    background-color: #dddddd4f;
+    color: #000;
+}
+
+/*Background and text color when a tab is active*/
+
+.tabs .indicator {
+    background-color: #2196f3;
+}
+
+/*Color of underline*/
+
+.tabs .tab a:focus,
+.tabs .tab a:focus.active {
+    background-color: rgba(85, 85, 85, 0.2);
+
+}

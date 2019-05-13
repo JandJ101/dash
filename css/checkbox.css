@@ -42,7 +42,7 @@
 }
 
 .round input[type="checkbox"]:checked + label {
-    background-color: #448aff;
+    background-color: #2196f3;
     border-color: #e3f2fd;
 }
 

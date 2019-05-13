@@ -84,6 +84,7 @@ var updateUlMain = function () {
         if (doc.exists) {
             currentUserInfo = doc.data();
             setUserMenu();
+            prefInit();
             continuing();
         } else {
             // doc.data() will be undefined in this case
@@ -110,12 +111,12 @@ var updateUlMain = function () {
 
 
         for (i = 0; i < Object.keys(videoData).length; i++) {
-//            if (infos == undefined) {
-//                var noUploadText = document.createElement("h4");
-//                noUploadText.style.textAlign = "center";
-//                noUploadText.innerHTML = "No uploads yet";
-//                fullDom.appendChild(noUploadText);
-//            }
+            //            if (infos == undefined) {
+            //                var noUploadText = document.createElement("h4");
+            //                noUploadText.style.textAlign = "center";
+            //                noUploadText.innerHTML = "No uploads yet";
+            //                fullDom.appendChild(noUploadText);
+            //            }
             var infos = currentObj[i];
 
             var node = document.createElement("div");
