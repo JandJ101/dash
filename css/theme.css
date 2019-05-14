@@ -131,6 +131,7 @@
 .lighten #header {
     border-bottom: 1px solid #808080;
     color: #212121;
+    box-shadow: none;
 
 }
 

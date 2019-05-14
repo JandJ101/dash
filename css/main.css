@@ -310,6 +310,7 @@ input {
     background: none;
     border-radius: 3px;
     width: fit-content;
+    width: -moz-fit-content;
 }
 
 .tabs .tab a {
