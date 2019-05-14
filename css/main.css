@@ -309,6 +309,7 @@ input {
 .tabs {
     background: none;
     border-radius: 3px;
+    width: fit-content;
 }
 
 .tabs .tab a {

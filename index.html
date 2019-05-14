@@ -149,8 +149,8 @@
                     <div class="row">
                         <div class="col s12">
                             <ul style="margin-bottom: 40px;" id="prefTabs" class="tabs z-depth-1">
-                                <li class="tab col s3"><a href="#ProfileSet">Profile</a></li>
-                                <li class="tab col s3"><a class="active" href="#UIset">UI</a></li>
+                                <li class="tab"><a href="#ProfileSet">Profile</a></li>
+                                <li class="tab"><a class="active" href="#UIset">UI</a></li>
 
                             </ul>
                         </div>
@@ -166,7 +166,7 @@
                         <div id="UIset" class="col s12">
                             <div class="input-field col s12">
                                 <label>
-                                    <input type="checkbox" class="filled-in" checked="checked" />
+                                    <input id="themeToggle" type="checkbox" class="filled-in" checked="checked" />
                                     <span>Dark Mode</span>
                                 </label>
                             </div>
@@ -177,7 +177,7 @@
 
                 </div>
                 <div class="modal-footer">
-                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">OK</a>
+                    <a id="prefSave" href="#!" class="modal-close waves-effect waves-green btn-flat">Save</a>
                 </div>
             </div>
 
