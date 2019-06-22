@@ -1,7 +1,6 @@
 var prefTabsInstance;
 var prefInit = function () {
     var user = currentUserInfo[auth.currentUser.uid];
-    console.log(user);
 
     prefTabsInstance = M.Tabs.init($("#prefTabs"));
     prefTabsInstance[0].select("ProfileSet");

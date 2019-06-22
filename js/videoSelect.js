@@ -84,6 +84,7 @@ var updateUlMain = function () {
         if (doc.exists) {
             currentUserInfo = doc.data();
             setUserMenu();
+            applyPref();
             prefInit();
             continuing();
         } else {
