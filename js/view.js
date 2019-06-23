@@ -46,6 +46,8 @@ var openVideo = function (x, vOrA) {
     $("#fileDownload")[0].href = x.path;
     $("#fileDownload")[0].download = x.name;
 
+    $("#bigDownloadBut")[0].href = x.path;
+
     if (vOrA) {
         mainVideoRef.src(x.path);
 
