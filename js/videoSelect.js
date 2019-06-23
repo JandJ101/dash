@@ -30,11 +30,11 @@ var timeSince = function (date) {
     var interval = Math.floor(seconds / 31536000);
 
     if (interval > 1) {
-        return interval + " years";
+        return interval + " yrs";
     }
     interval = Math.floor(seconds / 2592000);
     if (interval > 1) {
-        return interval + " months";
+        return interval + " mos";
     }
     interval = Math.floor(seconds / 86400);
     if (interval > 1) {
@@ -42,11 +42,11 @@ var timeSince = function (date) {
     }
     interval = Math.floor(seconds / 3600);
     if (interval > 1) {
-        return interval + " hours";
+        return interval + " hrs";
     }
     interval = Math.floor(seconds / 60);
     if (interval > 1) {
-        return interval + " minutes";
+        return interval + " min";
     }
     return ("Just now");
 }

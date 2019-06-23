@@ -157,7 +157,7 @@ input {
 
 
 #outerVideoWrapper {
-    width: 65%;
+    width: 70%;
     padding: 2%;
     height: calc(94% - 90px);
     display: flex;
@@ -181,7 +181,7 @@ input {
     bottom: 0px;
     left: 0px;
     height: 90px;
-    width: 61%;
+    width: 66%;
     margin: 2%;
     padding: 15px;
     transition: .4s;
@@ -285,7 +285,7 @@ input {
     position: absolute;
     right: 0px;
     height: 40px;
-    width: 35%;
+    width: 30%;
     top: 0px;
     padding: 15px;
     z-index: 2;

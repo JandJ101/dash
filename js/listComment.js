@@ -69,6 +69,9 @@ var listComments = function (pref) {
             //card user
             var user = document.createElement("span");
             var userName = document.createElement("span");
+            var comDate = document.createElement("span");
+            comDate.classList.add("comDate");
+            userName.classList.add("userName");
             headerOuter.classList.add("card-title");
             headerOuter.appendChild(user);
 
@@ -79,6 +82,13 @@ var listComments = function (pref) {
             userName.innerHTML = currentUserInfo[infos.user].name;
             headerOuter.appendChild(userName);
             content.appendChild(headerOuter);
+
+            //Date
+            comDate.innerHTML = timeSince(infos.date);
+            headerOuter.appendChild(comDate);
+            content.appendChild(headerOuter);
+
+
 
             //checkbox
             var checkbox = document.createElement("div");

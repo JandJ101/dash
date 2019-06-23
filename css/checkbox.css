@@ -1,7 +1,7 @@
 .round {
     position: relative;
-    height: 21px;
-    width: 21px;
+    height: 18px;
+    width: 18px;
     margin-left: auto;
     transition: .3s;
 }
@@ -10,11 +10,11 @@
     border: 1px solid #ccc;
     border-radius: 50%;
     cursor: pointer;
-    height: 21px;
     left: 0;
     position: absolute;
     top: 0;
-    width: 21px;
+    width: 18px;
+    height: 18px;
     transition: .3s;
 }
 
@@ -23,13 +23,13 @@
     border-top: none;
     border-right: none;
     content: "";
-    height: 6px;
     left: 4px;
     opacity: 0;
     position: absolute;
     top: 6px;
     transform: rotate(-45deg);
-    width: 12px;
+    width: 8px;
+    height: 4px;
 }
 
 .round label:hover {

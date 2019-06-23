@@ -2,7 +2,7 @@
     position: absolute;
     right: 0px;
     height: calc(100% - 40px);
-    width: 35%;
+    width: 30%;
     bottom: 0px;
     margin-bottom: 0px;
     padding: 0;
@@ -37,23 +37,26 @@
 #comments .card-content {
     padding: 15px;
     padding-bottom: 3px;
+    font-size: 14px;
 }
 
 #comments .card-title {
     display: flex;
     align-items: center;
+    font-size: 14px;
 }
 
 #comments .commentTime {
     float: left;
     padding-right: 8px;
-    font-weight: bold;
+    font-weight: 700;
 
 }
 
 #comments .card-action {
     padding: 2px;
     color: #b9b9b9;
+    border: none;
     text-align: right;
 }
 
@@ -68,4 +71,15 @@
     align-items: center;
     justify-content: center;
 
+}
+
+#comments .card-title .userName {
+    margin-left: 5px;
+    font-weight: 400;
+}
+
+#comments .card-title .comDate {
+    margin-left: 5px;
+    font-weight: 200;
+    color: #cccccc;
 }
