@@ -21,6 +21,7 @@
     box-shadow: none;
     border-radius: 0;
     transition: .4s;
+    cursor: pointer;
 }
 
 #comments .card:hover {

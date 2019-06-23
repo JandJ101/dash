@@ -101,7 +101,7 @@ var checkComment = function (vidId, comId, val) {
     }, {
         merge: true
     });
-    
+
 };
 
 var deleteComment = function (comId, id) {
@@ -156,7 +156,6 @@ var commentCounter = function (x, inc) {
                     console.error("Error updating document: ", error);
                 });
 
-            console.log(data[x]);
         } else {
             // doc.data() will be undefined in this case
 

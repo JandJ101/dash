@@ -1,10 +1,8 @@
 var cancelUploading = false;
 
-var thangyy;
-
 var findType = function (x) {
     var imgTypes = ["jpg", "jpeg", "png", "gif", "svg", "bmp", "ico"];
-    var videoTypes = ["mp4", "webm", "ogg"];
+    var videoTypes = ["mp4", "webm", "ogg", "mov"];
     var audioTypes = ["mp3", "aiff", "wav"];
 
     var type = "unknown";
@@ -13,22 +11,18 @@ var findType = function (x) {
         if (imgTypes[a] == x.toLocaleLowerCase()) {
             type = "image";
         }
-
     }
     for (a = 0; a < audioTypes.length; a++) {
         if (audioTypes[a] == x.toLocaleLowerCase()) {
             type = "audio";
         }
-
     }
     for (a = 0; a < videoTypes.length; a++) {
         if (videoTypes[a] == x.toLocaleLowerCase()) {
             type = "video";
         }
-
-        return (type);
-
     }
+    return (type);
 };
 
 var addDataToBase = function (Path, Name, Id, User, Date, Type, Size, Length) {

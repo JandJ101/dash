@@ -80,7 +80,7 @@ input {
 }
 
 .blueGrad {
-    background: -webkit-linear-gradient(#ffffff, #a8f3ff);
+    background: -webkit-linear-gradient(#ffffff, #2195f3);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
