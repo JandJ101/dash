@@ -158,5 +158,17 @@ var goToTime = function (x) {
     }
 };
 
+var showHideCheckComShow = true;
+var showHideCheckCom = function () {
+    if (showHideCheckComShow) {
+        showHideCheckComShow = false;
+        $("#hideLabel")[0].innerHTML = "Show";
+    } else {
+        showHideCheckComShow = true;
+        $("#hideLabel")[0].innerHTML = "Hide";
+    }
+
+
+};
 
 $(document).ready(playerInit);

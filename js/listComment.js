@@ -180,7 +180,7 @@ var listComments = function (pref) {
 
         };
 
-        if ($("#toggleCheck")[0].checked && infos.checked) {
+        if (!showHideCheckComShow && infos.checked) {
 
         } else {
             continuing();

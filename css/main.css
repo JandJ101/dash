@@ -292,8 +292,17 @@ input {
     padding: 10px;
 }
 
-#waitLoader {
+#videoActions #hideLabel {
+    margin-right: 4;
+    line-height: 24px;
+    cursor: pointer;
+}
 
+#videoActions #toggleCheck i {
+    float: right;
+}
+
+#waitLoader {
     position: fixed;
     height: 100%;
     width: 100%;

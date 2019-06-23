@@ -115,6 +115,8 @@ var initializeMenus = function () {
     $("#uploadBackButton")[0].addEventListener("click", hideViewer);
 
     $("#toggleCheck")[0].addEventListener("click", function () {
+        showHideCheckCom();
+        console.log(showHideCheckComShow);
         listComments();
     });
 
