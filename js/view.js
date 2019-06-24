@@ -31,6 +31,7 @@ var updateTimeInBox = function () {
 //reset counter and uncheck it
 var resetViewer = function () {
     document.title = "Dash";
+    userRead(false, currentVideoId);
     if (mainVideoRef) {
         mainVideoRef.pause();
         mainVideoRef.src("");
@@ -58,10 +59,63 @@ var openVideo = function (x, vOrA) {
     document.title = x.title + " | Dash"
 
 
+    $("#infoContainer")[0].innerHTML = "";
+    $("#infoContainer")[0].appendChild(infoSort(x));
+
+    comInfoTabs.select("comContainer");
+    setTimeout(function () {
+        comInfoTabs.updateTabIndicator();
+    }, 50);
+
+    userRead(true, x.id);
 
     showViewer();
 };
 
+var infoSort = function (x) {
+    var userI = document.createElement("li");
+    var nameI = document.createElement("li");
+    var titleI = document.createElement("li");
+    var dateI = document.createElement("li");
+    var commentsI = document.createElement("li");
+    var lengthI = document.createElement("li");
+    var sizeI = document.createElement("li");
+    var typeI = document.createElement("li");
+    var pathI = document.createElement("li");
+
+
+
+    userI.innerHTML = "User: " + currentUserInfo[x.user].name;
+    nameI.innerHTML = "Name: " + x.name;
+    titleI.innerHTML = "Title: " + x.title;
+    dateI.innerHTML = "Date: " + x.date;
+    commentsI.innerHTML = "Comments: " + x.comments;
+    lengthI.innerHTML = "Length: " + secondsToHM(x.length);
+    sizeI.innerHTML = "Size: " + formatBytes(x.size);
+    typeI.innerHTML = "Type: " + x.type;
+    pathI.innerHTML = "Path: " + x.path;
+
+    var listContainer = document.createElement("ul");
+    listContainer.classList.add("collection");
+
+    listContainer.appendChild(userI);
+    listContainer.appendChild(nameI);
+    listContainer.appendChild(titleI);
+    listContainer.appendChild(dateI);
+    listContainer.appendChild(commentsI);
+    listContainer.appendChild(lengthI);
+    listContainer.appendChild(sizeI);
+    listContainer.appendChild(typeI);
+    listContainer.appendChild(pathI);
+
+    for (i = 0; i < listContainer.children.length; i++) {
+        listContainer.children[i].classList.add("collection-item")
+
+    }
+
+    return (listContainer);
+
+};
 
 var enterVideo = function (x) {
     var i = videoData[x];

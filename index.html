@@ -59,6 +59,7 @@
     <script src="js/thumb.js"></script>
     <script src="js/sizeViewer.js"></script>
     <script src="js/pref.js"></script>
+    <script src="js/read.js"></script>
 
     <!--styles -->
     <link rel="stylesheet" href="css/animate.min.css" />
@@ -269,23 +270,51 @@
                 <a id="sendComment" class="waves-effect waves-light btn blue"><i class="material-icons right">send</i>send</a>
 
             </div>
-            <div class="grey-text" id="videoActions">
-                <a href="#" class="grey-text" id="fileDownload" target="_blank" download><i class="material-icons">file_download</i></a>
 
-                <div style="float: right;" id="toggleCheck">
+            <div id="comInfo">
+                <div id="read">
 
-                    <span id="hideLabel">Hide</span>
-                    <!--                    <input id="toggleCheck" type="checkbox"><label for="toggleCheck"></label>-->
-                    <i class="material-icons">check_circle</i>
+                </div>
 
+                <div id="comInfoTab">
+                    <ul class="tabs" id="comInfoTabInst">
+                        <li class="tab col s3"><a href="#comContainer">Comments</a></li>
+                        <li class="tab col s3"><a class="active" href="#infoContainer">Info</a></li>
+                    </ul>
                 </div>
             </div>
 
 
-            <div id="comments" class="scroller scrollbar">
+            <div id="comContainer">
+                <div class="grey-text" id="videoActions">
+                    <a href="#" class="grey-text" id="fileDownload" target="_blank" download><i class="material-icons">file_download</i></a>
+
+                    <div style="float: right;" id="toggleCheck">
+
+                        <span id="hideLabel">Hide</span>
+                        <i class="material-icons">check_circle</i>
+
+                    </div>
+                </div>
 
 
+                <div id="comments" class="scroller scrollbar">
+
+
+                </div>
             </div>
+            <div id="infoContainer" class="scroller scrollbar">
+            </div>
+            <script>
+                var comInfoTabs;
+                $(document).ready(function() {
+
+                    comInfoTabs = M.Tabs.init($("#comInfoTabInst")[0]);
+                    comInfoTabs.select("comContainer");
+                    comInfoTabs.updateTabIndicator();
+                    comInfoTabs.updateTabIndicator();
+                });
+            </script>
 
         </div>
 
@@ -323,6 +352,4 @@
         <input type="file" id="file-input" accept="video/mp4" />
     </div>
 
-</body>
-
-</html>
+</body></html>

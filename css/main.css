@@ -285,11 +285,18 @@ input {
     position: absolute;
     right: 0px;
     height: 40px;
-    width: 30%;
-    top: 0px;
-    padding: 15px;
+    width: 100%;
     z-index: 2;
     padding: 10px;
+}
+
+#comInfo {
+    position: absolute;
+    right: 0px;
+    height: 80px;
+    width: 30%;
+    top: 0px;
+    z-index: 2;
 }
 
 #videoActions #hideLabel {

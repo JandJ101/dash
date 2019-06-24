@@ -116,7 +116,6 @@ var initializeMenus = function () {
 
     $("#toggleCheck")[0].addEventListener("click", function () {
         showHideCheckCom();
-        console.log(showHideCheckComShow);
         listComments();
     });
 

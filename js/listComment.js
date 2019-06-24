@@ -29,8 +29,6 @@ var updateComments = function (x, z) {
 
 };
 
-
-
 var listComments = function (pref) {
     var element = "comments";
     document.getElementById(element).innerHTML = "";
