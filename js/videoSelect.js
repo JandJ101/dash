@@ -34,7 +34,7 @@ var timeSince = function (date) {
     }
     interval = Math.floor(seconds / 2592000);
     if (interval > 1) {
-        return interval + " mos";
+        return interval + " mo";
     }
     interval = Math.floor(seconds / 86400);
     if (interval > 1) {
@@ -42,7 +42,7 @@ var timeSince = function (date) {
     }
     interval = Math.floor(seconds / 3600);
     if (interval > 1) {
-        return interval + " hrs";
+        return interval + " h";
     }
     interval = Math.floor(seconds / 60);
     if (interval > 1) {

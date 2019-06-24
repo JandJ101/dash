@@ -30,6 +30,7 @@ var updateTimeInBox = function () {
 
 //reset counter and uncheck it
 var resetViewer = function () {
+    document.title = "Dash";
     if (mainVideoRef) {
         mainVideoRef.pause();
         mainVideoRef.src("");
@@ -54,6 +55,9 @@ var openVideo = function (x, vOrA) {
     }
 
     videoName.innerHTML = x.title;
+    document.title = x.title + " | Dash"
+
+
 
     showViewer();
 };
@@ -136,6 +140,7 @@ var enterVideo = function (x) {
     }
 
     currentVideoId = i.id;
+
     updateComments(String(currentVideoId));
 
 
