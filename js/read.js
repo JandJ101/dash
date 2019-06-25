@@ -10,7 +10,7 @@ var updateRead = function (x) {
 
             if (doc.exists) {
                 readInfo = doc.data();
-                listReads();
+                listReads(readInfo);
 
             } else {
                 // doc.data() will be undefined in this case
@@ -23,13 +23,12 @@ var updateRead = function (x) {
 };
 
 
-
-updateRead(String(currentVideoId))
-
-
-
-
 var userRead = function (x, id) {
+
+    if (realtimeRead) {
+        realtimeRead();
+    }
+
     var readref = db.collection("read").doc(id);
     var currentUser = auth.currentUser.uid;
 
@@ -42,6 +41,7 @@ var userRead = function (x, id) {
     }).then(function () {
         updateRead(String(currentVideoId));
 
+
     });
 
 
@@ -50,10 +50,10 @@ var userRead = function (x, id) {
 
 
 
-var listReads = function () {
+var listReads = function (x) {
     $("#read")[0].innerHTML = "";
 
-    var obj = readInfo;
+    var obj = x;
     console.log(obj);
     var result = Object.keys(obj).map(function (key) {
         return [key, obj[key]];
@@ -68,6 +68,7 @@ var listReads = function () {
         var userInfo = currentUserInfo[users[0]];
 
         var picImgContainer = document.createElement("div");
+        //        picImgContainer.title = userInfo.name + " has seen this.";
         picImgContainer.title = userInfo.name + " has seen this.";
         var picImg = document.createElement("img");
         var tag = document.createElement("div");
