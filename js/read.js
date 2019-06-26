@@ -33,14 +33,15 @@ var userRead = function (x, id) {
     var currentUser = auth.currentUser.uid;
 
     var newData = {};
+    newData[currentUser] = {};
 
-    newData[currentUser] = x
+    newData[currentUser].active = x;
+    newData[currentUser].time = String(new Date);
 
     var setWithMerge = readref.set(newData, {
         merge: true
     }).then(function () {
         updateRead(String(currentVideoId));
-
 
     });
 
@@ -48,6 +49,15 @@ var userRead = function (x, id) {
 
 };
 
+
+var minutesSince = function (x) {
+    var theDate = new Date(x);
+    var timeDiff = new Date().getTime() - theDate.getTime();
+
+
+    return (timeDiff / (1000 * 60));
+
+};
 
 
 var listReads = function (x) {
@@ -60,6 +70,7 @@ var listReads = function (x) {
     });;
 
     console.log(result);
+    console.log(new Date(result[0][1].time).getMinutes());
 
     var fullContainer = document.createElement("div");
 
@@ -68,7 +79,6 @@ var listReads = function (x) {
         var userInfo = currentUserInfo[users[0]];
 
         var picImgContainer = document.createElement("div");
-        //        picImgContainer.title = userInfo.name + " has seen this.";
         picImgContainer.title = userInfo.name + " has seen this.";
         var picImg = document.createElement("img");
         var tag = document.createElement("div");
@@ -76,10 +86,15 @@ var listReads = function (x) {
         picImg.src = userInfo.pic;
 
         picImgContainer.appendChild(picImg);
-        if (users[1]) {
-            picImgContainer.appendChild(tag);
-        }
 
+        console.log(minutesSince(users[1].time));
+
+        if (minutesSince(users[1].time) < 15) {
+
+            if (users[1].active) {
+                picImgContainer.appendChild(tag);
+            }
+        }
         fullContainer.appendChild(picImgContainer);
     }
 
