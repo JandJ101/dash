@@ -30,6 +30,7 @@
         });
 
         const auth = firebase.auth();
+
     </script>
     <link href="https://vjs.zencdn.net/7.4.1/video-js.css" rel="stylesheet">
     <script src="https://vjs.zencdn.net/7.4.1/video.js"></script>
@@ -194,6 +195,7 @@
 
             <script>
                 $('.dropdown-trigger').dropdown();
+
             </script>
 
             <div id="deleteModal" class="modal">
@@ -271,39 +273,41 @@
 
             </div>
 
-            <div id="comInfo">
-                <div id="read">
+            <div>
+                <div id="comInfo">
+                    <div id="read">
 
-                </div>
+                    </div>
 
-                <div id="comInfoTab">
-                    <ul class="tabs" id="comInfoTabInst">
-                        <li class="tab col s3"><a href="#comContainer">Comments</a></li>
-                        <li class="tab col s3"><a class="active" href="#infoContainer">Info</a></li>
-                    </ul>
-                </div>
-            </div>
-
-
-            <div id="comContainer">
-                <div class="grey-text" id="videoActions">
-                    <a href="#" class="grey-text" id="fileDownload" target="_blank" download><i class="material-icons">file_download</i></a>
-
-                    <div style="float: right;" id="toggleCheck">
-
-                        <span id="hideLabel">Hide</span>
-                        <i class="material-icons">check_circle</i>
-
+                    <div id="comInfoTab">
+                        <ul class="tabs" id="comInfoTabInst">
+                            <li class="tab col s3"><a href="#comContainer">Comments</a></li>
+                            <li class="tab col s3"><a class="active" href="#infoContainer">Info</a></li>
+                        </ul>
                     </div>
                 </div>
 
 
-                <div id="comments" class="scroller scrollbar">
+                <div id="comContainer">
+                    <div class="grey-text" id="videoActions">
+                        <a href="#" class="grey-text" id="fileDownload" target="_blank" download><i class="material-icons">file_download</i></a>
+
+                        <div style="float: right;" id="toggleCheck">
+
+                            <span id="hideLabel">Hide</span>
+                            <i class="material-icons">check_circle</i>
+
+                        </div>
+                    </div>
 
 
+                    <div id="comments" class="scroller scrollbar">
+
+
+                    </div>
                 </div>
-            </div>
-            <div id="infoContainer" class="scroller scrollbar">
+                <div id="infoContainer" class="scroller scrollbar">
+                </div>
             </div>
             <script>
                 var comInfoTabs;
@@ -314,6 +318,7 @@
                     comInfoTabs.updateTabIndicator();
                     comInfoTabs.updateTabIndicator();
                 });
+
             </script>
 
         </div>
@@ -352,4 +357,6 @@
         <input type="file" id="file-input" accept="video/mp4" />
     </div>
 
-</body></html>
+</body>
+
+</html>

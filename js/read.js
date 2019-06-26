@@ -64,12 +64,10 @@ var listReads = function (x) {
     $("#read")[0].innerHTML = "";
 
     var obj = x;
-    console.log(obj);
     var result = Object.keys(obj).map(function (key) {
         return [key, obj[key]];
     });;
 
-    console.log(result);
     console.log(new Date(result[0][1].time).getMinutes());
 
     var fullContainer = document.createElement("div");

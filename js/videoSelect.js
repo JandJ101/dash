@@ -98,7 +98,6 @@ var updateUlMain = function () {
     });
 
     var continuing = function () {
-
         if ($("#videoList")[0]) {
             document.getElementById("videoList").remove();
         }
