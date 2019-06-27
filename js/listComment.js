@@ -91,7 +91,7 @@ var listComments = function (pref) {
     currentObj = sortArray(objectToArray(commentData));
     setComSortText("Newest");
     currentSort = "newest"
-    
+
     if (pref.sort) {
         if (pref.sort == "oldest") {
             currentObj = sortByOldest(objectToArray(commentData));
@@ -108,7 +108,7 @@ var listComments = function (pref) {
         } else if (pref.sort == "completed") {
             currentObj = sort("checked", objectToArray(commentData));
             setComSortText("Completed");
-            currentSort = "checked";
+            currentSort = "completed";
         }
     }
 
