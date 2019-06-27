@@ -68,8 +68,6 @@ var listReads = function (x) {
         return [key, obj[key]];
     });;
 
-    console.log(new Date(result[0][1].time).getMinutes());
-
     var fullContainer = document.createElement("div");
 
     for (i = 0; i < result.length; i++) {
@@ -84,8 +82,6 @@ var listReads = function (x) {
         picImg.src = userInfo.pic;
 
         picImgContainer.appendChild(picImg);
-
-        console.log(minutesSince(users[1].time));
 
         if (minutesSince(users[1].time) < 15) {
 

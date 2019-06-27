@@ -153,6 +153,7 @@ var updateUlMain = function () {
             var menuButton = document.createElement("i");
             menuButton.classList.add("material-icons");
             menuButton.classList.add("dropdown-trigger");
+            menuButton.classList.add("mainMenuDrop");
             menuButton.setAttribute("data-target", infos.id + "drop");
             menuButton.classList.add("menuDrop");
             menuButton.innerHTML = "more_vert";
@@ -331,7 +332,7 @@ var updateUlMain = function () {
 
         document.getElementById("main").appendChild(fullDom);
 
-        $('.dropdown-trigger').dropdown();
+        $('.mainMenuDrop').dropdown();
         $(document).ready(function () {
             $('.modal').modal();
         });

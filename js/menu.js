@@ -116,7 +116,14 @@ var initializeMenus = function () {
 
     $("#toggleCheck")[0].addEventListener("click", function () {
         showHideCheckCom();
-        listComments();
+
+        if (currentSort == "newest") {
+            listComments({});
+        } else {
+            listComments({
+                sort: currentSort
+            });
+        }
     });
 
 };

@@ -29,13 +29,89 @@ var updateComments = function (x, z) {
 
 };
 
+var sortByOldest = function (a, b) {
+    return a.sort(function (a, b) {
+        return new Date(a.date) - new Date(b.date);
+    });
+
+};
+
+var sortByCommenter = function (a) {
+    return (a.sort(function (a, b) {
+        var textA = currentUserInfo[a.user].name.toUpperCase();
+        var textB = currentUserInfo[b.user].name.toUpperCase();
+        return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+    }));
+};
+
+var sortByTimecode = function (a) {
+    return (a.sort(function (a, b) {
+        var textA = String(a.time).toUpperCase();
+        var textB = String(b.time).toUpperCase();
+        return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+    }));
+};
+
+var sort = function (prop, arr) {
+    prop = prop.split('.');
+    var len = prop.length;
+
+    arr.sort(function (a, b) {
+        var i = 0;
+        while (i < len) {
+            a = a[prop[i]];
+            b = b[prop[i]];
+            i++;
+        }
+        if (a < b) {
+            return -1;
+        } else if (a > b) {
+            return 1;
+        } else {
+            return 0;
+        }
+    });
+    return arr;
+};
+
+var setComSortText = function (x) {
+    $("#comSortText")[0].innerHTML = String(x);
+}
+
+var currentSort;
+
 var listComments = function (pref) {
     var element = "comments";
     document.getElementById(element).innerHTML = "";
 
     var key = "comments";
 
-    var currentObj = sortArray(objectToArray(commentData));
+    var currentObj;
+
+    currentObj = sortArray(objectToArray(commentData));
+    setComSortText("Newest");
+    currentSort = "newest"
+    
+    if (pref.sort) {
+        if (pref.sort == "oldest") {
+            currentObj = sortByOldest(objectToArray(commentData));
+            setComSortText("Oldest");
+            currentSort = "oldest";
+        } else if (pref.sort == "commenter") {
+            sortByCommenter(objectToArray(commentData));
+            setComSortText("Commenter");
+            currentSort = "commenter";
+        } else if (pref.sort == "timecode") {
+            currentObj = sort("time", objectToArray(commentData));
+            setComSortText("Timecode");
+            currentSort = "timecode";
+        } else if (pref.sort == "completed") {
+            currentObj = sort("checked", objectToArray(commentData));
+            setComSortText("Completed");
+            currentSort = "checked";
+        }
+    }
+
 
     //no comments
     if (currentObj.length == 0) {

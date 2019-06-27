@@ -30,7 +30,6 @@
         });
 
         const auth = firebase.auth();
-
     </script>
     <link href="https://vjs.zencdn.net/7.4.1/video-js.css" rel="stylesheet">
     <script src="https://vjs.zencdn.net/7.4.1/video.js"></script>
@@ -195,7 +194,6 @@
 
             <script>
                 $('.dropdown-trigger').dropdown();
-
             </script>
 
             <div id="deleteModal" class="modal">
@@ -232,7 +230,8 @@
                     <i class="material-icons">remove_red_eye</i><br>
                     <span>Preview not supported</span>
                     <br>
-                    <a href="" id="bigDownloadBut" style="margin: 6px;" class="waves-effect waves-light btn blue"><i class="material-icons left">file_download</i>Download</a>
+                    <a href="" id="bigDownloadBut" style="margin: 6px;" class="waves-effect waves-light btn blue">
+                        <i class="material-icons left">file_download</i>Download</a>
                 </div>
 
                 <img src="" id="imgViewer" class="hide">
@@ -290,14 +289,35 @@
 
                 <div id="comContainer">
                     <div class="grey-text" id="videoActions">
-                        <a href="#" class="grey-text" id="fileDownload" target="_blank" download><i class="material-icons">file_download</i></a>
 
+                        <a style="float: left;" class='dropdown-trigger grey-text' id="comSortDrop" href='#' data-target='comSortDropTarget'>
+                            <span id="comSortText" style="float: left;">Newest</span> <i class="material-icons">arrow_drop_down</i>
+                        </a>
+
+                        <!-- Dropdown Structure -->
+                        <ul id='comSortDropTarget' class='dropdown-content grey-text'>
+                            <li onclick="listComments({});"><a class="grey-text text-darken-2">Newest</a></li>
+                            <li onclick="listComments({sort: 'oldest'});"><a class="grey-text text-darken-2">Oldest</a></li>
+                            <li onclick="listComments({sort: 'timecode'});"><a class="grey-text text-darken-2">Timecode</a></li>
+                            <li onclick="listComments({sort: 'commenter'});"><a class="grey-text text-darken-2">Commenter</a></li>
+                            <li onclick="listComments({sort: 'completed'});"><a class="grey-text text-darken-2">Completed</a></li>
+                        </ul>
+
+                        <script>
+                            $('#comSortDrop').dropdown({
+                                constrainWidth: false, // Does not change width of dropdown to that of the activator 
+                                belowOrigin: true
+                            });
+                        </script>
                         <div style="float: right;" id="toggleCheck">
 
                             <span id="hideLabel">Hide</span>
                             <i class="material-icons">check_circle</i>
 
                         </div>
+                        <a style="float: right; margin-right: 4;" href="#" class="grey-text" id="fileDownload" target="_blank" download>
+                            <i class="material-icons">file_download</i>
+                        </a>
                     </div>
 
 
@@ -318,7 +338,6 @@
                     comInfoTabs.updateTabIndicator();
                     comInfoTabs.updateTabIndicator();
                 });
-
             </script>
 
         </div>
@@ -357,6 +376,4 @@
         <input type="file" id="file-input" accept="video/mp4" />
     </div>
 
-</body>
-
-</html>
+</body></html>
