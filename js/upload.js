@@ -151,6 +151,9 @@ var upload = function (e) {
                             Id = idGen(doc.data().ids);
 
                             addDataToBase(Path, Name, Id, User, Date, Type, Size, Length);
+
+                            // Slack message
+                            postSlack(String(currentUserInfo[auth.currentUser.uid].name) + " uploaded " + Name);
                         } else {
                             // doc.data() will be undefined in this case
                             console.log("No such document!");

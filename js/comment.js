@@ -50,6 +50,10 @@ var writeCommentToBase = function (x) {
                     .then(function () {
                         commentCounter(currentVideoId, 1);
 
+                        // Slack message
+                        postSlack("_" + String(currentUserInfo[auth.currentUser.uid].name) + "_ commented on *" + videoData[currentVideoId].title + "\n*" + secondsToHM(x.time) + "* " + x.text);
+
+
                     })
                     .catch(function (error) {
                         console.error("Error writing document: ", error);
@@ -68,6 +72,9 @@ var writeCommentToBase = function (x) {
                     })
                     .then(function () {
                         commentCounter(currentVideoId, 1);
+
+                        // Slack message
+                        postSlack("_" + String(currentUserInfo[auth.currentUser.uid].name) + "_ commented on *" + videoData[currentVideoId].title + "*\n*" + secondsToHM(x.time) + "* " + x.text);
                     })
                     .catch(function (error) {
                         // The document probably doesn't exist.

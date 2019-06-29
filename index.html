@@ -30,6 +30,7 @@
         });
 
         const auth = firebase.auth();
+
     </script>
     <link href="https://vjs.zencdn.net/7.4.1/video-js.css" rel="stylesheet">
     <script src="https://vjs.zencdn.net/7.4.1/video.js"></script>
@@ -60,6 +61,7 @@
     <script src="js/sizeViewer.js"></script>
     <script src="js/pref.js"></script>
     <script src="js/read.js"></script>
+    <script src="js/slackNotif.js"></script>
 
     <!--styles -->
     <link rel="stylesheet" href="css/animate.min.css" />
@@ -194,6 +196,7 @@
 
             <script>
                 $('.dropdown-trigger').dropdown();
+
             </script>
 
             <div id="deleteModal" class="modal">
@@ -290,7 +293,7 @@
                 <div id="comContainer">
                     <div class="grey-text" id="videoActions">
 
-                        <a style="float: left;" class='dropdown-trigger grey-text' id="comSortDrop" href='#' data-target='comSortDropTarget'>
+                        <a style="float: left; outline: none;" class='dropdown-trigger grey-text' id="comSortDrop" href='#' data-target='comSortDropTarget'>
                             <span id="comSortText" style="float: left;">Newest</span> <i class="material-icons">arrow_drop_down</i>
                         </a>
 
@@ -308,6 +311,7 @@
                                 constrainWidth: false, // Does not change width of dropdown to that of the activator 
                                 belowOrigin: true
                             });
+
                         </script>
                         <div style="float: right;" id="toggleCheck">
 
@@ -338,6 +342,7 @@
                     comInfoTabs.updateTabIndicator();
                     comInfoTabs.updateTabIndicator();
                 });
+
             </script>
 
         </div>
@@ -376,4 +381,6 @@
         <input type="file" id="file-input" accept="video/mp4" />
     </div>
 
-</body></html>
+</body>
+
+</html>

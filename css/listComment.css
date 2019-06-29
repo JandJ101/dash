@@ -75,6 +75,7 @@ s#infoContainer,
 
 #comments .card-action {
     padding: 2px;
+    padding-bottom: 8px;
     color: #b9b9b9;
     border: none;
     text-align: right;
