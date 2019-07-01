@@ -9,6 +9,8 @@
     <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-performance.js"></script>
+
     <script>
         // Initialize Firebase
         var config = {
@@ -30,6 +32,8 @@
         });
 
         const auth = firebase.auth();
+        // Initialize Performance Monitoring and get a reference to the service
+        var perf = firebase.performance();
     </script>
     <link href="https://vjs.zencdn.net/7.4.1/video-js.css" rel="stylesheet">
     <script src="https://vjs.zencdn.net/7.4.1/video.js"></script>
