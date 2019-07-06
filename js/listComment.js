@@ -184,7 +184,7 @@ var listComments = function (pref) {
 
             }
 
-            //sets visibility of info base on mouse input
+            //sets visibility of info on mouse input
             node.onmouseover = function () {
                 this.getElementsByClassName("round")[0].classList.remove("noOpacity");
                 this.getElementsByClassName("card-action")[0].classList.remove("noOpacity");

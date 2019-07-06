@@ -138,7 +138,7 @@ var updateUlMain = function () {
 
             var cardInfo = document.createElement("div");
             cardInfo.classList.add("card-action");
-            //sets visibility of info base on mouse input
+            //sets visibility of info on mouse input
             cardInfo.classList.add("noOpacity");
             node.onmouseover = function () {
                 this.getElementsByClassName("card-action")[0].classList.remove("noOpacity");

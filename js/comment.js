@@ -38,7 +38,7 @@ var writeCommentToBase = function (x) {
     var getDoc = readRef.get()
         .then(doc => {
             if (!doc.exists) {
-                //doc doesnt exits so generate id right data
+                //doc doesnt exist so generate id right data
                 var newCommId = [];
                 newCommId[0] = idGenComm([]);
                 x.id = newCommId[0];
@@ -59,7 +59,7 @@ var writeCommentToBase = function (x) {
                         console.error("Error writing document: ", error);
                     });
             } else {
-                //doc exits so get ids genreate new one write data
+                //doc exists so get ids genreate new one write data
                 currentIds = doc.data().ids;
 
                 var newCommId = idGenComm(currentIds);
