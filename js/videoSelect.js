@@ -77,6 +77,7 @@ var updateUlMain = function () {
 
     document.getElementById("main").classList.add("hide");
 
+    initSlackNotif();
 
     var docRef = db.collection("users").doc("users");
 
