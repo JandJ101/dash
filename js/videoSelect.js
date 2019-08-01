@@ -124,6 +124,8 @@ var updateUlMain = function () {
             node.id = infos.id;
             node.classList.add("card");
             node.classList.add("horizontal");
+            node.classList.add("waves-effect");
+            node.classList.add("waves-light");
 
             var thumbnailSide = document.createElement("i")
             thumbnailSide.classList.add("material-icons");
