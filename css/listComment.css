@@ -110,7 +110,7 @@ s#infoContainer,
 #comInfoTab .tabs {
     margin-left: 0;
     height: 40px;
-
+    width: 100%;
 }
 
 #comInfoTab .tabs .tab {
