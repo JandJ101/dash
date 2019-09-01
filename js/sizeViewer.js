@@ -21,9 +21,9 @@ var cont, hc, wc, vid, hvideo, wvideo;
 
 var resizeView = function() {
   if (currentType == "video") {
-    cont = $("#videoContainer")[0];
-    hc = cont.offsetHeight;
-    wc = cont.offsetWidth;
+    cont = $("#videoContainer");
+    hc = cont.height();
+    wc = cont.width();
 
     vid = $("#mainVideo")[0];
     hvideo = vid.offsetHeight;
@@ -33,7 +33,7 @@ var resizeView = function() {
     var cwh = getRatio(wc);
 
     //cwh.h > hc
-    if (false) {
+    if (cwh.h > hc && !isSmall) {
       wh = getRatio(null, hc);
 
       vid.style.height = wh.h;
@@ -43,6 +43,7 @@ var resizeView = function() {
 
       vid.style.height = wh.h;
       vid.style.width = wh.w;
+      console.log("second");
     }
   }
 };

@@ -14,8 +14,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /* height: 80%; */
 }
+
+.bigViewer #videoContainer{
+    height: 100%;
+}
+
 
 #mainVideo {
     background: #fff;

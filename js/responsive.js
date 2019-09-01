@@ -1,11 +1,11 @@
+var isSmall;
 var handleViewerResize = function() {
   var width = window.innerWidth;
 
-  var isSmall = false;
+  isSmall = false;
 
   if (width < 800) {
     isSmall = true;
-    console.log("width");
   }
 
   if (isSmall) {
