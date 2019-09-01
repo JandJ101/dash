@@ -1,33 +1,3 @@
-s#infoContainer,
-#comContainer,
-#infoContainer {
-    position: absolute;
-    right: 0px;
-    width: 400px;
-    bottom: 0px;
-    margin-bottom: 0px;
-    padding: 0;
-}
-
-#comments {
-    position: absolute;
-    right: 0px;
-    width: 100%;
-    bottom: 0px;
-    margin-bottom: 0px;
-    padding: 0;
-    height: calc(100% - 40px);
-    top: 40;
-}
-
-#comContainer {
-    height: calc(100% - 80px);
-}
-
-#infoContainer {
-    height: calc(100% - 80px);
-}
-
 #comments img {
     height: 27;
     width: 27;
@@ -127,7 +97,7 @@ s#infoContainer,
     padding-left: 10px;
 }
 
-#read > div {
+#read>div {
     position: relative;
     height: 25px;
     width: 25px;

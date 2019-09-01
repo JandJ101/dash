@@ -4,7 +4,8 @@
 <head>
     <meta charset="utf-8" />
     <title>Dash</title>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="js/secret.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-firestore.js"></script>
@@ -65,6 +66,7 @@
     <script src="js/pref.js"></script>
     <script src="js/read.js"></script>
     <script src="js/slackNotif.js"></script>
+    <script src="js/responsive.js"></script>
 
     <!--styles -->
     <link rel="stylesheet" href="css/animate.min.css" />
@@ -78,6 +80,7 @@
     <link rel="stylesheet" href="css/listComment.css" />
     <link rel="stylesheet" href="css/theme.css" />
     <link rel="stylesheet" href="css/checkbox.css" />
+    <link rel="stylesheet" href="css/viewer.css" />
 
 
 
@@ -135,7 +138,8 @@
 
 
 
-            <a style="float: left; outline: none;" id="smallLogo" href="#" data-target='dropdown1' class="dropdown-trigger">
+            <a style="float: left; outline: none;" id="smallLogo" href="#" data-target='dropdown1'
+                class="dropdown-trigger">
 
                 <img src="img/small_logo.png" style="float: left;">
                 <h6 style="float: left;" id="menuUser"></h6>
@@ -145,8 +149,11 @@
             </a>
 
             <ul id='dropdown1' class='dropdown-content text-darken-2 grey-text'>
-                <li><a href="#settingsModal" onclick="" class="modal-trigger waves-effect waves-light text-darken-2 grey-text">User Settings<i class="material-icons text-darken-2 grey-text">settings</i></a></li>
-                <li><a href="#!" onclick="auth.signOut();" class="waves-effect waves-light text-darken-2 grey-text">Sign Out<i class="material-icons text-darken-2 grey-text">exit_to_app</i></a></li>
+                <li><a href="#settingsModal" onclick=""
+                        class="modal-trigger waves-effect waves-light text-darken-2 grey-text">User Settings<i
+                            class="material-icons text-darken-2 grey-text">settings</i></a></li>
+                <li><a href="#!" onclick="auth.signOut();" class="waves-effect waves-light text-darken-2 grey-text">Sign
+                        Out<i class="material-icons text-darken-2 grey-text">exit_to_app</i></a></li>
 
             </ul>
 
@@ -228,22 +235,26 @@
             </div>
 
         </div>
-        <div id="viewer" class="animated hide">
+        <div id="viewer" class="animated hide bigViewer">
             <div id="outerVideoWrapper">
 
                 <div id="notSupported" class="grey-text text-lighten-1 hide">
                     <i class="material-icons">remove_red_eye</i><br>
                     <span>Preview not supported</span>
                     <br>
-                    <a title="Download" href="" id="bigDownloadBut" style="margin: 6px;" class="waves-effect waves-light btn blue">
+                    <a title="Download" href="" id="bigDownloadBut" style="margin: 6px;"
+                        class="waves-effect waves-light btn blue">
                         <i class="material-icons left">file_download</i>Download</a>
                 </div>
 
                 <img src="" id="imgViewer" class="hide">
 
                 <div id="videoContainer" class="hide">
-                    <video id="mainVideo" class="video-js videoInner" controls preload="auto" width="1920px" height="1080px" poster="" data-setup="{}">
-                        <source src="https://firebasestorage.googleapis.com/v0/b/back-9d523.appspot.com/o/uploads%2Fecape%20trash.mp4?alt=media&token=7c5c63e9-c3f1-4ee7-8aac-33cc84fd353d" type=''>
+                    <video id="mainVideo" class="video-js videoInner" controls preload="auto" width="1920px"
+                        height="1080px" poster="" data-setup="{}">
+                        <source
+                            src="https://firebasestorage.googleapis.com/v0/b/back-9d523.appspot.com/o/uploads%2Fecape%20trash.mp4?alt=media&token=7c5c63e9-c3f1-4ee7-8aac-33cc84fd353d"
+                            type=''>
                         <p class="vjs-no-js">
                             To view this video please enable JavaScript, and consider upgrading to a web browser that
                             <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
@@ -254,8 +265,11 @@
 
                 </div>
                 <div id="audioContainer" class="hide">
-                    <video id="mainAudio" class="video-js videoInner" controls preload="auto" width="1920px" height="1080px" poster="" data-setup='{ "inactivityTimeout": 0 }'>
-                        <source src="https://firebasestorage.googleapis.com/v0/b/back-9d523.appspot.com/o/uploads%2F15%20Sphere.mp3?alt=media&token=3f5aeb48-8117-4cee-8bf3-bafb274cb9e4" type=''>
+                    <video id="mainAudio" class="video-js videoInner" controls preload="auto" width="1920px"
+                        height="1080px" poster="" data-setup='{ "inactivityTimeout": 0 }'>
+                        <source
+                            src="https://firebasestorage.googleapis.com/v0/b/back-9d523.appspot.com/o/uploads%2F15%20Sphere.mp3?alt=media&token=3f5aeb48-8117-4cee-8bf3-bafb274cb9e4"
+                            type=''>
                         <p class="vjs-no-js">
                             To view this video please enable JavaScript, and consider upgrading to a web browser that
                             <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
@@ -273,11 +287,12 @@
                     <input id="timeCheck" type="checkbox" class="filled-in" checked="checked" />
                     <span style="padding: 0; padding-left: 25px; line-height: 20px;">00:00</span>
                 </label>
-                <a id="sendComment" class="waves-effect waves-light btn blue"><i class="material-icons right">send</i>send</a>
+                <a id="sendComment" class="waves-effect waves-light btn blue"><i
+                        class="material-icons right">send</i>send</a>
 
             </div>
 
-            <div>
+            <div id="entireCom" >
                 <div id="comInfo">
                     <div id="read">
 
@@ -295,17 +310,23 @@
                 <div id="comContainer">
                     <div class="grey-text" id="videoActions">
 
-                        <a title="Sort options" style="float: left; outline: none;" class='dropdown-trigger grey-text' id="comSortDrop" href='#' data-target='comSortDropTarget'>
-                            <span id="comSortText" style="float: left;">Newest</span> <i class="material-icons">arrow_drop_down</i>
+                        <a title="Sort options" style="float: left; outline: none;" class='dropdown-trigger grey-text'
+                            id="comSortDrop" href='#' data-target='comSortDropTarget'>
+                            <span id="comSortText" style="float: left;">Newest</span> <i
+                                class="material-icons">arrow_drop_down</i>
                         </a>
 
                         <!-- Dropdown Structure -->
                         <ul id='comSortDropTarget' class='dropdown-content grey-text'>
                             <li onclick="listComments({});"><a class="grey-text text-darken-2">Newest</a></li>
-                            <li onclick="listComments({sort: 'oldest'});"><a class="grey-text text-darken-2">Oldest</a></li>
-                            <li onclick="listComments({sort: 'timecode'});"><a class="grey-text text-darken-2">Timecode</a></li>
-                            <li onclick="listComments({sort: 'commenter'});"><a class="grey-text text-darken-2">Commenter</a></li>
-                            <li onclick="listComments({sort: 'completed'});"><a class="grey-text text-darken-2">Completed</a></li>
+                            <li onclick="listComments({sort: 'oldest'});"><a class="grey-text text-darken-2">Oldest</a>
+                            </li>
+                            <li onclick="listComments({sort: 'timecode'});"><a
+                                    class="grey-text text-darken-2">Timecode</a></li>
+                            <li onclick="listComments({sort: 'commenter'});"><a
+                                    class="grey-text text-darken-2">Commenter</a></li>
+                            <li onclick="listComments({sort: 'completed'});"><a
+                                    class="grey-text text-darken-2">Completed</a></li>
                         </ul>
 
                         <script>
@@ -320,13 +341,14 @@
                             <i class="material-icons">check_circle</i>
 
                         </div>
-                        <a title="Download" style="float: right; margin-right: 4;" href="#" class="grey-text" id="fileDownload" target="_blank" download>
+                        <a title="Download" style="float: right; margin-right: 4;" href="#" class="grey-text"
+                            id="fileDownload" target="_blank" download>
                             <i class="material-icons">file_download</i>
                         </a>
                     </div>
 
 
-                    <div id="comments" class="scroller scrollbar">
+                    <div id="comments" class="scroller scrollbar h100">
 
 
                     </div>
@@ -336,7 +358,7 @@
             </div>
             <script>
                 var comInfoTabs;
-                $(document).ready(function() {
+                $(document).ready(function () {
 
                     comInfoTabs = M.Tabs.init($("#comInfoTabInst")[0]);
                     comInfoTabs.select("comContainer");
@@ -364,8 +386,10 @@
 
 
                 <a class="blue animated waves-effect waves-light btn" style="position: absolute;">
-                    <input type="file" value="" id="fileButton" /><i class="material-icons left">file_upload</i>Upload</a>
-                <a class="blue animated flipOutY waves-effect waves-light btn" id="cancelUpload"><i class="material-icons left">cancel</i>Cancel</a>
+                    <input type="file" value="" id="fileButton" /><i
+                        class="material-icons left">file_upload</i>Upload</a>
+                <a class="blue animated flipOutY waves-effect waves-light btn" id="cancelUpload"><i
+                        class="material-icons left">cancel</i>Cancel</a>
             </div>
         </div>
     </span>
@@ -381,4 +405,6 @@
         <input type="file" id="file-input" accept="video/mp4" />
     </div>
 
-</body></html>
+</body>
+
+</html>
