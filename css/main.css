@@ -4,6 +4,7 @@ body {
     overflow: hidden;
     height: calc(100% - 40px);
     min-width: 400px;
+    min-height: 250px;
     position: absolute;
     bottom: 0px;
     top: 40px;
