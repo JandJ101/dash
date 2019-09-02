@@ -44,6 +44,10 @@
 
 }
 
+#videoList .card-action i {
+    font-size: 16px;
+}
+
 #videoList .card-title {
     white-space: nowrap;
     padding-left: 10px;
