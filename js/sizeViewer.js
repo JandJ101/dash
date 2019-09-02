@@ -43,7 +43,6 @@ var resizeView = function() {
 
       vid.style.height = wh.h;
       vid.style.width = wh.w;
-      console.log("second");
     }
   }
 };

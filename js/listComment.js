@@ -98,7 +98,7 @@ var listComments = function (pref) {
             setComSortText("Oldest");
             currentSort = "oldest";
         } else if (pref.sort == "commenter") {
-            sortByCommenter(objectToArray(commentData));
+            currentObj = sortByCommenter(objectToArray(commentData));
             setComSortText("Commenter");
             currentSort = "commenter";
         } else if (pref.sort == "timecode") {
