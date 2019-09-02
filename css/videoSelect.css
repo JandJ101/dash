@@ -9,20 +9,19 @@
     padding: 0px;
     display: flex;
     align-content: center;
-    flex-flow: row-reverse;
-
     white-space: nowrap;
     transition: .2s;
     -moz-user-select: -moz-none;
     -khtml-user-select: none;
     -webkit-user-select: none;
-
+    padding-left: 8px;
 }
 
 #videoList .card-action span {
     display: flex;
     align-items: center;
-    padding-right: 10px;
+    padding-right: 3px;
+    float: left;
 }
 
 
@@ -31,16 +30,15 @@
     align-items: center;
     justify-content: center;
     transition: .6s;
+    height: 100px;
 }
 
 #videoList .card-image img {
     object-fit: cover;
-    width: 66px;
-    height: 66px;
-
+    height: 100px;
 }
 
-#videoList .card-image i {
+#videoList .c rd-image i {
 
     padding: 20px;
 
@@ -48,25 +46,25 @@
 
 #videoList .card-title {
     white-space: nowrap;
-    padding-top: 5px;
     padding-left: 10px;
 }
 
-#videoList > div {
+#videoList>div {
     cursor: pointer;
     overflow: hidden;
-    height: 64px;
+    //height: 64px;
 }
 
-#videoList > div:hover {
+#videoList>div:hover {
     box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
 }
 
 #videoList .menuDrop {
-    float: right;
+    position: absolute;
+    bottom: 0;
+    right: 0;
     border-radius: 50%;
-    margin-top: 12px;
-    margin-right: 5px;
+
 }
 
 .scrollbar {
@@ -88,4 +86,20 @@
 
 .scroller::-webkit-scrollbar-thumb {
     background-color: #ccc;
+}
+
+/* // minmax(200px, 1fr) */
+#videoList {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: .4em 1em;
+}
+
+#videoList .card {
+    //color: white;
+    //font-size: 3rem;
+    //text-align: center;
+    //padding: 4rem;
+    /* flex: 1 1 auto; */
 }

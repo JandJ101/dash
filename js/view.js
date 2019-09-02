@@ -77,6 +77,7 @@ var infoSort = function (x) {
     var nameI = document.createElement("li");
     var titleI = document.createElement("li");
     var dateI = document.createElement("li");
+    var timeSinceI = document.createElement("li");
     var commentsI = document.createElement("li");
     var lengthI = document.createElement("li");
     var sizeI = document.createElement("li");
@@ -89,6 +90,7 @@ var infoSort = function (x) {
     nameI.innerHTML = "Name: " + x.name;
     titleI.innerHTML = "Title: " + x.title;
     dateI.innerHTML = "Date: " + x.date;
+    timeSinceI.innerHTML = "Uploaded " + timeSince(x.date) + " ago";
     commentsI.innerHTML = "Comments: " + x.comments;
     lengthI.innerHTML = "Length: " + secondsToHM(x.length);
     sizeI.innerHTML = "Size: " + formatBytes(x.size);
@@ -99,6 +101,7 @@ var infoSort = function (x) {
     listContainer.classList.add("collection");
 
     listContainer.appendChild(userI);
+    listContainer.appendChild(timeSinceI);
     listContainer.appendChild(nameI);
     listContainer.appendChild(titleI);
     listContainer.appendChild(dateI);

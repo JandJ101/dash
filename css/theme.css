@@ -12,12 +12,20 @@
     color: #fafafa;
 }
 
+.dark .card .card-title {
+    background: -webkit-linear-gradient(left, #fafafa, #fafafa, #fafafa, #fafafa, #fafafa, #fafafa, #fafafa, #fafafa, #fafafa, #fafafa, #fafafa, #fafafa, #fafafa, #fafafa, rgba(205, 205, 205, 0));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 .dark .card {
     background: #303246;
     color: #fafafa;
 }
 
-.dark #videoList .card-image i {
+
+
+.dark #videoList .card-image {
     color: #7d829c;
     background: #282a3c;
 }
@@ -38,7 +46,7 @@
     background: #0f0f14;
 }
 
-.dark #header > i {
+.dark #header>i {
     color: #fafafa;
 }
 
@@ -100,13 +108,13 @@
     border-color: #0f1014;
 }
 
-.dark #comments > .card {
+.dark #comments>.card {
     background: #2b2f3b;
     border-bottom: 1px solid #0f1014;
 
 }
 
-.dark #comments > .card:hover {
+.dark #comments>.card:hover {
     background: #353944;
 
 }
@@ -134,12 +142,18 @@
 
 }
 
+.lighten .card .card-title {
+    background: -webkit-linear-gradient(left, #212121, #212121, #212121, #212121, #212121, #212121, #212121, #212121, #212121, #212121,#212121, #212121, #212121, #212121, #212121, rgba(205, 205, 205, 0));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 .lighten #videoList .menuDrop {
     color: #b9b9b9;
 
 }
 
-.lighten #videoList .card-image i {
+.lighten #videoList .card-image {
     background: #f7f7f7;
     color: #868686;
 }
@@ -156,7 +170,7 @@
 
 }
 
-.lighten #header > i {
+.lighten #header>i {
     color: #212121;
 
 }
@@ -208,13 +222,13 @@
     background: #f5f5f5;
 }
 
-.lighten #comments > .card {
+.lighten #comments>.card {
     1121155 background: #f5f5f5;
     border-bottom: 1px solid #bebebe;
 
 }
 
-.lighten #comments > .card:hover {
+.lighten #comments>.card:hover {
     background: #fbfbfb;
 
 }
