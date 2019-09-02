@@ -166,6 +166,7 @@ var updateUlMain = function() {
       menuButton.classList.add("menuDrop");
       menuButton.innerHTML = "more_vert";
       menuButton.classList.add("waves-effect");
+      menuButton.classList.add("noOpacity");
 
       //drop down
       var dropList = document.createElement("ul");
