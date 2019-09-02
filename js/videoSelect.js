@@ -134,6 +134,14 @@ var updateUlMain = function() {
       var image = document.createElement("div");
       image.classList.add("card-image");
 
+      //time code
+      if (infos.length > 0) {
+        var timeCode = document.createElement("div");
+        timeCode.innerHTML = secondsToHM(infos.length);
+        timeCode.classList.add("timecode");
+        image.appendChild(timeCode);
+      }
+
       var cardStack = document.createElement("div");
       cardStack.classList.add("card-stack");
 
@@ -269,7 +277,7 @@ var updateUlMain = function() {
       // sizeTextContainer.innerHTML = sizeText;
       // size.appendChild(sizeTextContainer);
 
-      // //size
+      // //length
       // var lengthInfo = document.createElement("a");
       // var lengthText = secondsToHM(infos.length);
       // var lengthTextContainer = document.createElement("span");

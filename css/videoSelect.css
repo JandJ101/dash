@@ -33,6 +33,16 @@
     height: 100px;
 }
 
+#videolist .card-image .timecode {
+    position: absolute;
+    bottom: 4;
+    right: 5;
+    background: #00000040;
+    padding: 3;
+    border-radius: 3px;
+    line-height: 12px;
+}
+
 #videoList .card-image img {
     object-fit: cover;
     height: 100px;
