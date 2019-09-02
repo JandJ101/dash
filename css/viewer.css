@@ -14,9 +14,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
 }
 
-.bigViewer #videoContainer{
+.bigViewer #videoContainer {
     height: 100%;
 }
 
@@ -139,7 +140,7 @@
 }
 
 .bigViewer #checkTime {
-   float: left;
+    float: left;
 }
 
 .smallViewer #checkTime {
@@ -194,6 +195,8 @@
     position: relative;
     padding-top: 0px;
     height: 0;
+    height: 1px;
+    margin-top: 20px;
 }
 
 #audioContainer>div {
