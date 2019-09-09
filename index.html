@@ -4,8 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <title>Dash</title>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="js/secret.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-firestore.js"></script>
@@ -191,67 +190,65 @@
                                 <label>
                                     <input id="themeToggle" type="checkbox" class="filled-in" checked="checked" />
                                     <span>Dark Mode</span>
-                                </label>
-                            </div>
+    </label>
+    </div>
 
-                        </div>
-                    </div>
+    </div>
+    </div>
 
 
-                </div>
-                <div class="modal-footer">
-                    <a id="prefSave" href="#!" class="modal-close waves-effect waves-green btn-flat">Save</a>
-                </div>
-            </div>
+    </div>
+    <div class="modal-footer">
+        <a id="prefSave" href="#!" class="modal-close waves-effect waves-green btn-flat">Save</a>
+    </div>
+    </div>
 
-            <script>
-                $('.dropdown-trigger').dropdown();
-            </script>
+    <script>
+        $('.dropdown-trigger').dropdown();
+    </script>
 
-            <div id="deleteModal" class="modal">
-                <div class="modal-content">
-                    <!--         <h4>Are you sure that you would like to delete this video?</h4>-->
-                    <h4 id="deleteTitle"></h4>
-                </div>
-                <div class="modal-footer">
-                    <a href="#!" class="modal-close waves-effect waves-light btn-flat">Cancel</a>
-                    <a href="#!" class="modal-close waves-effect waves-light btn-flat" id="deleteButton">Delete</a>
-                </div>
-            </div>
-
-            <div id="renameModal" class="modal">
-                <div class="modal-content">
-                    <h4 id="renameTitle"></h4>
-                    <input id="renameBox" placeholder="Rename" id="first_name" type="text" class="">
-                </div>
-                <div class="modal-footer">
-                    <a href="#!" class="modal-close waves-effect waves-light btn-flat">Cancel</a>
-                    <a href="#!" class="modal-close waves-effect waves-light btn-flat" id="renameButton">Rename</a>
-                </div>
-            </div>
-
-            <div id="videoList">
-                No Uploads Yet.
-            </div>
-
+    <div id="deleteModal" class="modal">
+        <div class="modal-content">
+            <!--         <h4>Are you sure that you would like to delete this video?</h4>-->
+            <h4 id="deleteTitle"></h4>
         </div>
-        <div id="viewer" class="animated hide bigViewer">
-            <div id="outerVideoWrapper">
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-light btn-flat">Cancel</a>
+            <a href="#!" class="modal-close waves-effect waves-light btn-flat" id="deleteButton">Delete</a>
+        </div>
+    </div>
 
-                <div id="notSupported" class="grey-text text-lighten-1 hide">
-                    <i class="material-icons">remove_red_eye</i><br>
-                    <span>Preview not supported</span>
-                    <br>
-                    <a title="Download" href="" id="bigDownloadBut" style="margin: 6px;"
-                        class="waves-effect waves-light btn blue">
-                        <i class="material-icons left">file_download</i>Download</a>
-                </div>
+    <div id="renameModal" class="modal">
+        <div class="modal-content">
+            <h4 id="renameTitle"></h4>
+            <input id="renameBox" placeholder="Rename" id="first_name" type="text" class="">
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-light btn-flat">Cancel</a>
+            <a href="#!" class="modal-close waves-effect waves-light btn-flat" id="renameButton">Rename</a>
+        </div>
+    </div>
 
-                <img src="" id="imgViewer" class="hide">
+    <div id="videoList">
+        No Uploads Yet.
+    </div>
 
-                <div id="videoContainer" class="hide">
-                    <video id="mainVideo" class="video-js videoInner" controls preload="auto" width="1920px"
-                        height="1080px" poster="" data-setup="{}">
+    </div>
+    <div id="viewer" class="animated hide bigViewer">
+        <div id="outerVideoWrapper">
+
+            <div id="notSupported" class="grey-text text-lighten-1 hide">
+                <i class="material-icons">remove_red_eye</i><br>
+                <span>Preview not supported</span>
+                <br>
+                <a title="Download" href="" id="bigDownloadBut" style="margin: 6px;" class="waves-effect waves-light btn blue">
+                    <i class="material-icons left">file_download</i>Download</a>
+            </div>
+
+            <img src="" id="imgViewer" class="hide">
+
+            <div id="videoContainer" class="hide">
+                <video id="mainVideo" class="video-js videoInner" controls preload="auto" width="1920px" height="1080px" poster="" data-setup="{}">
                         <source
                             src="https://firebasestorage.googleapis.com/v0/b/back-9d523.appspot.com/o/uploads%2Fecape%20trash.mp4?alt=media&token=7c5c63e9-c3f1-4ee7-8aac-33cc84fd353d"
                             type=''>
@@ -263,10 +260,9 @@
 
 
 
-                </div>
-                <div id="audioContainer" class="hide">
-                    <video id="mainAudio" class="video-js videoInner" controls preload="auto" width="1920px"
-                        height="1080px" poster="" data-setup='{ "inactivityTimeout": 0 }'>
+            </div>
+            <div id="audioContainer" class="hide">
+                <video id="mainAudio" class="video-js videoInner" controls preload="auto" width="1920px" height="1080px" poster="" data-setup='{ "inactivityTimeout": 0 }'>
                         <source
                             src="https://firebasestorage.googleapis.com/v0/b/back-9d523.appspot.com/o/uploads%2F15%20Sphere.mp3?alt=media&token=3f5aeb48-8117-4cee-8bf3-bafb274cb9e4"
                             type=''>
@@ -275,123 +271,116 @@
                             <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
                         </p>
                     </video>
-                </div>
-
-
             </div>
-            <div id="commentBox" class="card-panel" onclick="">
-                <div style="height: 0px; width: 100%; margin: 0px;" class="input-field col s6">
-                    <input placeholder="Leave your comment here..." value="" id="inptComment" type="text" class="">
-                </div>
-                <label class="waves-effect waves-light" id="checkTime">
+
+
+        </div>
+        <div id="commentBox" class="card-panel" onclick="">
+            <div style="height: 0px; width: 100%; margin: 0px;" class="input-field col s6">
+                <input placeholder="Leave your comment here..." value="" id="inptComment" type="text" class="">
+            </div>
+            <label class="waves-effect waves-light" id="checkTime">
                     <input id="timeCheck" type="checkbox" class="filled-in" checked="checked" />
                     <span style="padding: 0; padding-left: 25px; line-height: 20px;">00:00</span>
                 </label>
-                <a id="sendComment" class="waves-effect waves-light btn blue"><i
+            <a id="sendComment" class="waves-effect waves-light btn blue"><i
                         class="material-icons right">send</i>send</a>
 
-            </div>
-
-            <div id="entireCom" >
-                <div id="comInfo">
-                    <div id="read">
-
-                    </div>
-
-                    <div id="comInfoTab">
-                        <ul class="tabs tabs-fixed-width" id="comInfoTabInst">
-                            <li class="tab col s3"><a href="#comContainer">Comments</a></li>
-                            <li class="tab col s3"><a class="active" href="#infoContainer">Info</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-
-                <div id="comContainer">
-                    <div class="grey-text" id="videoActions">
-
-                        <a title="Sort options" style="float: left; outline: none;" class='dropdown-trigger grey-text'
-                            id="comSortDrop" href='#' data-target='comSortDropTarget'>
-                            <span id="comSortText" style="float: left;">Newest</span> <i
-                                class="material-icons">arrow_drop_down</i>
-                        </a>
-
-                        <!-- Dropdown Structure -->
-                        <ul id='comSortDropTarget' class='dropdown-content grey-text'>
-                            <li onclick="listComments({});"><a class="grey-text text-darken-2">Newest</a></li>
-                            <li onclick="listComments({sort: 'oldest'});"><a class="grey-text text-darken-2">Oldest</a>
-                            </li>
-                            <li onclick="listComments({sort: 'timecode'});"><a
-                                    class="grey-text text-darken-2">Timecode</a></li>
-                            <li onclick="listComments({sort: 'commenter'});"><a
-                                    class="grey-text text-darken-2">Commenter</a></li>
-                            <li onclick="listComments({sort: 'completed'});"><a
-                                    class="grey-text text-darken-2">Completed</a></li>
-                        </ul>
-
-                        <script>
-                            $('#comSortDrop').dropdown({
-                                constrainWidth: false, // Does not change width of dropdown to that of the activator 
-                                belowOrigin: true
-                            });
-                        </script>
-                        <div style="float: right;" id="toggleCheck">
-
-                            <span id="hideLabel">Hide</span>
-                            <i class="material-icons">check_circle</i>
-
-                        </div>
-                        <a title="Download" style="float: right; margin-right: 4;" href="#" class="grey-text"
-                            id="fileDownload" target="_blank" download>
-                            <i class="material-icons">file_download</i>
-                        </a>
-                    </div>
-
-
-                    <div id="comments" class="scroller scrollbar h100">
-
-
-                    </div>
-                </div>
-                <div id="infoContainer" class="scroller scrollbar">
-                </div>
-            </div>
-            <script>
-                var comInfoTabs;
-                $(document).ready(function () {
-
-                    comInfoTabs = M.Tabs.init($("#comInfoTabInst")[0]);
-                    comInfoTabs.select("comContainer");
-                    comInfoTabs.updateTabIndicator();
-                    comInfoTabs.updateTabIndicator();
-                });
-            </script>
-
         </div>
 
+        <div id="entireCom">
+            <div id="comInfo">
+                <div id="read">
+
+                </div>
+
+                <div id="comInfoTab">
+                    <ul class="tabs tabs-fixed-width" id="comInfoTabInst">
+                        <li class="tab col s3"><a href="#comContainer">Comments</a></li>
+                        <li class="tab col s3"><a class="active" href="#infoContainer">Info</a></li>
+                    </ul>
+                </div>
+            </div>
 
 
-        <div id="uploadWindow" class="animated  hide">
-            <div style="width: 100%;">
-                <div id="uploadState" class="hide">
-                    <h4 id="uploadName"></h4>
-                    <div class="progress blue lighten-4" style="height: 10px;">
-                        <div class="determinate blue" style="width: 0%" id="uploader"></div>
+            <div id="comContainer">
+                <div class="grey-text" id="videoActions">
+
+                    <a title="Sort options" style="float: left; outline: none;" class='dropdown-trigger grey-text' id="comSortDrop" href='#' data-target='comSortDropTarget'>
+                        <span id="comSortText" style="float: left;">Newest</span> <i class="material-icons">arrow_drop_down</i>
+                    </a>
+
+                    <!-- Dropdown Structure -->
+                    <ul id='comSortDropTarget' class='dropdown-content grey-text'>
+                        <li onclick="listComments({});"><a class="grey-text text-darken-2">Newest</a></li>
+                        <li onclick="listComments({sort: 'oldest'});"><a class="grey-text text-darken-2">Oldest</a>
+                        </li>
+                        <li onclick="listComments({sort: 'timecode'});"><a class="grey-text text-darken-2">Timecode</a></li>
+                        <li onclick="listComments({sort: 'commenter'});"><a class="grey-text text-darken-2">Commenter</a></li>
+                        <li onclick="listComments({sort: 'completed'});"><a class="grey-text text-darken-2">Completed</a></li>
+                    </ul>
+
+                    <script>
+                        $('#comSortDrop').dropdown({
+                            constrainWidth: false, // Does not change width of dropdown to that of the activator 
+                            belowOrigin: true
+                        });
+                    </script>
+                    <div style="float: right;" id="toggleCheck">
+
+                        <span id="hideLabel">Hide</span>
+                        <i class="material-icons">check_circle</i>
+
                     </div>
-                    <br>
-                    <div id="amountComplete">0.00MB</div>
-                    <div id="amountTotal">∞MB</div>
+                    <a title="Download" style="float: right; margin-right: 4;" href="#" class="grey-text" id="fileDownload" target="_blank" download>
+                        <i class="material-icons">file_download</i>
+                    </a>
+                </div>
+
+
+                <div id="comments" class="scroller scrollbar h100">
+
+
+                </div>
+            </div>
+            <div id="infoContainer" class="scroller scrollbar">
+            </div>
+        </div>
+        <script>
+            var comInfoTabs;
+            $(document).ready(function() {
+
+                comInfoTabs = M.Tabs.init($("#comInfoTabInst")[0]);
+                comInfoTabs.select("comContainer");
+                comInfoTabs.updateTabIndicator();
+                comInfoTabs.updateTabIndicator();
+            });
+        </script>
+
+    </div>
+
+
+
+    <div id="uploadWindow" class="animated  hide">
+        <div style="width: 100%;">
+            <div id="uploadState" class="hide">
+                <h4 id="uploadName"></h4>
+                <div class="progress blue lighten-4" style="height: 10px;">
+                    <div class="determinate blue" style="width: 0%" id="uploader"></div>
                 </div>
                 <br>
-
-
-                <a class="blue animated waves-effect waves-light btn" style="position: absolute;">
-                    <input type="file" value="" id="fileButton" /><i
-                        class="material-icons left">file_upload</i>Upload</a>
-                <a class="blue animated flipOutY waves-effect waves-light btn" id="cancelUpload"><i
-                        class="material-icons left">cancel</i>Cancel</a>
+                <div id="amountComplete">0.00MB</div>
+                <div id="amountTotal">∞MB</div>
             </div>
+            <br>
+
+
+            <a class="blue animated waves-effect waves-light btn" style="position: absolute;">
+                <input type="file" value="" id="fileButton" /><i class="material-icons left">file_upload</i>Upload</a>
+            <a class="blue animated flipOutY waves-effect waves-light btn" id="cancelUpload"><i
+                        class="material-icons left">cancel</i>Cancel</a>
         </div>
+    </div>
     </span>
 
     <div id="video-demo-container" style="position: absolute;" class="hide">
@@ -399,10 +388,10 @@
         <video controls="" autoplay="" name="" height="400px" id="videoId">
             <source type="">
         </video>
-
-        <canvas height="360" width="640" class="hide" id="canvasId" crossorigin anonymous></canvas>
-        <img id="imgId" src="" />
         <input type="file" id="file-input" accept="video/mp4" />
+
+        <canvas height="180" width="320" class="" id="canvasId"></canvas>
+        <img id="imgId" src="" />
     </div>
 
 </body>
