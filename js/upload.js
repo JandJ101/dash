@@ -104,10 +104,12 @@ var upload = function(e) {
             var videoHTML = $("#videoId")[0]
             $("#videoId")[0].load();
             videoHTML.addEventListener('loadeddata', function() {
-                console.log("ready vid");
                 videoHTML.pause();
-                videoHTML.currentTime = videoHTML.duration / 5;
-                captureAndPut()
+                videoHTML.currentTime = parseInt(videoHTML.duration / 5);
+                setTimeout(function() {
+                    captureAndPut()
+                }, 500);
+
             }, false);
         }
         setVideoInHTML(file);
@@ -128,7 +130,6 @@ var upload = function(e) {
             var theDate = new Date;
             var thumbImageRef = thumbRef.child("thumb/" + file.name + "_thumb" + theDate.getTime());
             thumbImageRef.put(dataURItoBlob(canvas1.toDataURL("image/jpg"))).then(function(snapshot) {
-                console.log('Uploaded a blob or file!', snapshot);
                 snapshot.ref.getDownloadURL().then(
                     function(downloadURL) {
                         console.log(downloadURL);
