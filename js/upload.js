@@ -1,6 +1,6 @@
 var cancelUploading = false;
 
-var findType = function (x) {
+var findType = function(x) {
     var imgTypes = ["jpg", "jpeg", "png", "gif", "svg", "bmp", "ico"];
     var videoTypes = ["mp4", "webm", "ogg", "mov"];
     var audioTypes = ["mp3", "aiff", "wav"];
@@ -25,7 +25,7 @@ var findType = function (x) {
     return (type);
 };
 
-var addDataToBase = function (Path, Name, Id, User, Date, Type, Size, Length) {
+var addDataToBase = function(Path, Name, Id, User, Date, Type, Size, Length, Thumb) {
     var ref = db.collection('uploads').doc('uploads');
 
 
@@ -41,7 +41,8 @@ var addDataToBase = function (Path, Name, Id, User, Date, Type, Size, Length) {
         type: Type,
         size: Size,
         length: Length,
-        comments: 0
+        comments: 0,
+        thumb: Thumb
     };
 
 
@@ -60,7 +61,7 @@ var addDataToBase = function (Path, Name, Id, User, Date, Type, Size, Length) {
 
 };
 
-var resetUploader = function () {
+var resetUploader = function() {
     hideUploadState();
     resetUploadState();
 
@@ -75,7 +76,7 @@ var resetUploader = function () {
 
 var thangy;
 
-var upload = function (e) {
+var upload = function(e) {
 
     var file = e.target.files[0];
     var folder = "uploads/";
@@ -95,8 +96,55 @@ var upload = function (e) {
     cancelUpload.classList.add("flipInY");
 
 
+    var Type1 = findType(file.name.split(".")[file.name.split(".").length - 1]);
+    if (Type1 == "video") {
+        //thumbnail
+        function setVideoInHTML(vid) {
+            $("#videoId source")[0].src = URL.createObjectURL(vid);
+            var videoHTML = $("#videoId")[0]
+            $("#videoId")[0].load();
+            videoHTML.addEventListener('loadeddata', function() {
+                videoHTML.pause();
+                videoHTML.currentTime = parseInt(videoHTML.duration / 5);
+                setTimeout(function() {
+                    captureAndPut()
+                }, 500);
+
+            }, false);
+        }
+        setVideoInHTML(file);
 
 
+
+        var thumbnailURL = "undefined";
+
+        function captureAndPut() {
+            var canvas1 = document.getElementById('canvasId');
+            var video1 = document.getElementById('videoId');
+            canvas1.getContext('2d').drawImage(video1, 0, 0, canvas1.width, canvas1.height);
+            dataThing = canvas1.toDataURL("image/jpg");
+            // return (canvas1.toDataURL("image/jpg"));
+
+
+            var thumbRef = firebase.storage().ref();
+            var theDate = new Date;
+            var thumbImageRef = thumbRef.child("thumb/" + file.name + "_thumb" + theDate.getTime());
+            thumbImageRef.put(dataURItoBlob(canvas1.toDataURL("image/jpg"))).then(function(snapshot) {
+                snapshot.ref.getDownloadURL().then(
+                    function(downloadURL) {
+                        console.log(downloadURL);
+                        thumbnailURL = downloadURL;
+                    }
+                )
+
+
+            });
+
+
+        }
+    } else {
+        var thumbnailURL = "undefined";
+    }
 
     cancelUploading = false;
     task.on("state_changed",
@@ -130,7 +178,7 @@ var upload = function (e) {
 
 
 
-            var continueInfo = function () {
+            var continueInfo = function() {
 
                 //create info
                 var Path = "";
@@ -140,17 +188,18 @@ var upload = function (e) {
                 var Date = dateString();
                 Type;
                 var Size = file.size;
+                var Thumb = thumbnailURL;
 
-                task.snapshot.ref.getDownloadURL().then(function (downloadURL) {
+                task.snapshot.ref.getDownloadURL().then(function(downloadURL) {
                     Path = downloadURL;
 
                     var docuuRef = db.collection("uploads").doc("uploads");
 
-                    docuuRef.get().then(function (doc) {
+                    docuuRef.get().then(function(doc) {
                         if (doc.exists) {
                             Id = idGen(doc.data().ids);
 
-                            addDataToBase(Path, Name, Id, User, Date, Type, Size, Length);
+                            addDataToBase(Path, Name, Id, User, Date, Type, Size, Length, Thumb);
 
                             // Slack message
                             postSlack(String(currentUserInfo[auth.currentUser.uid].name) + " uploaded " + Name);
@@ -158,7 +207,7 @@ var upload = function (e) {
                             // doc.data() will be undefined in this case
                             console.log("No such document!");
                         }
-                    }).catch(function (error) {
+                    }).catch(function(error) {
                         console.log("Error getting document:", error);
                     });
 
@@ -179,7 +228,7 @@ var upload = function (e) {
 
                 obUrl = URL.createObjectURL(file);
                 videoTest.src = obUrl;
-                videoTest.addEventListener('canplaythrough', function (e) {
+                videoTest.addEventListener('canplaythrough', function(e) {
                     //add duration in the input field #f_du
                     var f_duration = e.currentTarget.duration;
                     console.log(f_duration);
@@ -197,7 +246,7 @@ var upload = function (e) {
 };
 
 
-var initilizeUploader = function () {
+var initilizeUploader = function() {
     var uploader = $("#uploader")[0];
     var fileButton = $("#fileButton")[0];
 
@@ -206,28 +255,28 @@ var initilizeUploader = function () {
     var amountComplete = $("#amountComplete")[0];
     var uploadName = $("#uploadName")[0];
 
-    fileButton.addEventListener("change", function (e) {
+    fileButton.addEventListener("change", function(e) {
         upload(e);
     });
 
-    cancelUpload.addEventListener("click", function () {
+    cancelUpload.addEventListener("click", function() {
         cancelUploading = true;
     });
 };
 
-var showUploadState = function () {
+var showUploadState = function() {
     uploadState.classList.remove("hide");
 
 
 
 };
 
-var hideUploadState = function () {
+var hideUploadState = function() {
     uploadState.classList.add("hide");
 
 }
 
-var resetUploadState = function () {
+var resetUploadState = function() {
     amountTotal.innerHTML = "∞MB";
     amountComplete.innerHTML = "0.00MB";
 
