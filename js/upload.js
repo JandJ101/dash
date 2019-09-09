@@ -106,7 +106,7 @@ var upload = function(e) {
             videoHTML.addEventListener('loadeddata', function() {
                 console.log("ready vid");
                 videoHTML.pause();
-                videoHTML.currentTime = videoHTML.duration / 20;
+                videoHTML.currentTime = videoHTML.duration / 5;
                 captureAndPut()
             }, false);
         }
@@ -114,7 +114,7 @@ var upload = function(e) {
 
 
 
-        var thumbnailURL;
+        var thumbnailURL = "undefined";
 
         function captureAndPut() {
             var canvas1 = document.getElementById('canvasId');
@@ -142,7 +142,7 @@ var upload = function(e) {
 
         }
     } else {
-        var thumbnailURL = undefined;
+        var thumbnailURL = "undefined";
     }
 
     cancelUploading = false;

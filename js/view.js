@@ -2,7 +2,7 @@ var mainVideoRef, currentVideoId;
 var currentType = "";
 
 
-var secondsToHM = function (duration) {
+var secondsToHM = function(duration) {
     duration *= 1000;
 
     var //milliseconds = parseInt((duration % 1000) / 100),
@@ -17,11 +17,11 @@ var secondsToHM = function (duration) {
     return minutes + ":" + seconds;
 };
 
-var setTime = function (a) {
+var setTime = function(a) {
     mainVideoRef.currentTime(a);
 };
 
-var updateTimeInBox = function () {
+var updateTimeInBox = function() {
 
     var x = secondsToHM(mainVideoRef.currentTime());
     $("#checkTime span")[0].innerHTML = x
@@ -29,12 +29,13 @@ var updateTimeInBox = function () {
 };
 
 //reset counter and uncheck it
-var resetViewer = function () {
+var resetViewer = function() {
     document.title = "Dash";
     userRead(false, currentVideoId);
     if (mainVideoRef) {
         mainVideoRef.pause();
         mainVideoRef.src("");
+        mainVideoRef.poster("")
     }
     document.getElementById("comments").innerHTML = "";
     $("#checkTime span")[0].innerHTML = "00:00";
@@ -44,7 +45,7 @@ var resetViewer = function () {
 };
 
 
-var openVideo = function (x, vOrA) {
+var openVideo = function(x, vOrA) {
     $("#fileDownload")[0].href = x.path;
     $("#fileDownload")[0].download = x.name;
 
@@ -63,7 +64,7 @@ var openVideo = function (x, vOrA) {
     $("#infoContainer")[0].appendChild(infoSort(x));
 
     comInfoTabs.select("comContainer");
-    setTimeout(function () {
+    setTimeout(function() {
         comInfoTabs.updateTabIndicator();
     }, 50);
 
@@ -72,7 +73,7 @@ var openVideo = function (x, vOrA) {
     showViewer();
 };
 
-var infoSort = function (x) {
+var infoSort = function(x) {
     var userI = document.createElement("li");
     var nameI = document.createElement("li");
     var titleI = document.createElement("li");
@@ -120,7 +121,7 @@ var infoSort = function (x) {
 
 };
 
-var enterVideo = function (x) {
+var enterVideo = function(x) {
     var i = videoData[x];
     var extension = i.name.split(".")[i.name.split(".").length - 1];
     var type = i.type;
@@ -146,17 +147,13 @@ var enterVideo = function (x) {
     if (type == "video") {
         mainVideoRef = videojs("mainVideo");
         openVideo(i, true);
-        $("#commentBox")[0].onclick = function () {
+        $("#commentBox")[0].onclick = function() {
             if (mainVideoRef) {
                 mainVideoRef.pause();
             }
         };
 
-        mainVideoRef.play();
-        setTimeout(function () {
-            mainVideoRef.pause();
-            mainVideoRef.currentTime(0);
-        }, 40);
+        mainVideoRef.poster(i.thumb);
 
         $("#videoContainer")[0].classList.remove("hide");
         currentType = "video";
@@ -167,13 +164,13 @@ var enterVideo = function (x) {
     if (type == "audio") {
         mainVideoRef = videojs("mainAudio");
         openVideo(i, true);
-        $("#commentBox")[0].onclick = function () {
+        $("#commentBox")[0].onclick = function() {
             if (mainVideoRef) {
                 mainVideoRef.pause();
             }
         };
         mainVideoRef.play();
-        setTimeout(function () {
+        setTimeout(function() {
             mainVideoRef.pause()
             mainVideoRef.currentTime(0);
         }, 40);
@@ -203,7 +200,7 @@ var enterVideo = function (x) {
 
 };
 
-var playerInit = function () {
+var playerInit = function() {
     mainVideoRef = videojs("mainVideo");
     //mainAudioRef = videojs("audioContainer");
     $(".vjs-remaining-time")[0].style = "visibility: collapse; width: 0px; padding: 0px;"
@@ -214,16 +211,16 @@ var playerInit = function () {
 
 };
 
-var goToTime = function (x) {
+var goToTime = function(x) {
     if (x != null) {
-        mainVideoRef.play();
-        mainVideoRef.pause();
+        // mainVideoRef.play();
+        // mainVideoRef.pause();
         mainVideoRef.currentTime(x);
     }
 };
 
 var showHideCheckComShow = true;
-var showHideCheckCom = function () {
+var showHideCheckCom = function() {
     if (showHideCheckComShow) {
         showHideCheckComShow = false;
         $("#hideLabel")[0].innerHTML = "Show";

@@ -299,18 +299,19 @@ var updateUlMain = function() {
             node.appendChild(menuButton);
 
             if (infos.type == "video") {
-                if (infos.thumb) {
+
+                if (infos.thumb == "undefined" || infos.thumb == undefined) {
+                    thumbnailSide.innerHTML = "movie";
+
+                } else {
                     thumbnailSide = document.createElement("img");
                     thumbnailSide.src = infos.thumb;
                     image.classList.add("noOpacity");
                     thumbnailSide.addEventListener("load", function() {
                         this.parentElement.classList.remove("noOpacity");
                     });
-                } else {
-                    thumbnailSide.innerHTML = "movie";
                 }
             }
-
             if (infos.type == "image") {
                 thumbnailSide = document.createElement("img");
                 thumbnailSide.src = infos.path;
