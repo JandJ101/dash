@@ -100,7 +100,7 @@ var upload = function(e) {
     if (Type1 == "video") {
         //thumbnail
         function setVideoInHTML(vid) {
-            $("#videoId source")[0].src = URL.createObjectURL(vid);
+            $("#videoId")[0].src = URL.createObjectURL(vid);
             var videoHTML = $("#videoId")[0]
             $("#videoId")[0].load();
             videoHTML.addEventListener('loadeddata', function() {
