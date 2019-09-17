@@ -306,9 +306,9 @@ var updateUlMain = function() {
                 } else {
                     thumbnailSide = document.createElement("img");
                     thumbnailSide.src = infos.thumb;
-                    image.classList.add("noOpacity");
+                    thumbnailSide.classList.add("noOpacity");
                     thumbnailSide.addEventListener("load", function() {
-                        this.parentElement.classList.remove("noOpacity");
+                        this.classList.remove("noOpacity");
                     });
                 }
             }
