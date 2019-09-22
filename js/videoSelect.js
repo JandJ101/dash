@@ -168,7 +168,7 @@ var updateUlMain = function() {
             //menu button
             var menuButton = document.createElement("i");
             menuButton.classList.add("material-icons");
-            menuButton.classList.add("dropdown-trigger");
+            menuButton.classList.add("dropdown-button");
             menuButton.classList.add("mainMenuDrop");
             menuButton.setAttribute("data-target", infos.id + "drop");
             menuButton.classList.add("menuDrop");
@@ -360,7 +360,7 @@ var updateUlMain = function() {
 
         $("#videoList")[0].addEventListener("wheel", function() {
             for (i = 0; i < mainDrop.length; i++) {
-                M.Dropdown.getInstance(mainDrop[i]).close();
+                Materialize.Dropdown.getInstance(mainDrop[i]).close();
             }
         });
 

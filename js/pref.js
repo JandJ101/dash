@@ -1,13 +1,13 @@
 var prefTabsInstance;
-var prefInit = function () {
+var prefInit = function() {
     var user = currentUserInfo[auth.currentUser.uid];
 
-    prefTabsInstance = M.Tabs.init($("#prefTabs"));
+    prefTabsInstance = Materialize.Tabs.init($("#prefTabs"));
     prefTabsInstance[0].select("ProfileSet");
     prefTabsInstance[0].updateTabIndicator();
 
     $("#username")[0].value = user.name;
-    M.updateTextFields();
+    Materialize.updateTextFields();
 
     $("#themeToggle")[0].checked = user.pref.theme;
 
@@ -19,7 +19,7 @@ var prefInit = function () {
     applyPref();
 };
 
-var applyPref = function () {
+var applyPref = function() {
     setUserMenu();
 
     var userId = auth.currentUser.uid;
@@ -35,7 +35,7 @@ var applyPref = function () {
 
 };
 
-var updatePref = function () {
+var updatePref = function() {
     var userId = auth.currentUser.uid;
     var user = currentUserInfo[userId];
 
@@ -49,7 +49,7 @@ var updatePref = function () {
     db.collection("users").doc("users").update({
             [userId]: user
         })
-        .then(function () {
+        .then(function() {
             console.log("Document successfully updated!");
             applyPref();
         });
