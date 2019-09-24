@@ -19,7 +19,6 @@ body {
     transition: .6s;
 }
 
-
 i {
     cursor: pointer;
 }
@@ -31,7 +30,11 @@ input[type=email]:focus {
     box-shadow: 0 1px 0 0 #2196f3 !important;
 }
 
-[type="checkbox"].filled-in:checked + span:not(.lever):after {
+button:focus {
+    background: #2196F3;
+}
+
+[type="checkbox"].filled-in:checked+span:not(.lever):after {
     border: 2px solid #2196f3;
     background-color: #2196f3;
 }
@@ -49,7 +52,7 @@ input {
     box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
 }
 
-#header > i {
+#header>i {
     font-size: 34px;
     padding: 3px;
     position: absolute;
@@ -70,6 +73,7 @@ input {
     margin: 0px;
     transition: .4s;
     background: #F5F5F5;
+    overflow-x: hidden;
 }
 
 #uploadButton {
@@ -106,12 +110,10 @@ input {
     width: 100%;
     right: 0;
     opacity: 0;
-
 }
 
 #uploadState {
     transition: .4s;
-
 }
 
 #amountComplete {
@@ -123,4 +125,3 @@ input {
     float: right;
     width: auto;
 }
-
