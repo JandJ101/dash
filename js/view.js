@@ -63,10 +63,10 @@ var openVideo = function(x, vOrA) {
     $("#infoContainer")[0].innerHTML = "";
     $("#infoContainer")[0].appendChild(infoSort(x));
 
-    comInfoTabs.select("comContainer");
-    setTimeout(function() {
-        comInfoTabs.updateTabIndicator();
-    }, 50);
+    // comInfoTabs.select("comContainer");
+    // setTimeout(function() {
+    //     comInfoTabs.updateTabIndicator();
+    // }, 50);
 
     userRead(true, x.id);
 

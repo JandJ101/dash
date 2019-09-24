@@ -1,10 +1,5 @@
-var prefTabsInstance;
 var prefInit = function() {
     var user = currentUserInfo[auth.currentUser.uid];
-
-    prefTabsInstance = Materialize.Tabs.init($("#prefTabs"));
-    prefTabsInstance[0].select("ProfileSet");
-    prefTabsInstance[0].updateTabIndicator();
 
     $("#username")[0].value = user.name;
     Materialize.updateTextFields();

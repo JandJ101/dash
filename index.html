@@ -175,8 +175,8 @@
                     <div class="row">
                         <div class="col s12">
                             <ul style="margin-bottom: 40px;" id="prefTabs" class="tabs z-depth-1">
-                                <li class="tab"><a href="#ProfileSet">Profile</a></li>
-                                <li class="tab"><a class="active" href="#UIset">UI</a></li>
+                                <li class="tab"><a class="active" href="#ProfileSet">Profile</a></li>
+                                <li class="tab"><a href="#UIset">UI</a></li>
 
                             </ul>
                         </div>
@@ -300,8 +300,8 @@
 
                 <div id="comInfoTab">
                     <ul class="tabs tabs-fixed-width" id="comInfoTabInst">
-                        <li class="tab col s3"><a href="#comContainer">Comments</a></li>
-                        <li class="tab col s3"><a class="active" href="#infoContainer">Info</a></li>
+                        <li class="tab col s3"><a class="active" href="#comContainer">Comments</a></li>
+                        <li class="tab col s3"><a href="#infoContainer">Info</a></li>
                     </ul>
                 </div>
             </div>
@@ -350,17 +350,7 @@
             <div id="infoContainer" class="scroller scrollbar">
             </div>
         </div>
-        <script>
-            var comInfoTabs;
-            $(document).ready(function() {
 
-                // comInfoTabs = Materialize.Tabs.init($("#comInfoTabInst")[0]);
-                comInfoTabs = $('ul.tabs').tabs('comInfoTabInst');
-                comInfoTabs.select("comContainer");
-                comInfoTabs.updateTabIndicator();
-                comInfoTabs.updateTabIndicator();
-            });
-        </script>
 
     </div>
 
