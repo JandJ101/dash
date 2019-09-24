@@ -73,6 +73,7 @@ input {
     margin: 0px;
     transition: .4s;
     background: #F5F5F5;
+    overflow-x: hidden;
 }
 
 #uploadButton {
