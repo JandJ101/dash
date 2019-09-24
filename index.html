@@ -145,7 +145,7 @@
                 class="dropdown-button">
 
                 <img src="img/small_logo.png" style="float: left;">
-                <h6 style="float: left;" id="menuUser"></h6>
+                <div style="float: left; margin-top: 10px;" id="menuUser"></div>
                 <h6 style="float: left; margin-top: 9px;">
                     <i class="material-icons">arrow_drop_down</i>
                 </h6>
@@ -281,11 +281,12 @@
         </div>
         <div id="commentBox" class="card-panel" onclick="">
             <div style="height: 0px; width: 100%; margin: 0px;" class="input-field col s6">
-                <input placeholder="Leave your comment here..." value="" id="inptComment" type="text" class="">
+                <input style="margin-bottom: 5px;" placeholder="Leave your comment here..." value="" id="inptComment" type="text" class="">
             </div>
-            <label class="waves-effect waves-light" id="checkTime">
-                    <input id="timeCheck" type="checkbox" class="filled-in" checked="checked" />
-                    <span style="padding: 0; padding-left: 25px; line-height: 20px;">00:00</span>
+
+            <input id="timeCheck" type="checkbox" class="filled-in" checked="checked" />
+            <label for="timeCheck" class="waves-effect waves-light" id="checkTime">
+                    <span>00:00</span>
                 </label>
             <a id="sendComment" class="waves-effect waves-light btn blue"><i
                         class="material-icons right">send</i>send</a>

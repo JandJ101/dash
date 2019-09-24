@@ -359,10 +359,9 @@ var updateUlMain = function() {
         mainDrop = $(".mainMenuDrop").dropdown();
 
         $("#videoList")[0].addEventListener("wheel", function() {
-            for (i = 0; i < mainDrop.length; i++) {
-                Materialize.Dropdown.getInstance(mainDrop[i]).close();
-            }
+            $('.dropdown-button').dropdown('close');
         });
+
 
         $(document).ready(function() {
             $(".modal").modal();
