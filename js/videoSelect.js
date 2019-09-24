@@ -170,7 +170,7 @@ var updateUlMain = function() {
             menuButton.classList.add("material-icons");
             menuButton.classList.add("dropdown-button");
             menuButton.classList.add("mainMenuDrop");
-            menuButton.setAttribute("data-target", infos.id + "drop");
+            menuButton.setAttribute("data-activates", infos.id + "drop");
             menuButton.classList.add("menuDrop");
             menuButton.innerHTML = "more_vert";
             menuButton.classList.add("waves-effect");

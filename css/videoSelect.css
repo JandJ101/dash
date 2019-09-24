@@ -63,8 +63,6 @@
 
 #videoList>div {
     cursor: pointer;
-    overflow: hidden;
-    //height: 64px;
 }
 
 #videoList>div:hover {
