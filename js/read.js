@@ -1,11 +1,11 @@
 var readInfo;
 var realtimeRead;
 
-var updateRead = function (x) {
+var updateRead = function(x) {
     var docRef = db.collection("comments").doc(x);
 
     realtimeRead = db.collection("read").doc(x)
-        .onSnapshot(function (doc) {
+        .onSnapshot(function(doc) {
 
 
             if (doc.exists) {
@@ -23,7 +23,7 @@ var updateRead = function (x) {
 };
 
 
-var userRead = function (x, id) {
+var userRead = function(x, id) {
 
     if (realtimeRead) {
         realtimeRead();
@@ -40,7 +40,7 @@ var userRead = function (x, id) {
 
     var setWithMerge = readref.set(newData, {
         merge: true
-    }).then(function () {
+    }).then(function() {
         updateRead(String(currentVideoId));
 
     });
@@ -50,7 +50,7 @@ var userRead = function (x, id) {
 };
 
 
-var minutesSince = function (x) {
+var minutesSince = function(x) {
     var theDate = new Date(x);
     var timeDiff = new Date().getTime() - theDate.getTime();
 
@@ -60,11 +60,11 @@ var minutesSince = function (x) {
 };
 
 
-var listReads = function (x) {
+var listReads = function(x) {
     $("#read")[0].innerHTML = "";
 
     var obj = x;
-    var result = Object.keys(obj).map(function (key) {
+    var result = Object.keys(obj).map(function(key) {
         return [key, obj[key]];
     });;
 
@@ -75,7 +75,10 @@ var listReads = function (x) {
         var userInfo = currentUserInfo[users[0]];
 
         var picImgContainer = document.createElement("div");
-        picImgContainer.title = userInfo.name + " has seen this.";
+        picImgContainer.classList.add("tooltipped");
+        picImgContainer.setAttribute("data-tooltip", userInfo.name + " has seen this.");
+        picImgContainer.setAttribute("data-position", "bottom");
+        picImgContainer.setAttribute("data-delay", "50");
         var picImg = document.createElement("img");
         var tag = document.createElement("div");
         tag.classList.add("tag");
