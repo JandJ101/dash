@@ -1,3 +1,4 @@
 # Dash
 All my video collaboration needs solved.
-<br>WIP?
+
+![Screenshot](README/screenshot.PNG)
