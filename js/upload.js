@@ -57,7 +57,7 @@ var addDataToBase = function(Path, Name, Id, User, Date, Type, Size, Length, Thu
 
     //updateVideos();
 
-    Materialize.toast(Name + "finished uploading.", 4000, "rounded");
+    Materialize.toast(Name + " finished uploading.", 4000, "rounded");
     hideUploadWindow();
 
 };

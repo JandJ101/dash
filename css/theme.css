@@ -1,7 +1,7 @@
 /*Dark*/
+
 .dark {
     background: #15151c;
-
 }
 
 .dark #main {
@@ -22,8 +22,6 @@
     background: #303246;
     color: #fafafa;
 }
-
-
 
 .dark #videoList .card-image {
     color: #7d829c;
@@ -60,12 +58,10 @@
 
 .dark #waitLoader {
     background: #15151c;
-
 }
 
 .dark #authContainer {
     background: #15151c;
-
 }
 
 .dark #authContainer input {
@@ -74,7 +70,6 @@
 
 .dark #viewer {
     background: #0f1013;
-
 }
 
 .dark #commentBox {
@@ -89,13 +84,11 @@
 .dark #commentBox #checkTime {
     background: #20222b;
     color: #9e9e9e;
-
 }
 
 .dark #comments,
 .dark #infoContainer {
     background: #2b2f3b;
-
 }
 
 .dark .collection {
@@ -111,12 +104,10 @@
 .dark #comments>.card {
     background: #2b2f3b;
     border-bottom: 1px solid #0f1014;
-
 }
 
 .dark #comments>.card:hover {
     background: #353944;
-
 }
 
 .dark #videoActions,
@@ -135,22 +126,21 @@
     color: white;
 }
 
+
 /*lighten*/
 
 .lighten #videoList .card-action {
     color: #b9b9b9;
-
 }
 
 .lighten .card .card-title {
-    background: -webkit-linear-gradient(left, #212121, #212121, #212121, #212121, #212121, #212121, #212121, #212121, #212121, #212121,#212121, #212121, #212121, #212121, #212121, rgba(205, 205, 205, 0));
+    background: -webkit-linear-gradient(left, #212121, #212121, #212121, #212121, #212121, #212121, #212121, #212121, #212121, #212121, #212121, #212121, #212121, #212121, #212121, rgba(205, 205, 205, 0));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .lighten #videoList .menuDrop {
     color: #b9b9b9;
-
 }
 
 .lighten #videoList .card-image {
@@ -162,32 +152,26 @@
     border-bottom: 1px solid #808080;
     color: #212121;
     box-shadow: none;
-
 }
 
 .lighten #header #smallLogo {
     color: #212121;
-
 }
 
 .lighten #header>i {
     color: #212121;
-
 }
 
 .lighten #waitLoader {
     background: #eee;
-
 }
 
 .lighten #authContainer {
     background: #fff;
-
 }
 
 .lighten #authBox {
-    background-color: #f5f5f5;
-
+    background-color: #ededed;
 }
 
 .lighten #viewer {
@@ -195,19 +179,17 @@
 }
 
 .lighten #commentBox {
-    background: #f5f5f5;
+    background: #ededed;
 }
 
 .lighten #commentBox #checkTime {
     background: #d8d8d8;
     color: #9e9e9e;
-
 }
 
 .lighten #comments,
 .lighten #infoContainer {
     background: #fafafa;
-
 }
 
 .lighten #comments .card,
@@ -215,22 +197,19 @@
     background: #ffffff00;
 }
 
-
 .lighten #videoActions,
 .lighten #comInfo {
     border-bottom: 1px solid #d6d6d6;
-    background: #f5f5f5;
+    background: #ededed;
 }
 
 .lighten #comments>.card {
-    1121155 background: #f5f5f5;
+    1121155 background: #ededed;
     border-bottom: 1px solid #bebebe;
-
 }
 
 .lighten #comments>.card:hover {
     background: #fbfbfb;
-
 }
 
 .lighten #videoName {
