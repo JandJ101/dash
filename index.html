@@ -39,8 +39,10 @@
         // Initialize Performance Monitoring and get a reference to the service
         var perf = firebase.performance();
     </script>
-    <link href="https://vjs.zencdn.net/7.4.1/video-js.css" rel="stylesheet">
-    <script src="https://vjs.zencdn.net/7.4.1/video.js"></script>
+    <link href="https://vjs.zencdn.net/7.5.5/video-js.css" rel="stylesheet" />
+    <script src="https://vjs.zencdn.net/7.5.5/video.js"></script>
+
+    <script src="https://unpkg.com/wavesurfer.js"></script>
 
     <!--favicon-->
     <link rel="apple-touch-icon" sizes="180x180" href="/Dash/img/favicon/apple-touch-icon.png">
@@ -192,8 +194,14 @@
                         <div id="UIset" class="col s12">
                             <div class="input-field col s12">
                                 <label>
+<<<<<<< Updated upstream
                                     <input id="themeToggle" type="checkbox" class="filled-in" checked="checked" />
                                     <span>Dark Mode</span>
+=======
+                                    Light Mode
+                                    <input type="checkbox" id="themeToggle">
+                                    <span class="lever"></span> Dark Mode
+>>>>>>> Stashed changes
     </label>
     </div>
 
@@ -265,8 +273,8 @@
 
 
             </div>
-            <div id="audioContainer" class="hide">
-                <video id="mainAudio" class="video-js videoInner" controls preload="auto" width="1920px" height="1080px" poster="" data-setup='{ "inactivityTimeout": 0 }'>
+            <!-- <div id="audioContainer" class="hide">
+                <video id="mainAudio" class="video-js videoInner" controls preload="auto" width="1920px" height="1080px" poster="" data-setup='{ "inactivityTimeout": 0}'>
                         <source
                             src="https://firebasestorage.googleapis.com/v0/b/back-9d523.appspot.com/o/uploads%2Fguide%20me%20remix%20v9%2B.mp3?alt=media&token=f0188181-999e-4a31-af62-5d408727ea97"
                             type=''>
@@ -275,8 +283,23 @@
                             <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
                         </p>
                     </video>
+            </div> -->
+
+
+            <div id="audioContainer" class="hide">
+
+                <div id="mainAudio"></div>
             </div>
 
+            <script>
+                var mainAudioRef = WaveSurfer.create({
+                    container: '#mainAudio',
+                    waveColor: 'violet',
+                    progressColor: 'purple',
+                    responsive: true,
+                    barRadius: 2
+                });
+            </script>
 
         </div>
         <div id="commentBox" class="card-panel" onclick="">

@@ -45,15 +45,16 @@ var resetViewer = function() {
 };
 
 
-var openVideo = function(x, vOrA) {
+var openVideo = function(x) {
     $("#fileDownload")[0].href = x.path;
     $("#fileDownload")[0].download = x.name;
 
     $("#bigDownloadBut")[0].href = x.path;
 
-    if (vOrA) {
+    if (x.type == "video") {
         mainVideoRef.src(x.path);
-
+    } else if (x.type == "audio") {
+        mainAudioRef.load("https://cors-anywhere.herokuapp.com/" + x.path);
     }
 
     videoName.innerHTML = x.title;
@@ -162,18 +163,19 @@ var enterVideo = function(x) {
     }
 
     if (type == "audio") {
-        mainVideoRef = videojs("mainAudio");
-        openVideo(i, true);
+        // mainVideoRef = videojs("mainAudio");
+
+        openVideo(i);
         $("#commentBox")[0].onclick = function() {
             if (mainVideoRef) {
                 mainVideoRef.pause();
             }
         };
-        mainVideoRef.play();
-        setTimeout(function() {
-            mainVideoRef.pause()
-            mainVideoRef.currentTime(0);
-        }, 40);
+        // mainVideoRef.play();
+        // setTimeout(function() {
+        //     mainVideoRef.pause()
+        //     mainVideoRef.currentTime(0);
+        // }, 40);
 
         $("#audioContainer")[0].classList.remove("hide");
 
