@@ -14,6 +14,15 @@
     <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-performance.js"></script>
+    <script src="js/platform.js"></script>
+
+    <script>
+        var isMobile = false;
+        if(platform.os.family == "iOS" ||platform.os.family == "Android"){
+            isMobile = true;
+        }
+
+    </script>
 
     <script>
         // Initialize Firebase

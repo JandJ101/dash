@@ -148,6 +148,7 @@ var updateUlMain = function() {
             var cardInfo = document.createElement("div");
             cardInfo.classList.add("card-action");
             // sets visibility of info on mouse input
+            if (isMobile == false){
             cardInfo.classList.add("noOpacity");
             node.onmouseover = function() {
                 this.getElementsByClassName("card-action")[0].classList.remove(
@@ -164,7 +165,7 @@ var updateUlMain = function() {
                 );
                 this.getElementsByClassName("menuDrop")[0].classList.add("noOpacity");
             };
-
+        }
             //menu button
             var menuButton = document.createElement("i");
             menuButton.classList.add("material-icons");
@@ -174,7 +175,9 @@ var updateUlMain = function() {
             menuButton.classList.add("menuDrop");
             menuButton.innerHTML = "more_vert";
             menuButton.classList.add("waves-effect");
+            if (isMobile == false){
             menuButton.classList.add("noOpacity");
+            }
 
             //drop down
             var dropList = document.createElement("ul");

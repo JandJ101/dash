@@ -192,6 +192,8 @@
     height: 32;
     line-height: 2.35em;
     float: right;
+    padding-left: 7px;
+    padding-right: 7px;;
 }
 
 #sendComment i {
