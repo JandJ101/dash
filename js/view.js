@@ -169,11 +169,11 @@ var enterVideo = function(x) {
                 mainVideoRef.pause();
             }
         };
-        mainVideoRef.play();
-        setTimeout(function() {
-            mainVideoRef.pause()
-            mainVideoRef.currentTime(0);
-        }, 40);
+        // mainVideoRef.play();
+        // setTimeout(function() {
+        //     mainVideoRef.pause()
+        //     mainVideoRef.currentTime(0);
+        // }, 40);
 
         $("#audioContainer")[0].classList.remove("hide");
 
