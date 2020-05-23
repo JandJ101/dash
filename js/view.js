@@ -87,7 +87,7 @@ var infoSort = function(x) {
 
 
 
-    userI.innerHTML = "User: " + currentUserInfo[x.user].name;
+    userI.innerHTML = "Uploaded by " + currentUserInfo[x.user].name;
     nameI.innerHTML = "Name: " + x.name;
     titleI.innerHTML = "Title: " + x.title;
     dateI.innerHTML = "Date: " + x.date;
@@ -96,7 +96,7 @@ var infoSort = function(x) {
     lengthI.innerHTML = "Length: " + secondsToHM(x.length);
     sizeI.innerHTML = "Size: " + formatBytes(x.size);
     typeI.innerHTML = "Type: " + x.type;
-    pathI.innerHTML = "Path: " + x.path;
+    pathI.innerHTML = "Path: <a href=" + x.path + ">" + x.path + "</a>";
 
     var listContainer = document.createElement("ul");
     listContainer.classList.add("collection");
