@@ -46,7 +46,7 @@ var timeSince = function(date) {
     }
     interval = Math.floor(seconds / 60);
     if (interval > 1) {
-        return interval + " minutes";
+        return interval + " min";
     }
     return "Just now";
 };
