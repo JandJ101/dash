@@ -361,10 +361,6 @@ var updateUlMain = function() {
 
         mainDrop = $(".mainMenuDrop").dropdown();
 
-        $("#videoList")[0].addEventListener("wheel", function() {
-            $('.dropdown-button').dropdown('close');
-        });
-
 
         $(document).ready(function() {
             $(".modal").modal();

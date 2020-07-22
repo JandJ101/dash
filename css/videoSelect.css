@@ -80,8 +80,8 @@
     float: left;
     height: 300px;
     width: 65px;
-    overflow-y: scroll;
     margin-bottom: 25px;
+    -webkit-overflow-scrolling: touch;
 }
 
 .scroller::-webkit-scrollbar-track {
