@@ -1,116 +1,118 @@
-#videoList {}
+#videoList {
+}
 
 #videoList .card-stack {
-    width: 100%;
+  width: 100%;
 }
 
 #videoList .card-action {
-    padding: 0px;
-    display: flex;
-    align-content: center;
-    white-space: nowrap;
-    transition: .2s;
-    -moz-user-select: -moz-none;
-    -khtml-user-select: none;
-    -webkit-user-select: none;
-    padding-left: 8px;
+  padding: 0px;
+  display: flex;
+  align-content: center;
+  white-space: nowrap;
+  transition: 0.2s;
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  padding-left: 8px;
 }
 
 #videoList .card-action span {
-    display: flex;
-    align-items: center;
-    padding-right: 3px;
-    float: left;
+  display: flex;
+  align-items: center;
+  padding-right: 3px;
+  float: left;
 }
 
 #videoList .card-image {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: .6s;
-    height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.6s;
+  height: 100px;
 }
 
 #videolist .card-image .timecode {
-    position: absolute;
-    bottom: 4;
-    right: 5;
-    background: #00000080;
-    padding: 3;
-    border-radius: 3px;
-    line-height: 12px;
-    z-index: 1;
-    color: #d4d4d4;
+  position: absolute;
+  bottom: 4;
+  right: 5;
+  background: #00000080;
+  padding: 3;
+  border-radius: 3px;
+  line-height: 12px;
+  z-index: 1;
+  color: #d4d4d4;
 }
 
 #videoList .card-image img {
-    object-fit: cover;
-    height: 100px;
+  object-fit: cover;
+  height: 100px;
 }
 
 #videoList .c rd-image i {
-    padding: 20px;
+  padding: 20px;
 }
 
 #videoList .card-action i {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 #videoList .card-title {
-    white-space: nowrap;
-    padding-left: 10px;
+  white-space: nowrap;
+  padding-left: 10px;
 }
 
-#videoList>div {
-    cursor: pointer;
+#videoList > div {
+  cursor: pointer;
 }
 
-#videoList>div:hover {
-    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.14), 0 1px 9px 0 rgba(0, 0, 0, 0.12), 0 3px 6px -1px rgba(0, 0, 0, 0.2);
+#videoList > div:hover {
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.14), 0 1px 9px 0 rgba(0, 0, 0, 0.12),
+    0 3px 6px -1px rgba(0, 0, 0, 0.2);
 }
 
 #videoList .menuDrop {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-radius: 50%;
 }
 
 .scrollbar {
-    float: left;
-    height: 300px;
-    width: 65px;
-    margin-bottom: 25px;
-    -webkit-overflow-scrolling: touch;
+  float: left;
+  height: 300px;
+  width: 65px;
+  margin-bottom: 25px;
+  /* -webkit-overflow-scrolling: touch; */
+  overflow: auto;
 }
 
 .scroller::-webkit-scrollbar-track {
-    background-color: #ddd;
+  background-color: #ddd;
 }
 
 .scroller::-webkit-scrollbar {
-    width: 10px;
-    background-color: #F5F5F5;
+  width: 10px;
+  background-color: #f5f5f5;
 }
 
 .scroller::-webkit-scrollbar-thumb {
-    background-color: #ccc;
+  background-color: #ccc;
 }
-
 
 /* // minmax(200px, 1fr) */
 
 #videoList {
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-    grid-gap: .4em 1em;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  grid-gap: 0.4em 1em;
 }
 
 #videoList .card {
-    //color: white;
-    //font-size: 3rem;
-    //text-align: center;
-    //padding: 4rem;
-    /* flex: 1 1 auto; */
+  //color: white;
+  //font-size: 3rem;
+  //text-align: center;
+  //padding: 4rem;
+  /* flex: 1 1 auto; */
 }
